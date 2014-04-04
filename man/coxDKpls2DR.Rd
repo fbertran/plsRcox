@@ -1,0 +1,126 @@
+\name{coxDKpls2DR}
+\alias{coxDKpls2DR}
+\alias{coxDKpls2DR.default}
+\alias{coxDKpls2DR.formula}
+\title{Fitting a Direct Kernel PLS model on the (Deviance) Residuals}
+\description{
+This function computes the Direct Kernel PLSR model with the Residuals of a Cox-Model fitted with an intercept as the only explanatory variable as the response and Xplan as explanatory variables. Default behaviour uses the Deviance residuals.
+}
+\usage{
+coxDKpls2DR(Xplan, \dots)
+\method{coxDKpls2DR}{default}(Xplan,time,time2,event,type,
+origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
+scaleY=TRUE, ncomp=min(7,ncol(Xplan)), methodpls="kernelpls", 
+validation = "CV", plot=FALSE, allres=FALSE, kernel="rbfdot",
+hyperkernel,...)
+\method{coxDKpls2DR}{formula}(Xplan,time,time2,event,type,
+origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
+scaleY=TRUE, ncomp=min(7,ncol(Xplan)), methodpls="kernelpls", 
+validation = "CV", plot=FALSE, allres=FALSE,dataXplan=NULL,
+subset,weights,model_frame=FALSE, kernel="rbfdot",hyperkernel,...)
+}
+\arguments{
+  \item{Xplan}{a formula or a matrix with the eXplanatory variables (training) dataset}
+  \item{time}{for right censored data, this is the follow up time. For interval data, the first argument is the starting time for the interval.}
+  \item{time2}{The status indicator, normally 0=alive, 1=dead. Other choices are \code{TRUE/FALSE} (\code{TRUE} = death) or 1/2 (2=death). For interval censored data, the status indicator is 0=right censored, 1=event at \code{time}, 2=left censored, 3=interval censored. Although unusual, the event indicator can be omitted, in which case all subjects are assumed to have an event.}
+  \item{event}{ending time of the interval for interval censored or counting process data only. Intervals are assumed to be open on the left and closed on the right, \code{(start, end]}. For counting process data, event indicates whether an event occurred at the end of the interval.}
+  \item{type}{character string specifying the type of censoring. Possible values are \code{"right"}, \code{"left"}, \code{"counting"}, \code{"interval"}, or \code{"interval2"}. The default is \code{"right"} or \code{"counting"} depending on whether the \code{time2} argument is absent or present, respectively.}
+  \item{origin}{for counting process data, the hazard function origin. This option was intended to be used in conjunction with a model containing time dependent strata in order to align the subjects properly when they cross over from one strata to another, but it has rarely proven useful.}
+  \item{typeres}{character string indicating the type of residual desired. Possible values are \code{"martingale"}, \code{"deviance"}, \code{"score"}, \code{"schoenfeld"}, \code{"dfbeta"}, \code{"dfbetas"}, and \code{"scaledsch"}. Only enough of the string to determine a unique match is required.}
+  \item{collapse}{vector indicating which rows to collapse (sum) over. In time-dependent models more than one row data can pertain to a single individual. If there were 4 individuals represented by 3, 1, 2 and 4 rows of data respectively, then \code{collapse=c(1,1,1,2,3,3,4,4,4,4)} could be used to obtain per subject rather than per observation residuals.}
+  \item{weighted}{if \code{TRUE} and the model was fit with case weights, then the weighted residuals are returned.}
+  \item{scaleX}{Should the \code{Xplan} columns be standardized ?}
+  \item{scaleY}{Should the \code{time} values be standardized ?}
+  \item{ncomp}{The number of components to include in the model. The number of components to fit is specified with the argument ncomp. It this is not supplied, the maximal number of components is used (taking account of any cross-validation).}
+  \item{methodpls}{The multivariate regression method to be used. See \code{\link[pls]{mvrCv}} for details.}
+  \item{validation}{character. What kind of (internal) validation to use. If \code{validation = "CV"}, cross-validation is performed. The number and type of cross-validation segments are specified with the arguments \code{segments} and \code{segment.type}. See \code{\link[pls]{mvrCv}} for details. If \code{validation = "LOO"}, leave-one-out cross-validation is performed. It is an error to specify the segments when \code{validation = "LOO"} is specified.}
+  \item{plot}{Should the survival function be plotted ?)}
+  \item{allres}{FALSE to return only the Cox model and TRUE for additionnal results. See details. Defaults to FALSE.}
+  \item{dataXplan}{an optional data frame, list or environment (or object coercible by \code{\link{as.data.frame}} to a data frame) containing the variables in the model. If not found in \code{dataXplan}, the variables are taken from \code{environment(Xplan)}, typically the environment from which \code{coxDKpls2DR} is called.}  
+  \item{subset}{an optional vector specifying a subset of observations to be used in the fitting process.}
+  \item{weights}{an optional vector of 'prior weights' to be used in the fitting process. Should be \code{NULL} or a numeric vector.}
+  \item{model_frame}{If \code{TRUE}, the model frame is returned.}
+  \item{kernel}{the kernel function used in training and predicting. This parameter can be set to any function, of class kernel, which computes the inner product in feature space between two vector arguments (see \link[kernlab]{kernels}). The \code{kernlab} package provides the most popular kernel functions which can be used by setting the kernel parameter to the following strings: 
+  \describe{
+\item{\code{rbfdot}}{Radial Basis kernel "Gaussian"}
+\item{\code{polydot}}{Polynomial kernel}
+\item{\code{vanilladot}}{Linear kernel} 
+\item{\code{tanhdot}}{Hyperbolic tangent kernel} 
+\item{\code{laplacedot}}{Laplacian kernel} 
+\item{\code{besseldot}}{Bessel kernel} 
+\item{\code{anovadot}}{ANOVA RBF kernel} 
+\item{\code{splinedot}}{Spline kernel} 
+  }}
+  \item{hyperkernel}{the list of hyper-parameters (kernel parameters). This is a list which contains the parameters to be used with the kernel function. For valid parameters for existing kernels are : 
+  \itemize{
+\item \code{sigma}, inverse kernel width for the Radial Basis kernel function "rbfdot" and the Laplacian kernel "laplacedot". 
+\item \code{degree}, \code{scale}, \code{offset} for the Polynomial kernel "polydot". 
+\item \code{scale}, offset for the Hyperbolic tangent kernel function "tanhdot". 
+\item \code{sigma}, \code{order}, \code{degree} for the Bessel kernel "besseldot". 
+\item \code{sigma}, \code{degree} for the ANOVA kernel "anovadot". 
+}
+ In the case of a Radial Basis kernel function (Gaussian) or Laplacian kernel, if \code{hyperkernel} is missing, the heuristics in sigest are used to calculate a good sigma value from the data.
+} 
+  \item{\dots}{Arguments to be passed on to \code{survival::coxph}.}
+}
+\details{
+If \code{allres=FALSE} returns only the final Cox-model.
+If \code{allres=TRUE} returns a list with the PLS components, the final Cox-model and the PLSR model.
+\code{allres=TRUE} is useful for evluating model prediction accuracy on a test sample.
+}
+\value{If \code{allres=FALSE} : 
+\item{cox_DKpls2DR}{Final Cox-model.}
+If \code{allres=TRUE} :
+\item{tt_DKpls2DR}{PLSR components.}
+\item{cox_DKpls2DR}{Final Cox-model.}
+\item{DKpls2DR_mod}{The PLSR model.}
+}
+\references{plsRcox : \enc{mod?les}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiom?trie}{Chimiom\'etrie} 2010, Paris, 2010.}
+\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\email{frederic.bertrand@math.unistra.fr}\cr
+\url{http://www-irma.u-strasbg.fr/~fbertran/}
+}
+\seealso{\code{\link[survival]{coxph}}, \code{\link[pls]{plsr}}}
+\examples{
+data(micro.censure)
+data(Xmicro.censure_compl_imp)
+
+X_train_micro <- apply((as.matrix(Xmicro.censure_compl_imp)),FUN="as.numeric",MARGIN=2)[1:80,]
+X_train_micro_df <- data.frame(X_train_micro)
+Y_train_micro <- micro.censure$survyear[1:80]
+C_train_micro <- micro.censure$DC[1:80]
+
+(cox_DKpls2DR_fit=coxDKpls2DR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,validation="CV"))
+
+#Fixing sigma to compare with pls2DR on Gram matrix; should be identical
+(cox_DKpls2DR_fit=coxDKpls2DR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,
+validation="CV",hyperkernel=list(sigma=0.01292786)))
+
+X_train_micro_kern <- kernlab::kernelMatrix(kernlab::rbfdot(sigma=0.01292786),scale(X_train_micro))
+(cox_DKpls2DR_fit2=coxpls2DR(~X_train_micro_kern,Y_train_micro,C_train_micro,ncomp=6,
+validation="CV",scaleX=FALSE))
+
+(cox_DKpls2DR_fit=coxDKpls2DR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,
+validation="CV",kernel="laplacedot",hyperkernel=list(sigma=0.01292786)))
+
+X_train_micro_kern <- kernlab::kernelMatrix(kernlab::laplacedot(sigma=0.01292786),
+scale(X_train_micro))
+(cox_DKpls2DR_fit2=coxpls2DR(~X_train_micro_kern,Y_train_micro,C_train_micro,ncomp=6,
+validation="CV",scaleX=FALSE))
+
+(cox_DKpls2DR_fit=coxDKpls2DR(~X_train_micro,Y_train_micro,C_train_micro,ncomp=6,validation="CV"))
+(cox_DKpls2DR_fit=coxDKpls2DR(~.,Y_train_micro,C_train_micro,ncomp=6,validation="CV",
+dataXplan=X_train_micro_df))
+
+(cox_DKpls2DR_fit=coxDKpls2DR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,
+validation="CV",allres=TRUE))
+(cox_DKpls2DR_fit=coxDKpls2DR(~X_train_micro,Y_train_micro,C_train_micro,ncomp=6,
+validation="CV",allres=TRUE))
+(cox_DKpls2DR_fit=coxDKpls2DR(~.,Y_train_micro,C_train_micro,ncomp=6,validation="CV",
+allres=TRUE,dataXplan=X_train_micro_df))
+
+
+rm(X_train_micro,Y_train_micro,C_train_micro,cox_DKpls2DR_fit)
+}
+\keyword{models}
+\keyword{regression}

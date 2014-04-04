@@ -1,0 +1,18 @@
+This file documents software changes.
+
+0.9.9 Code enhancement for big datasets
+0.9.0 New wrappers for (s)pls-based functions
+0.8.0 Multivariate method choice for pls based algorithms
+0.7.6 Minor fixes
+0.7.5 Implemented (direct kernel) plscox
+0.7.0 Predict function for plscox
+0.6.0 Implemented plscox PLS
+0.5.0 Support for (direct kernel) sparse PLS
+0.4.0 Support for direct kernel PLS
+0.3.0 Code enhancement
+0.2.0 Code enhancement
+0.1.1 Code enhancement
+0.1.0 Man updates
+0.0.1 Package creation
+
+

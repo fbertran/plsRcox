@@ -1,0 +1,7 @@
+{
+    "installOptions" : {
+        "installDependencies" : true,
+        "installFromRepository" : false,
+        "libraryPath" : "/Users/fbertran/Library/R/3.0/library"
+    }
+}

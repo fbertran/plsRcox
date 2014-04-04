@@ -1,0 +1,10 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+        ],
+        "path" : "~/Documents/package/plsRcox",
+        "query" : "crossvalidation",
+        "regex" : false
+    }
+}
