@@ -82,7 +82,7 @@ C_train_micro <- micro.censure$DC[1:80]
 (cox_pls3_fit4 <- coxpls3(~.,Y_train_micro,C_train_micro,nt=7,typeVC="none",
 data=X_train_micro_df,sparse=TRUE))
 (cox_pls3_fit5 <- coxpls3(~.,Y_train_micro,C_train_micro,nt=7,typeVC="none",
-data=X_train_micro_df,sparse=TRUE,sparseStop=FALSE))
+data=X_train_micro_df,sparse=FALSE,sparseStop=TRUE))
 
 rm(X_train_micro,Y_train_micro,C_train_micro,cox_pls3_fit,cox_pls3_fit2,
 cox_pls3_fit3,cox_pls3_fit4,cox_pls3_fit5)

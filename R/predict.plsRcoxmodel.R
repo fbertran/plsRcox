@@ -22,48 +22,41 @@ predict.plsRcoxmodel <- function(object,newdata,comps=object$computed_nt,type=c(
     } else {
     nrnd <- nrow(newdata)
     if(!is.null(object$XplanFormula)){
-    datanewdata <- environment(newdata)
     mf0 <- match.call(expand.dots = FALSE)
     m0 <- match(c("weights"), names(mf0), 0L)
     mf0 <- mf0[c(1L, m0)]
-    mf0$data <- datanewdata
+    mf0$data <- newdata
     mf0$formula <- object$XplanFormula
     mf0$drop.unused.levels <- TRUE
     mf0[[1L]] <- as.name("model.frame")
     mf0 <- eval(mf0, parent.frame())
     mt0 <- attr(mf0, "terms")
-    Y <- model.response(mf0, "any")
-    if (length(dim(Y)) == 1L) {
-      nm <- rownames(Y)
-      dim(Y) <- NULL
-      if (!is.null(nm)) 
-        names(Y) <- nm
-    }
+    attr(mt0,"intercept")<-0L
     newdata.frame <- if (!is.empty.model(mt0)) model.matrix(mt0, mf0, contrasts)[,-1]
-    else matrix(, NROW(Y), 0L)
+    else matrix(, nrnd, 0L)
     weights <- as.vector(model.weights(mf0))
     } else {newdata.frame <- newdata}
     newdata.scaled <- sweep(sweep(newdata.frame, 2, attr(object$ExpliX,"scaled:center")), 2 ,attr(object$ExpliX,"scaled:scale"), "/")}
-    newdataNA <- is.na(newdata)    
-    newdata.scaledwotNA <- newdata.scaled
-    newdata.scaledwotNA[newdataNA] <- 0
+    newdataNA <- !is.na(newdata)    
+    newdata.scaledwotNA <- as.matrix(newdata.scaled)
+    newdata.scaledwotNA[!newdataNA] <- 0
     tt <- NULL
     if (methodNA=="adaptative") {
     for(ii in 1:nrnd){
-    if (!any(newdataNA[ii,])){
+    if (all(newdataNA[ii,])){
     tt <- rbind(tt, c(newdata.scaledwotNA[ii,]%*%object$wwetoile[,1:comps],rep(0,object$computed_nt-comps))) 
     }
     else {
-    cat("Missing value in row ",ii,".")
+    cat("Missing value in row ",ii,".\n")
     tt <- rbind(tt, c(t(solve(t(object$pp[newdataNA[ii,],,drop=FALSE])%*%object$pp[newdataNA[ii,],,drop=FALSE])%*%t(object$pp[newdataNA[ii,],,drop=FALSE])%*%(newdata.scaledwotNA[ii,])[newdataNA[ii,]])[1:comps],rep(0,object$computed_nt-comps)))
     }}}
     if(methodNA=="missingdata") {
-    cat("Prediction as if missing values in every row.")
+    cat("Prediction as if missing values in every row.\n")
     for (ii in 1:nrnd) {  
     tt <- rbind(tt, c(t(solve(t(object$pp[newdataNA[ii,],,drop=FALSE])%*%object$pp[newdataNA[ii,],,drop=FALSE])%*%t(object$pp[newdataNA[ii,],,drop=FALSE])%*%(newdata.scaledwotNA[ii,])[newdataNA[ii,]])[1:comps],rep(0,object$computed_nt-comps)))
     }
     }
-    colnames(tt) <- paste("Comp_",1:object$computed_nt,sep="")
+#    colnames(tt) <- paste("Comp_",1:object$computed_nt,sep="")
     if (type=="lp"){return(predict(object$FinalModel,newdata=data.frame(tt),type = "lp",se.fit=se.fit))
     }
     if (type=="risk"){return(predict(object$FinalModel,newdata=data.frame(tt),type = "risk",se.fit=se.fit))
