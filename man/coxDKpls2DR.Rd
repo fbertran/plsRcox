@@ -12,12 +12,13 @@ coxDKpls2DR(Xplan, \dots)
 origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
 scaleY=TRUE, ncomp=min(7,ncol(Xplan)), methodpls="kernelpls", 
 validation = "CV", plot=FALSE, allres=FALSE, kernel="rbfdot",
-hyperkernel,...)
+hyperkernel,verbose=TRUE,...)
 \method{coxDKpls2DR}{formula}(Xplan,time,time2,event,type,
 origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
 scaleY=TRUE, ncomp=min(7,ncol(Xplan)), methodpls="kernelpls", 
 validation = "CV", plot=FALSE, allres=FALSE,dataXplan=NULL,
-subset,weights,model_frame=FALSE, kernel="rbfdot",hyperkernel,...)
+subset,weights,model_frame=FALSE, kernel="rbfdot",hyperkernel,
+verbose=TRUE,...)
 }
 \arguments{
   \item{Xplan}{a formula or a matrix with the eXplanatory variables (training) dataset}
@@ -61,6 +62,7 @@ subset,weights,model_frame=FALSE, kernel="rbfdot",hyperkernel,...)
 }
  In the case of a Radial Basis kernel function (Gaussian) or Laplacian kernel, if \code{hyperkernel} is missing, the heuristics in sigest are used to calculate a good sigma value from the data.
 } 
+  \item{verbose}{Should some details be displayed ?}
   \item{\dots}{Arguments to be passed on to \code{survival::coxph}.}
 }
 \details{
@@ -75,8 +77,10 @@ If \code{allres=TRUE} :
 \item{cox_DKpls2DR}{Final Cox-model.}
 \item{DKpls2DR_mod}{The PLSR model.}
 }
-\references{plsRcox : \enc{mod?les}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiom?trie}{Chimiom\'etrie} 2010, Paris, 2010.}
-\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\references{
+Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand. plsRcox, Cox-Models in a high dimensional setting in R. UseR 2014. Los Angeles. USA. 
+}
+\author{\enc{Frederic}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }

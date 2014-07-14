@@ -1,5 +1,14 @@
 This file documents software changes.
 
+1.7.0 Prediction accuracy indicators
+1.6.0 Goodness of fit indicators
+1.5.0 Cross validation functions for coxsplsDR and DKcoxsplsDR models
+1.4.0 Cross validation functions for coxpls, coxplsDR and DKcoxplsDR models
+1.3.0 Cross validation functions for larsDR models
+1.2.0 Cross validation functions for plsRcox models
+1.1.0 DKplsRcox function
+1.0.1 Fix for predict method for plsRcoxmodel objects
+1.0.0 User2014! version
 0.9.9 Code enhancement for big datasets
 0.9.0 New wrappers for (s)pls-based functions
 0.8.0 Multivariate method choice for pls based algorithms

@@ -1,8 +1,8 @@
-coxDKplsDR.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE, kernel="rbfdot", hyperkernel,...) {
+coxDKplsDR.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE, kernel="rbfdot", hyperkernel, verbose=TRUE,...) {
 if(scaleX){Xplan <- scale(Xplan); XplanScal <- attr(Xplan,"scaled:scale"); XplanCent <- attr(Xplan,"scaled:center"); Xplan <- as.data.frame(Xplan)} else {Xplan <- as.data.frame(Xplan);XplanScal <- rep(1,ncol(Xplan)); XplanCent <- rep(0,ncol(Xplan))}
 if((scaleY & missing(time2))){time <- scale(time)}
 try(attachNamespace("survival"),silent=TRUE)
-on.exit(try(unloadNamespace("survival"),silent=TRUE))
+#on.exit(try(unloadNamespace("survival"),silent=TRUE))
 try(attachNamespace("mixOmics"),silent=TRUE)
 on.exit(try(unloadNamespace("mixOmics"),silent=TRUE),add=TRUE)
 try(attachNamespace("kernlab"),silent=TRUE)
@@ -16,7 +16,7 @@ mf[[1L]] <- as.name("Surv")
 YCsurv <- eval(mf, parent.frame())
 
 mf1 <- match.call(expand.dots = TRUE)
-m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf1), 0L)
+m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf1), 0L)
 mf1 <- mf1[c(1L, m1)]
 mf1$formula <- as.formula(YCsurv~1)
 mf1[[1L]] <- as.name("coxph")
@@ -30,7 +30,7 @@ mf2$object <- coxDR
 mf2[[1L]] <- as.name("residuals")
 DR_coxph <- eval(mf2, parent.frame())
 
-cat("Kernel : ",kernel,"\n")
+if(verbose){cat("Kernel : ",kernel,"\n")}
 kernel2c <- get(kernel)
 if(missing(hyperkernel)){if(kernel=="rbfdot"){
 mf2c <- match.call(expand.dots = FALSE)
@@ -41,7 +41,7 @@ mf2c$scaled <- FALSE
 mf2c[[1L]] <- as.name("sigest")
 srangeDKplsDR_mod <- eval(mf2c, parent.frame())
 hyperkernel=list(sigma = srangeDKplsDR_mod[2])
-cat("Estimated_sigma ",srangeDKplsDR_mod[2],"\n")
+if(verbose){cat("Estimated_sigma ",srangeDKplsDR_mod[2],"\n")}
 formals(kernel2c) <- hyperkernel
 }
 if(kernel=="laplacedot"){
@@ -53,11 +53,11 @@ mf2c$scaled <- FALSE
 mf2c[[1L]] <- as.name("sigest")
 srangeDKplsDR_mod <- eval(mf2c, parent.frame())
 hyperkernel=list(sigma = srangeDKplsDR_mod[2])
-cat("Estimated_sigma ",srangeDKplsDR_mod[2],"\n")
+if(verbose){cat("Estimated_sigma ",srangeDKplsDR_mod[2],"\n")}
 formals(kernel2c) <- hyperkernel
 }} else {formals(kernel2c) <- hyperkernel
-if(kernel=="rbfdot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}
-if(kernel=="laplacedot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}}
+if(verbose){if(kernel=="rbfdot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}}
+if(verbose){if(kernel=="laplacedot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}}}
 kernDKplsDR_mod <- eval(call(as.character(quote(kernel2c))))
 Xplan_kernDKplsDR_mod <- kernelMatrix(kernDKplsDR_mod, as.matrix(Xplan))
 
@@ -83,7 +83,7 @@ colnames(tt_DKplsDR) <- paste("dim",1:ncol(tt_DKplsDR),sep=".")
 
 if(mf3$ncomp==0){
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~1)
 mf2b$data <- tt_DKplsDR
@@ -92,7 +92,7 @@ cox_DKplsDR <- eval(mf2b, parent.frame())
 cox_DKplsDR$call$data <- as.name("tt_DKplsDR")
 } else {
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- tt_DKplsDR
@@ -108,7 +108,7 @@ if(mf3$ncomp>0){
 for(iii in 1:ncomp)
 {
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- tt_DKplsDR[,1:iii,drop=FALSE]

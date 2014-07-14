@@ -4,19 +4,26 @@
 \alias{larsDR_coxph.formula}
 \title{Fitting a LASSO/LARS model on the (Deviance) Residuals}
 \description{
+This function computes the Cox Model based on lars variables computed model with 
+\itemize{
+\item{as the response: the Residuals of a Cox-Model fitted with no covariate}
+\item{as explanatory variables: Xplan.} 
+}
+It uses the package \code{lars} to perform PLSR fit.
+
 This function computes the LASSO/LARS model with the Residuals of a Cox-Model fitted with an intercept as the only explanatory variable as the response and Xplan as explanatory variables. Default behaviour uses the Deviance residuals.
 }
 \usage{
 larsDR_coxph(Xplan, \dots)
 \method{larsDR_coxph}{default}(Xplan, time, time2, event, type, 
 origin, typeres = "deviance", collapse, weighted, scaleX = FALSE, 
-scaleY = TRUE, plot = FALSE, typelars, normalize, max.steps, 
-use.Gram, allres = FALSE, ...)
+scaleY = TRUE, plot = FALSE, typelars="lasso", normalize=TRUE, max.steps, 
+use.Gram=TRUE, allres = FALSE, verbose=TRUE,...)
 \method{larsDR_coxph}{formula}(Xplan, time, time2, event, type, 
 origin, typeres = "deviance", collapse, weighted, scaleX = FALSE, 
-scaleY = TRUE, plot = FALSE, typelars, normalize, max.steps, 
-use.Gram, allres = FALSE, dataXplan = NULL, subset, weights,
-model_frame=FALSE,model_matrix=FALSE, ...)
+scaleY = TRUE, plot = FALSE, typelars="lasso", normalize=TRUE, max.steps, 
+use.Gram=TRUE, allres = FALSE, dataXplan = NULL, subset, weights,
+model_frame=FALSE,model_matrix=FALSE, verbose=TRUE,...)
 }
 \arguments{
   \item{Xplan}{a formula or a matrix with the eXplanatory variables (training) dataset}
@@ -41,6 +48,7 @@ model_frame=FALSE,model_matrix=FALSE, ...)
   \item{weights}{an optional vector of 'prior weights' to be used in the fitting process. Should be \code{NULL} or a numeric vector.}
   \item{model_frame}{If \code{TRUE}, the model frame is returned.}
   \item{model_matrix}{If \code{TRUE}, the "unweighted" model matrix is returned.}
+  \item{verbose}{Should some details be displayed ?}
   \item{\dots}{Arguments to be passed on to \code{survival::coxph} or to \code{lars::lars}.}
 }
 \details{
@@ -56,14 +64,13 @@ If \code{allres=TRUE} :
 \item{X_larsDR}{The eXplanatory variables.}
 \item{cox_larsDR}{Final Cox-model.}
 }
-\references{plsRcox : \enc{mod?les}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiom?trie}{Chimiom\'etrie} 2010, Paris, 2010.}
-\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\references{plsRcox : \enc{modeles}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Frederic}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiometrie}{Chimiom\'etrie} 2010, Paris, 2010.}
+\author{\enc{Frederic}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
 \seealso{\code{\link[survival]{coxph}}, \code{\link[lars]{lars}}}
 \examples{
-\donttest{
 data(micro.censure)
 data(Xmicro.censure_compl_imp)
 
@@ -85,7 +92,6 @@ larsDR_coxph(~X_train_micro,Y_train_micro,C_train_micro,max.steps=6,use.Gram=FAL
 scaleX=TRUE,allres=TRUE)
 
 rm(X_train_micro,Y_train_micro,C_train_micro,cox_larsDR_fit)
-}
 }
 \keyword{models}
 \keyword{regression}

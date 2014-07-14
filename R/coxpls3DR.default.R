@@ -2,7 +2,7 @@ coxpls3DR.default <- function(Xplan,time,time2,event,type,origin,typeres="devian
 if(scaleX){Xplan <- scale(Xplan)}
 if((scaleY & missing(time2))){time <- scale(time)}
 try(attachNamespace("survival"),silent=TRUE)
-on.exit(try(unloadNamespace("survival"),silent=TRUE))
+#on.exit(try(unloadNamespace("survival"),silent=TRUE))
 try(attachNamespace("plsRglm"),silent=TRUE)
 on.exit(try(unloadNamespace("plsRglm"),silent=TRUE))
 
@@ -13,7 +13,7 @@ mf[[1L]] <- as.name("Surv")
 YCsurv <- eval(mf, parent.frame())
 
 mf1 <- match.call(expand.dots = TRUE)
-m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf1), 0L)
+m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf1), 0L)
 mf1 <- mf1[c(1L, m1)]
 mf1$formula <- as.formula(YCsurv~1)
 mf1[[1L]] <- as.name("coxph")
@@ -37,7 +37,7 @@ pls3DR_mod <- eval(mf3, parent.frame())
 tt_pls3DR <- data.frame(pls3DR_mod$tt)
 
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- tt_pls3DR

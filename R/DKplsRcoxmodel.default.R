@@ -1,10 +1,10 @@
-DKplsRcoxmodel.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,tol_Xi=10^(-12),weights,control, sparse=FALSE,sparseStop=TRUE, plot=FALSE, allres=FALSE, kernel="rbfdot", hyperkernel,...) {
+DKplsRcoxmodel.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,tol_Xi=10^(-12),weights,control, sparse=FALSE,sparseStop=TRUE, plot=FALSE, allres=FALSE, kernel="rbfdot", hyperkernel, verbose=TRUE,...) {
 
 dataX<-Xplan
 dataY<-time
 
 try(attachNamespace("survival"),silent=TRUE)
-on.exit(try(unloadNamespace("survival"),silent=TRUE))
+#on.exit(try(unloadNamespace("survival"),silent=TRUE))
 try(attachNamespace("kernlab"),silent=TRUE)
 on.exit(try(unloadNamespace("kernlab"),silent=TRUE),add=TRUE)
 
@@ -24,7 +24,17 @@ else {
     attr(ExpliX,"scaled:scale") <- rep(1,ncol(dataX))
 }
 
-cat("Kernel : ",kernel,"\n")
+mf <- match.call(expand.dots = FALSE)
+m <- match(c("time", "time2", "event", "type", "origin"), names(mf), 0L)
+mf <- mf[c(1L, m)]
+mf[[1L]] <- as.name("Surv")
+mf$time <- RepY
+YCsurv <- eval(mf, parent.frame())
+attr(YCsurv,"scaled:center") <- attr(RepY,"scaled:center")
+attr(YCsurv,"scaled:scale") <- attr(RepY,"scaled:scale")
+RepY <- YCsurv
+
+if(verbose){cat("Kernel : ",kernel,"\n")}
 kernel2c <- get(kernel)
 if(missing(hyperkernel)){if(kernel=="rbfdot"){
 mf2c <- match.call(expand.dots = FALSE)
@@ -35,7 +45,7 @@ mf2c$scaled <- FALSE
 mf2c[[1L]] <- as.name("sigest")
 srangeDKplsRcox_mod <- eval(mf2c, parent.frame())
 hyperkernel=list(sigma = srangeDKplsRcox_mod[2])
-cat("Estimated_sigma ",srangeDKplsRcox_mod[2],"\n")
+if(verbose){cat("Estimated_sigma ",srangeDKplsRcox_mod[2],"\n")}
 formals(kernel2c) <- hyperkernel
 }
 if(kernel=="laplacedot"){
@@ -47,11 +57,11 @@ mf2c$scaled <- FALSE
 mf2c[[1L]] <- as.name("sigest")
 srangeDKplsRcox_mod <- eval(mf2c, parent.frame())
 hyperkernel=list(sigma = srangeDKplsRcox_mod[2])
-cat("Estimated_sigma ",srangeDKplsRcox_mod[2],"\n")
+if(verbose){cat("Estimated_sigma ",srangeDKplsRcox_mod[2],"\n")}
 formals(kernel2c) <- hyperkernel
 }} else {formals(kernel2c) <- hyperkernel
-if(kernel=="rbfdot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}
-if(kernel=="laplacedot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}}
+if(verbose){if(kernel=="rbfdot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}}
+if(verbose){if(kernel=="laplacedot"){cat("Used_sigma ",hyperkernel$sigma,"\n")}}}
 kernDKplsRcox_mod <- eval(call(as.character(quote(kernel2c))))
 Xplan_kernDKplsRcox_mod <- kernelMatrix(kernDKplsRcox_mod, as.matrix(ExpliX))
 
@@ -67,7 +77,7 @@ DKplsRcox_mod <- eval(mf3, parent.frame())
 tt_DKplsRcox <- data.frame(DKplsRcox_mod$tt)
 
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- tt_DKplsRcox

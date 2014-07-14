@@ -1,10 +1,10 @@
-larsDR_coxph.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=FALSE, scaleY=TRUE, plot=FALSE, typelars="lasso", normalize = TRUE, max.steps, use.Gram = TRUE, allres=FALSE,...){
+larsDR_coxph.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=FALSE, scaleY=TRUE, plot=FALSE, typelars="lasso", normalize = TRUE, max.steps, use.Gram = TRUE, allres=FALSE, verbose=TRUE,...){
 try(attachNamespace("survival"),silent=TRUE)
-on.exit(try(unloadNamespace("survival"),silent=TRUE))
+#on.exit(try(unloadNamespace("survival"),silent=TRUE))
 try(attachNamespace("lars"),silent=TRUE)
 on.exit(try(unloadNamespace("lars"),silent=TRUE),add=TRUE)
 
-if(!is.matrix(Xplan)){Xplan <- as.matrix(Xplan);cat("scales\n")}
+if(!is.matrix(Xplan)){Xplan <- as.matrix(Xplan);if(verbose){cat("scales\n")}}
 if(scaleX){Xplan <- scale(Xplan)}
 if((scaleY & missing(time2))){time <- scale(time)}
 
@@ -15,10 +15,10 @@ mf <- mf[c(1L, m)]
 mf[[1L]] <- as.name("Surv")
 YCsurv <- eval(mf, parent.frame())
 
-if(plot){plot(survfit(YCsurv~1))}
+if(plot){plot(survival::survfit(YCsurv~1))}
 
 mf1 <- match.call(expand.dots = TRUE)
-m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf1), 0L)
+m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf1), 0L)
 mf1 <- mf1[c(1L, m1)]
 mf1$formula <- as.formula(YCsurv~1)
 mf1[[1L]] <- as.name("coxph")
@@ -43,7 +43,7 @@ larsDR <- eval(mf3, parent.frame())
 X_larsDR <- data.frame(Xplan[,as.numeric(names(table(unlist(larsDR$actions))[as.numeric(names(table(unlist(larsDR$actions))))>0]))])
 
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- X_larsDR

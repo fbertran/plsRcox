@@ -2,7 +2,7 @@ coxpls3.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance
 if(scaleX){Xplan <- scale(Xplan)}
 if((scaleY & missing(time2))){time <- scale(time)}
 try(attachNamespace("survival"),silent=TRUE)
-on.exit(try(unloadNamespace("survival"),silent=TRUE))
+#on.exit(try(unloadNamespace("survival"),silent=TRUE))
 try(attachNamespace("plsRglm"),silent=TRUE)
 on.exit(try(unloadNamespace("plsRglm"),silent=TRUE))
 
@@ -22,7 +22,7 @@ pls3_mod <- eval(mf2, parent.frame())
 tt_pls3 <- data.frame(pls3_mod$tt)
 
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- tt_pls3

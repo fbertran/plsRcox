@@ -1,4 +1,4 @@
-plsRcoxmodel.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,tol_Xi=10^(-12),weights,control, sparse=FALSE,sparseStop=TRUE,allres=TRUE,...) {
+plsRcoxmodel.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,tol_Xi=10^(-12),weights,control, sparse=FALSE,sparseStop=TRUE,allres=TRUE, verbose=TRUE,...) {
 
 ##################################################
 #                                                #
@@ -6,7 +6,7 @@ plsRcoxmodel.default <- function(Xplan,time,time2,event,type,origin,typeres="dev
 #                                                #
 ##################################################
 
-cat("____************************************************____\n")
+if(verbose){cat("____************************************************____\n")}
 dataX<-Xplan
 dataY<-time
 modele <- "pls-cox"
@@ -41,7 +41,7 @@ else {
 }
 
 try(attachNamespace("survival"),silent=TRUE)
-on.exit(try(unloadNamespace("survival"),silent=TRUE))
+#on.exit(try(unloadNamespace("survival"),silent=TRUE))
 mf <- match.call(expand.dots = FALSE)
 m <- match(c("time", "time2", "event", "type", "origin"), names(mf), 0L)
 mf <- mf[c(1L, m)]
@@ -113,11 +113,11 @@ temptest <- sqrt(colSums(res$residXX^2, na.rm=TRUE))
 if(any(temptest<tol_Xi)) {
 break_nt <- TRUE
 if (is.null(names(which(temptest<tol_Xi)))) {
-cat(paste("Warning : ",paste(names(which(temptest<tol_Xi)),sep="",collapse=" ")," < 10^{-12}\n",sep=""))
+if(verbose){cat(paste("Warning : ",paste(names(which(temptest<tol_Xi)),sep="",collapse=" ")," < 10^{-12}\n",sep=""))}
 } else {
-cat(paste("Warning : ",paste((which(temptest<tol_Xi)),sep="",collapse=" ")," < 10^{-12}\n",sep=""))
+if(verbose){cat(paste("Warning : ",paste((which(temptest<tol_Xi)),sep="",collapse=" ")," < 10^{-12}\n",sep=""))}
 }
-cat(paste("Warning only ",res$computed_nt," components could thus be extracted\n",sep=""))
+if(verbose){cat(paste("Warning only ",res$computed_nt," components could thus be extracted\n",sep=""))}
 rm(temptest)
 break
 }
@@ -136,7 +136,7 @@ res$computed_nt <- kk
 if (modele %in% c("pls-cox")) {
 
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b[[1L]] <- as.name("coxph")
 if (!pvals.expli) {
@@ -185,15 +185,15 @@ res$pvalstep <- cbind(res$pvalstep,temppvalstep)
 #                                            #
 ##############################################
 if((break_nt_sparse)&(kk==1L)){
-cat(paste("No significant predictors (<",alpha.pvals.expli,") found\n",sep=""))
-cat(paste("Warning only one standard component (without sparse option) was thus extracted\n",sep=""))
+  if(verbose){cat(paste("No significant predictors (<",alpha.pvals.expli,") found\n",sep=""))}
+  if(verbose){cat(paste("Warning only one standard component (without sparse option) was thus extracted\n",sep=""))}
 break_nt_sparse1 <- TRUE
 }
 if((break_nt_sparse)&!(kk==1L)){
 res$computed_nt <- kk-1
 if(!(break_nt_sparse1)){
-cat(paste("No more significant predictors (<",alpha.pvals.expli,") found\n",sep=""))
-cat(paste("Warning only ",res$computed_nt," components were thus extracted\n",sep=""))
+  if(verbose){cat(paste("No more significant predictors (<",alpha.pvals.expli,") found\n",sep=""))}
+  if(verbose){cat(paste("Warning only ",res$computed_nt," components were thus extracted\n",sep=""))}
 }
 break}
 
@@ -211,8 +211,8 @@ if (na.miss.X & !na.miss.Y) {
 for (ii in 1:res$nr) {
 if(rcond(t(cbind(res$pp,temppp)[XXNA[ii,],,drop=FALSE])%*%cbind(res$pp,temppp)[XXNA[ii,],,drop=FALSE])<tol_Xi) {
 break_nt <- TRUE; res$computed_nt <- kk-1
-cat(paste("Warning : reciprocal condition number of t(cbind(res$pp,temppp)[XXNA[",ii,",],,drop=FALSE])%*%cbind(res$pp,temppp)[XXNA[",ii,",],,drop=FALSE] < 10^{-12}\n",sep=""))
-cat(paste("Warning only ",res$computed_nt," components could thus be extracted\n",sep=""))
+if(verbose){cat(paste("Warning : reciprocal condition number of t(cbind(res$pp,temppp)[XXNA[",ii,",],,drop=FALSE])%*%cbind(res$pp,temppp)[XXNA[",ii,",],,drop=FALSE] < 10^{-12}\n",sep=""))}
+if(verbose){cat(paste("Warning only ",res$computed_nt," components could thus be extracted\n",sep=""))}
 break
 }
 }
@@ -225,8 +225,8 @@ if (na.miss.PredictY & !na.miss.Y) {
 for (ii in 1:nrow(PredictYwotNA)) {
 if(rcond(t(cbind(res$pp,temppp)[PredictYNA[ii,],,drop=FALSE])%*%cbind(res$pp,temppp)[PredictYNA[ii,],,drop=FALSE])<tol_Xi) {
 break_nt <- TRUE; res$computed_nt <- kk-1
-cat(paste("Warning : reciprocal condition number of t(cbind(res$pp,temppp)[PredictYNA[",ii,",,drop=FALSE],])%*%cbind(res$pp,temppp)[PredictYNA[",ii,",,drop=FALSE],] < 10^{-12}\n",sep=""))
-cat(paste("Warning only ",res$computed_nt," components could thus be extracted\n",sep=""))
+if(verbose){cat(paste("Warning : reciprocal condition number of t(cbind(res$pp,temppp)[PredictYNA[",ii,",,drop=FALSE],])%*%cbind(res$pp,temppp)[PredictYNA[",ii,",,drop=FALSE],] < 10^{-12}\n",sep=""))}
+if(verbose){cat(paste("Warning only ",res$computed_nt," components could thus be extracted\n",sep=""))}
 break
 }
 }
@@ -250,12 +250,12 @@ res$pp <- cbind(res$pp,temppp)
 ##############################################
 
 ##############################################
-######              PLS-GLM             ######
+######              PLS-COX            ######
 ##############################################
 if (modele %in% c("pls-cox")) {
 if (kk==1) {
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~1)
 mf2b[[1L]] <- as.name("coxph")
@@ -264,16 +264,18 @@ res$AIC <- suppressWarnings(extractAIC(tempconstcox)[2])
 res$BIC <- suppressWarnings(extractAIC(tempconstcox, k = log(res$nr))[2])
 res$Coeffsmodel_vals <- rbind(rep(NA,5),matrix(rep(NA,5*nt),ncol=5))
 rm(tempconstcox)
-tt<-data.frame(res$tt); colnames(tt) <- paste("Comp_",1:length(tt),sep="")
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YwotNA~.)
-mf2b$data <- tt
+#tt<-data.frame(res$tt); colnames(tt) <- paste("Comp_",1:length(tt),sep="")
+tttrain<-data.frame(YwotNA=YwotNA,tt=res$tt)
+#mf2b$data <- tt
+mf2b$data <- tttrain  
 mf2b$model <- TRUE
 mf2b[[1L]] <- as.name("coxph")
 tempregcox <- eval(mf2b, parent.frame())
-rm(tt)
+rm(tttrain)
 res$AIC <- cbind(res$AIC,extractAIC(tempregcox)[2])
 res$BIC <- cbind(res$BIC,extractAIC(tempregcox, k = log(res$nr))[2])
 res$Coeffsmodel_vals <- cbind(rbind(summary(tempregcox)$coefficients,matrix(rep(NA,5*(nt-kk)),ncol=5)))
@@ -281,16 +283,18 @@ tempCoeffC <- as.vector(coef(tempregcox))
 res$CoeffCFull <- matrix(c(tempCoeffC,rep(NA,nt-kk)),ncol=1)
 } else {
 if (!(na.miss.X | na.miss.Y)) {
-tt<-data.frame(res$tt); colnames(tt) <- paste("Comp_",1:length(tt),sep="")
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YwotNA~.)
-mf2b$data <- tt
+#tt<-data.frame(res$tt); colnames(tt) <- paste("Comp_",1:length(tt),sep="")
+tttrain<-data.frame(YwotNA=YwotNA,tt=res$tt)
+#mf2b$data <- tt
+mf2b$data <- tttrain  
 mf2b$model <- TRUE
 mf2b[[1L]] <- as.name("coxph")
 tempregcox <- eval(mf2b, parent.frame())
-rm(tt)
+rm(tttrain)
 res$AIC <- cbind(res$AIC,extractAIC(tempregcox)[2])
 res$BIC <- cbind(res$BIC,extractAIC(tempregcox, k = log(res$nr))[2])
 res$Coeffsmodel_vals <- cbind(res$Coeffsmodel_vals,rbind(summary(tempregcox)$coefficients,matrix(rep(NA,5*(nt-kk)),ncol=5)))
@@ -299,16 +303,18 @@ res$CoeffCFull <- cbind(res$CoeffCFull,c(tempCoeffC,rep(NA,nt-kk)))
 }
 else
 {
-tt<-data.frame(res$tt); colnames(tt) <- paste("Comp_",1:length(tt),sep="")
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YwotNA~.)
-mf2b$data <- tt
+#tt<-data.frame(res$tt); colnames(tt) <- paste("Comp_",1:length(tt),sep="")
+tttrain<-data.frame(YwotNA=YwotNA,tt=res$tt)
+#mf2b$data <- tt
+mf2b$data <- tttrain  
 mf2b$model <- TRUE
 mf2b[[1L]] <- as.name("coxph")
 tempregcox <- eval(mf2b, parent.frame())
-rm(tt)
+rm(tttrain)
 res$AIC <- cbind(res$AIC,extractAIC(tempregcox)[2])
 res$BIC <- cbind(res$BIC,extractAIC(tempregcox, k = log(res$nr))[2])
 res$Coeffsmodel_vals <- cbind(res$Coeffsmodel_vals,rbind(summary(tempregcox)$coefficients,matrix(rep(NA,5*(nt-kk)),ncol=5)))
@@ -346,7 +352,7 @@ if (!(na.miss.X | na.miss.Y)) {
 ##############################################
 
 ##############################################
-######              PLS-GLM             ######
+######              PLS-COX            ######
 ##############################################
 if (modele %in% c("pls-cox")) {
 res$residYChapeau <- tempregcox$linear.predictors
@@ -374,11 +380,11 @@ if (na.miss.X & !na.miss.Y) {
 
 
 if (kk==1) {
-cat("____There are some NAs in X but not in Y____\n")
+  if(verbose){cat("____There are some NAs in X but not in Y____\n")}
 }
 
 ##############################################
-######              PLS-GLM             ######
+######              PLS-COX            ######
 ##############################################
 if (modele %in% c("pls-cox")) {
 res$residYChapeau <- tempregcox$linear.predictors
@@ -395,7 +401,7 @@ res$Yresidus <- residuals(tempregcox,type="martingale")
 
 else {
 if (kk==1) {
-cat("____There are some NAs both in X and Y____\n")
+  if(verbose){cat("____There are some NAs both in X and Y____\n")}
 }
 }
 }
@@ -413,7 +419,7 @@ cat("____There are some NAs both in X and Y____\n")
 
 
 ##############################################
-######              PLS-GLM             ######
+######              PLS-COX            ######
 ##############################################
 if (modele %in% c("pls-cox")) {
 res$residY <- res$residY 
@@ -426,7 +432,7 @@ rm(temppp)
 rm(tempCoeffC)
 }
 
-cat("____Component____",kk,"____\n")
+if(verbose){cat("____Component____",kk,"____\n")}
 }
 
 
@@ -441,7 +447,7 @@ cat("____Component____",kk,"____\n")
 ##############################################
 
 if(res$computed_nt==0){
-cat("No component could be extracted please check the data for NA only lines or columns\n"); stop()
+  if(verbose){cat("No component could be extracted please check the data for NA only lines or columns\n")}; stop()
 }
 
 
@@ -457,20 +463,20 @@ res$Coeffsmodel_vals<-res$Coeffsmodel_vals[1:(dim(res$Coeffsmodel_vals)[1]-(nt-r
 ##############################################
 
 if (!(na.miss.PredictY | na.miss.Y)) {
-cat("____Predicting X without NA neither in X nor in Y____\n")
+  if(verbose){cat("____Predicting X without NA neither in X nor in Y____\n")}
 res$ttPredictY <- PredictYwotNA%*%res$wwetoile 
-colnames(res$ttPredictY) <- paste("tt",1:res$computed_nt,sep="")
+colnames(res$ttPredictY) <- NULL
 }
 else {
 if (na.miss.PredictY & !na.miss.Y) {
-cat("____Predicting X with NA in X and not in Y____\n")
+  if(verbose){cat("____Predicting X with NA in X and not in Y____\n")}
 for (ii in 1:nrow(PredictYwotNA)) {  
       res$ttPredictY <- rbind(res$ttPredictY,t(solve(t(res$pp[PredictYNA[ii,],,drop=FALSE])%*%res$pp[PredictYNA[ii,],,drop=FALSE])%*%t(res$pp[PredictYNA[ii,],,drop=FALSE])%*%(PredictYwotNA[ii,])[PredictYNA[ii,]]))
 }
-colnames(res$ttPredictY) <- paste("tt",1:res$computed_nt,sep="")
+colnames(res$ttPredictY) <- NULL
 }
 else {
-cat("____There are some NAs both in X and Y____\n")
+  if(verbose){cat("____There are some NAs both in X and Y____\n")}
 }
 }
 
@@ -486,7 +492,7 @@ cat("____There are some NAs both in X and Y____\n")
 
 
 ##############################################
-######              PLS-GLM             ######
+######              PLS-COX            ######
 ##############################################
 if (modele %in% c("pls-cox")) {
 res$InfCrit <- t(rbind(res$AIC, res$BIC))
@@ -507,16 +513,15 @@ dimnames(res$InfCrit) <- list(paste("Nb_Comp_",0:res$computed_nt,sep=""), c("AIC
 
 
 ##############################################
-######              PLS-GLM             ######
+######              PLS-COX            ######
 ##############################################
 if (modele %in% c("pls-cox")) {
 res$YChapeau <- as.matrix(predict(tempregcox, type='expected'))            
 rownames(res$YChapeau) <- rownames(ExpliX)
 
-tt<-data.frame(res$ttPredictY); colnames(tt) <- paste("Comp_",1:length(tt),sep="")
-
-res$Std.ValsPredictY <- predict(tempregcox,newdata=data.frame(tt), type = "lp")
-res$ValsPredictY <- predict(tempregcox,newdata=data.frame(tt),type = "risk")
+ttpred <- data.frame(tt=res$ttPredictY)
+res$Std.ValsPredictY <- predict(tempregcox,newdata=ttpred, type = "lp")
+res$ValsPredictY <- predict(tempregcox,newdata=ttpred,type = "risk")
 
 res$Std.XChapeau <- res$tt%*%t(res$pp)
 rownames(res$Std.XChapeau) <- rownames(ExpliX)
@@ -539,8 +544,8 @@ colnames(res$wwetoile) <- paste("Coord_Comp_",1:res$computed_nt,sep="")
 rownames(res$tt) <- rownames(ExpliX)
 colnames(res$tt) <- paste("Comp_",1:res$computed_nt,sep="")
 res$XXwotNA <- XXwotNA
-cat("****________________________________________________****\n")
-cat("\n")
+if(verbose){cat("****________________________________________________****\n")}
+if(verbose){cat("\n")}
 class(res) <- "plsRcoxmodel"
 return(res)
 }

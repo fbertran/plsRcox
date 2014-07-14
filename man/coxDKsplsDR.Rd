@@ -4,7 +4,12 @@
 \alias{coxDKsplsDR.formula}
 \title{Fitting a Direct Kernel sPLSR model on the (Deviance) Residuals}
 \description{
-This function computes the Direct Kernel sPLSR model with the Residuals of a Cox-Model fitted with an intercept as the only explanatory variable as the response and Xplan as explanatory variables. Default behaviour uses the Deviance residuals.
+This function computes the Cox Model based on sPLSR components computed model with 
+\itemize{
+\item{as the response: the Residuals of a Cox-Model fitted with no covariate}
+\item{as explanatory variables: a Kernel transform of Xplan.} 
+}
+It uses the package \code{kernlab} to compute the Kernel transforms of Xplan, the package \code{spls} to perform the first step in SPLSR then \code{mixOmics} to perform PLSR step fit.
 }
 \usage{
 coxDKsplsDR(Xplan, \dots)
@@ -12,13 +17,13 @@ coxDKsplsDR(Xplan, \dots)
 origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
 scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", 
 plot=FALSE, allres=FALSE, eta, trace=FALSE, kernel="rbfdot",
-hyperkernel,...)
+hyperkernel,verbose=TRUE,...)
 \method{coxDKsplsDR}{formula}(Xplan,time,time2,event,type,
 origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
 scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", 
 plot=FALSE, allres=FALSE,dataXplan=NULL,subset,weights,
 model_frame=FALSE, eta, trace=FALSE, kernel="rbfdot",
-hyperkernel,...)
+hyperkernel,verbose=TRUE,...)
 }
 \arguments{
   \item{Xplan}{a formula or a matrix with the eXplanatory variables (training) dataset}
@@ -63,6 +68,7 @@ hyperkernel,...)
 }
  In the case of a Radial Basis kernel function (Gaussian) or Laplacian kernel, if \code{hyperkernel} is missing, the heuristics in sigest are used to calculate a good sigma value from the data.
 } 
+  \item{verbose}{Should some details be displayed ?}
   \item{\dots}{Arguments to be passed on to \code{survival::coxph}.}
 }
 \details{

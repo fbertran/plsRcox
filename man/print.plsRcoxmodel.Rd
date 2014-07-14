@@ -15,15 +15,14 @@ This function provides a print method for the class \code{"plsRcoxmodel"}
 \value{
 \code{NULL}
 }
-\references{\enc{Frédéric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand et Nicolas Meyer (2011). \enc{Régression}{R\'egression} \enc{Bêta}{B\^eta} PLS. \emph{Preprint}.
+\references{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand et Nicolas Meyer (2011). \enc{R?gression}{R\'egression} \enc{B?ta}{B\^eta} PLS. \emph{Preprint}.
 }
-\author{\enc{Frédéric}{Fr\'ed\'eric} Bertrand\cr
+\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
 \seealso{\code{\link{print}}}
 \examples{
-\donttest{
 data(micro.censure)
 data(Xmicro.censure_compl_imp)
 
@@ -33,7 +32,6 @@ C_train_micro <- micro.censure$DC[1:80]
 
 modpls <- plsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=3)
 print(modpls)
-}
 }
 \keyword{methods}
 \keyword{print}

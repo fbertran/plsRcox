@@ -4,7 +4,12 @@
 \alias{coxpls.formula}
 \title{Fitting a Cox-Model on PLSR components}
 \description{
-This function computes the the Cox-Model with PLSR components as the explanatory variables. It uses the package \code{pls}.
+This function computes the Cox Model based on PLSR components computed model with 
+\itemize{
+\item{as the response: the Survival time}
+\item{as explanatory variables: Xplan.} 
+}
+It uses the package \code{mixOmics} to perform PLSR fit.
 }
 \usage{
 coxpls(Xplan, \dots)
@@ -30,7 +35,7 @@ model_frame=FALSE,...)
   \item{weighted}{if \code{TRUE} and the model was fit with case weights, then the weighted residuals are returned.}
   \item{scaleX}{Should the \code{Xplan} columns be standardized ?}
   \item{scaleY}{Should the \code{time} values be standardized ?}
-  \item{ncomp}{The number of components to include in the model. The number of components to fit is specified with the argument ncomp. It this is not supplied, the maximal number of components is used.}
+  \item{ncomp}{The number of components to include in the model. It this is not supplied, min(7,maximal number) components is used.}
   \item{modepls}{character string. What type of algorithm to use, (partially) matching one of "regression", "canonical", "invariant" or "classic". See \code{\link[mixOmics]{pls}} for details}
   \item{plot}{Should the survival function be plotted ?)}
   \item{allres}{FALSE to return only the Cox model and TRUE for additionnal results. See details. Defaults to FALSE.}
@@ -52,8 +57,10 @@ If \code{allres=TRUE} :
 \item{cox_pls}{Final Cox-model.}
 \item{pls_mod}{The PLSR model.}
 }
-\references{plsRcox : \enc{mod?les}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiom?trie}{Chimiom\'etrie} 2010, Paris, 2010.}
-\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\references{
+Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand. plsRcox, Cox-Models in a high dimensional setting in R. UseR 2014. Los Angeles. USA. 
+}
+\author{\enc{Frederic}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }

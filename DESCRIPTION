@@ -1,8 +1,8 @@
 Package: plsRcox
-Version: 1.0
-Date: 2014-03-11
+Version: 1.7.0
+Date: 2014-07-13
 Depends: 
-Imports: boot, plsRglm, lars, survival, pls, kernlab, mixOmics
+Imports: survival, plsRglm, lars, pls, kernlab, mixOmics, risksetROC, survcomp, survAUC, rms
 Enhances: 
 Suggests: survivalROC, plsdof
 Title: Partial least squares Regression for Cox models and related techniques
@@ -13,4 +13,5 @@ Description: This packages provides Partial least squares Regression and various
 License: GPL-3
 Encoding: latin1
 URL: http://www-irma.u-strasbg.fr/~fbertran/
+SystemRequirements: survival
 Classification/MSC: 62N01, 62N02, 62N03, 62N99

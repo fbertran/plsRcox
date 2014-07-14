@@ -3,8 +3,8 @@
         "caseSensitive" : false,
         "filePatterns" : [
         ],
-        "path" : "~/Documents/package/plsRcox",
-        "query" : "crossvalidation",
+        "path" : "~/GitHub/plsRcox/R",
+        "query" : "c(object,list(errormat10 =",
         "regex" : false
     }
 }

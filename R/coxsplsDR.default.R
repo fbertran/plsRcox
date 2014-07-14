@@ -1,11 +1,11 @@
-coxsplsDR.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE, eta, trace=FALSE,...) {
+coxsplsDR.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE, eta=.5, trace=FALSE,...) {
 if(scaleX){Xplan <- scale(Xplan); XplanScal <- attr(Xplan,"scaled:scale"); XplanCent <- attr(Xplan,"scaled:center"); Xplan <- as.data.frame(Xplan)} else {Xplan <- as.data.frame(Xplan);XplanScal <- rep(1,ncol(Xplan)); XplanCent <- rep(0,ncol(Xplan))}
 if((scaleY & missing(time2))){time <- scale(time)}
 try(attachNamespace("survival"),silent=TRUE)
-on.exit(try(unloadNamespace("survival"),silent=TRUE))
+#on.exit(try(unloadNamespace("survival"),silent=TRUE))
 try(attachNamespace("mixOmics"),silent=TRUE)
 on.exit(try(unloadNamespace("mixOmics"),silent=TRUE),add=TRUE)
-try(attachNamespace("spls"),silent=TRUE)
+suppressMessages(try(attachNamespace("spls"),silent=TRUE))
 on.exit(try(unloadNamespace("spls"),silent=TRUE),add=TRUE)
 
 
@@ -16,7 +16,7 @@ mf[[1L]] <- as.name("Surv")
 YCsurv <- eval(mf, parent.frame())
 
 mf1 <- match.call(expand.dots = TRUE)
-m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf1), 0L)
+m1 <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf1), 0L)
 mf1 <- mf1[c(1L, m1)]
 mf1$formula <- as.formula(YCsurv~1)
 mf1[[1L]] <- as.name("coxph")
@@ -56,7 +56,7 @@ colnames(tt_splsDR) <- paste("dim",1:ncol(tt_splsDR),sep=".")
 
 if(mf3$K==0){
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~1)
 mf2b$data <- tt_splsDR
@@ -65,7 +65,7 @@ cox_splsDR <- eval(mf2b, parent.frame())
 cox_splsDR$call$data <- as.name("tt_splsDR")
 } else {
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- tt_splsDR
@@ -81,7 +81,7 @@ if(mf3$K>0){
 for(iii in 1:ncomp)
 {
 mf2b <- match.call(expand.dots = TRUE)
-m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args(coxph.control))),-1)), names(mf2b), 0L)
+m2b <- match(c(head(names(as.list(args(coxph))),-2),head(names(as.list(args((coxph.control)))),-1)), names(mf2b), 0L)
 mf2b <- mf2b[c(1L, m2b)]
 mf2b$formula <- as.formula(YCsurv~.)
 mf2b$data <- tt_splsDR[,1:iii,drop=FALSE]

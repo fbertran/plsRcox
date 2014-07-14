@@ -53,8 +53,10 @@ If \code{allres=TRUE} :
 \item{cox_pls}{Final Cox-model.}
 \item{pls_mod}{The PLSR model.}
 }
-\references{plsRcox : \enc{mod?les}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiom?trie}{Chimiom\'etrie} 2010, Paris, 2010.}
-\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\references{
+Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand. plsRcox, Cox-Models in a high dimensional setting in R. UseR 2014. Los Angeles. USA. 
+}
+\author{\enc{Frederic}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }

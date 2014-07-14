@@ -4,7 +4,7 @@
 \alias{plsRcoxmodel.formula}
 \title{Partial least squares Regression generalized linear models}
 \description{
-This function implements Partial least squares Regression generalized linear models complete or incomplete datasets.
+This function implements an extension of Partial least squares Regression to Cox Models.
 }
 \usage{
 plsRcox(Xplan, \dots)
@@ -13,14 +13,14 @@ origin,typeres="deviance", collapse, weighted, scaleX=TRUE,
 scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, 
 dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,
 tol_Xi=10^(-12),weights,control, sparse=FALSE,
-sparseStop=TRUE,allres=TRUE,...)
+sparseStop=TRUE,allres=TRUE, verbose=TRUE,...)
 \method{plsRcoxmodel}{formula}(Xplan,time,time2,event,type,
 origin,typeres="deviance", collapse, weighted,scaleX=TRUE,
 scaleY=NULL,dataXplan=NULL, nt=min(2,ncol(Xplan)),
 limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE, 
 model_frame=FALSE, alpha.pvals.expli=.05,tol_Xi=10^(-12),
 weights,subset,control,sparse=FALSE,sparseStop=TRUE,
-allres=TRUE,...)
+allres=TRUE, verbose=TRUE,...)
 }
 \arguments{
   \item{Xplan}{a formula or a matrix with the eXplanatory variables (training) dataset}
@@ -49,6 +49,7 @@ allres=TRUE,...)
   \item{control}{a list of parameters for controlling the fitting process. For \code{glm.fit} this is passed to \code{\link{glm.control}}.}
   \item{sparse}{should the coefficients of non-significant predictors (<\code{alpha.pvals.expli}) be set to 0}
   \item{sparseStop}{should component extraction stop when no significant predictors (<\code{alpha.pvals.expli}) are found}
+  \item{verbose}{Should some details be displayed ?}
   \item{\dots}{arguments to pass to \code{plsRmodel.default} or to \code{plsRmodel.formula}}
 }
 \details{
@@ -70,12 +71,8 @@ Depends on the model that was used to fit the model.
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
-\note{
-Use \code{plsRcox} instead.
-}
 \seealso{\code{\link[plsRglm]{plsR}} and \code{\link[plsRglm]{plsRglm}}}
 \examples{
-\donttest{
 data(micro.censure)
 data(Xmicro.censure_compl_imp)
 
@@ -84,13 +81,12 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-plsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)$InfCrit
-plsRcox(~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)$InfCrit
+plsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
+plsRcox(~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
 
 plsRcox(Xplan=X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE,
-alpha.pvals.expli=.15)$InfCrit
+alpha.pvals.expli=.15)
 plsRcox(Xplan=~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE,
-alpha.pvals.expli=.15)$InfCrit
-}
+alpha.pvals.expli=.15)
 }\keyword{models}
 \keyword{regression}

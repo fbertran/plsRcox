@@ -1,27 +1,28 @@
-\name{coxDKplsDR}
-\alias{coxDKplsDR}
-\alias{coxDKplsDR.default}
-\alias{coxDKplsDR.formula}
-\title{Fitting a Direct Kernel PLS model on the (Deviance) Residuals}
+\name{DKplsRcox}
+\alias{DKplsRcox}
+\alias{DKplsRcoxmodel.default}
+\alias{DKplsRcoxmodel.formula}
+\title{Partial least squares Regression generalized linear models}
 \description{
-This function computes the Cox Model based on PLSR components computed model with 
-\itemize{
-\item{as the response: the Residuals of a Cox-Model fitted with no covariate}
-\item{as explanatory variables: a Kernel transform of Xplan.} 
-}
-It uses the package \code{kernlab} to compute the Kernel transforms of Xplan, then the package \code{mixOmics} to perform PLSR fit.
+This function implements an extension of Partial least squares Regression to Cox Models.
 }
 \usage{
-coxDKplsDR(Xplan, \dots)
-\method{coxDKplsDR}{default}(Xplan,time,time2,event,type,origin,
-typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, 
-ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, 
-allres=FALSE, kernel="rbfdot",hyperkernel,verbose=TRUE,...)
-\method{coxDKplsDR}{formula}(Xplan,time,time2,event,type,origin,
-typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, 
-ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, 
-allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE, 
-kernel="rbfdot",hyperkernel,verbose=TRUE,...)
+DKplsRcox(Xplan, \dots)
+\method{DKplsRcoxmodel}{default}(Xplan,time,time2,event,type,
+origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
+scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, 
+dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,
+tol_Xi=10^(-12),weights,control, sparse=FALSE,
+sparseStop=TRUE,plot=FALSE,allres=FALSE, kernel = "rbfdot", 
+hyperkernel, verbose=TRUE,...)
+\method{DKplsRcoxmodel}{formula}(Xplan,time,time2,event,type,
+origin,typeres="deviance", collapse, weighted,scaleX=TRUE,
+scaleY=NULL,dataXplan=NULL, nt=min(2,ncol(Xplan)),
+limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE, 
+model_frame=FALSE, alpha.pvals.expli=.05,tol_Xi=10^(-12),
+weights,subset,control,sparse=FALSE,sparseStop=TRUE,
+plot=FALSE,allres=FALSE, kernel = "rbfdot", hyperkernel, 
+verbose=TRUE,...)
 }
 \arguments{
   \item{Xplan}{a formula or a matrix with the eXplanatory variables (training) dataset}
@@ -35,14 +36,22 @@ kernel="rbfdot",hyperkernel,verbose=TRUE,...)
   \item{weighted}{if \code{TRUE} and the model was fit with case weights, then the weighted residuals are returned.}
   \item{scaleX}{Should the \code{Xplan} columns be standardized ?}
   \item{scaleY}{Should the \code{time} values be standardized ?}
-  \item{ncomp}{The number of components to include in the model. The number of components to fit is specified with the argument ncomp. It this is not supplied, the maximal number of components is used.}
-  \item{modepls}{character string. What type of algorithm to use, (partially) matching one of "regression", "canonical", "invariant" or "classic". See \code{\link[mixOmics]{pls}} for details}  
-  \item{plot}{Should the survival function be plotted ?)}
+  \item{nt}{number of components to be extracted}
+  \item{limQ2set}{limit value for the Q2}
+  \item{dataPredictY}{predictor(s) (testing) dataset}
+  \item{pvals.expli}{should individual p-values be reported to tune model selection ?}
+  \item{alpha.pvals.expli}{level of significance for predictors when pvals.expli=TRUE}
+  \item{tol_Xi}{minimal value for Norm2(Xi) and \eqn{\mathrm{det}(pp' \times pp)}{det(pp'*pp)} if there is any missing value in the \code{dataX}. It defaults to \eqn{10^{-12}}{10^{-12}}}
+  \item{weights}{an optional vector of 'prior weights' to be used in the fitting process. Should be \code{NULL} or a numeric vector.}
+  \item{subset}{an optional vector specifying a subset of observations to be used in the fitting process.}
+  \item{plot}{Should the survival function be plotted ?)}  
   \item{allres}{FALSE to return only the Cox model and TRUE for additionnal results. See details. Defaults to FALSE.}
   \item{dataXplan}{an optional data frame, list or environment (or object coercible by \code{\link{as.data.frame}} to a data frame) containing the variables in the model. If not found in \code{dataXplan}, the variables are taken from \code{environment(Xplan)}, typically the environment from which \code{coxDKplsDR} is called.}  
-  \item{subset}{an optional vector specifying a subset of observations to be used in the fitting process.}
-  \item{weights}{an optional vector of 'prior weights' to be used in the fitting process. Should be \code{NULL} or a numeric vector.}
   \item{model_frame}{If \code{TRUE}, the model frame is returned.}
+  \item{method}{the method to be used in fitting the model. The default method \code{"glm.fit"} uses iteratively reweighted least squares (IWLS). User-supplied fitting functions can be supplied either as a function or a character string naming a function, with a function which takes the same arguments as \code{glm.fit}.}
+  \item{control}{a list of parameters for controlling the fitting process. For \code{glm.fit} this is passed to \code{\link{glm.control}}.}
+  \item{sparse}{should the coefficients of non-significant predictors (<\code{alpha.pvals.expli}) be set to 0}
+  \item{sparseStop}{should component extraction stop when no significant predictors (<\code{alpha.pvals.expli}) are found}
   \item{kernel}{the kernel function used in training and predicting. This parameter can be set to any function, of class kernel, which computes the inner product in feature space between two vector arguments (see \link[kernlab]{kernels}). The \code{kernlab} package provides the most popular kernel functions which can be used by setting the kernel parameter to the following strings: 
   \describe{
 \item{\code{rbfdot}}{Radial Basis kernel "Gaussian"}
@@ -65,26 +74,28 @@ kernel="rbfdot",hyperkernel,verbose=TRUE,...)
  In the case of a Radial Basis kernel function (Gaussian) or Laplacian kernel, if \code{hyperkernel} is missing, the heuristics in sigest are used to calculate a good sigma value from the data.
 } 
   \item{verbose}{Should some details be displayed ?}
-  \item{\dots}{Arguments to be passed on to \code{survival::coxph}.}
+  \item{\dots}{arguments to pass to \code{plsRmodel.default} or to \code{plsRmodel.formula}}
 }
 \details{
-If \code{allres=FALSE} returns only the final Cox-model.
-If \code{allres=TRUE} returns a list with the PLS components, the final Cox-model and the PLSR model.
-\code{allres=TRUE} is useful for evluating model prediction accuracy on a test sample.
+
+A typical predictor has the form response ~ terms where response is the (numeric) response vector and terms is a series of terms which specifies a linear predictor for response. A terms specification of the form first + second indicates all the terms in first together with all the terms in second with any duplicates removed. 
+
+A specification of the form first:second indicates the the set of terms obtained by taking the interactions of all terms in first with all terms in second. The specification first*second indicates the cross of first and second. This is the same as first + second + first:second. 
+
+The terms in the formula will be re-ordered so that main effects come first, followed by the interactions, all second-order, all third-order and so on: to avoid this pass a terms object as the formula. 
+
+Non-NULL weights can be used to indicate that different observations have different dispersions (with the values in weights being inversely proportional to the dispersions); or equivalently, when the elements of weights are positive integers w_i, that each response y_i is the mean of w_i unit-weight observations. 
 }
-\value{If \code{allres=FALSE} : 
-\item{cox_DKplsDR}{Final Cox-model.}
-If \code{allres=TRUE} :
-\item{tt_DKplsDR}{PLSR components.}
-\item{cox_DKplsDR}{Final Cox-model.}
-\item{DKplsDR_mod}{The PLSR model.}
+\value{
+Depends on the model that was used to fit the model.
 }
-\references{plsRcox : \enc{mod?les}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiom?trie}{Chimiom\'etrie} 2010, Paris, 2010.}
-\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\references{\enc{Frederic}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand et Nicolas Meyer (2011). \enc{R?gression}{R\'egression} \enc{B?ta}{B\^eta} PLS. \emph{Preprint}.
+}
+\author{\enc{Frederic}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
-\seealso{\code{\link[survival]{coxph}}, \code{\link[pls]{plsr}}}
+\seealso{\code{\link[plsRglm]{plsR}} and \code{\link[plsRglm]{plsRglm}}}
 \examples{
 data(micro.censure)
 data(Xmicro.censure_compl_imp)
@@ -94,33 +105,12 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
-(cox_DKplsDR_fit=coxDKplsDR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6))
+DKplsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
+DKplsRcox(~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
 
-#Fixing sigma to compare with plsDR on Gram matrix; should be identical
-(cox_DKplsDR_fit=coxDKplsDR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,
-hyperkernel=list(sigma=0.01292786)))
-
-X_train_micro_kern <- kernlab::kernelMatrix(kernlab::rbfdot(sigma=0.01292786),
-scale(X_train_micro))
-(cox_DKplsDR_fit2=coxplsDR(~X_train_micro_kern,Y_train_micro,C_train_micro,ncomp=6,scaleX=FALSE))
-
-(cox_DKplsDR_fit=coxDKplsDR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,
-kernel="laplacedot",hyperkernel=list(sigma=0.01292786)))
-
-X_train_micro_kern <- kernlab::kernelMatrix(kernlab::laplacedot(sigma=0.01292786),
-scale(X_train_micro))
-(cox_DKplsDR_fit2=coxplsDR(~X_train_micro_kern,Y_train_micro,C_train_micro,ncomp=6,scaleX=FALSE))
-
-(cox_DKplsDR_fit=coxDKplsDR(~X_train_micro,Y_train_micro,C_train_micro,ncomp=6))
-(cox_DKplsDR_fit=coxDKplsDR(~.,Y_train_micro,C_train_micro,ncomp=6,dataXplan=X_train_micro_df))
-
-(cox_DKplsDR_fit=coxDKplsDR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,allres=TRUE))
-(cox_DKplsDR_fit=coxDKplsDR(~X_train_micro,Y_train_micro,C_train_micro,ncomp=6,allres=TRUE))
-(cox_DKplsDR_fit=coxDKplsDR(~.,Y_train_micro,C_train_micro,ncomp=6,allres=TRUE,
-dataXplan=X_train_micro_df))
-
-
-rm(X_train_micro,Y_train_micro,C_train_micro,cox_DKplsDR_fit)
-}
-\keyword{models}
+DKplsRcox(Xplan=X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE,
+alpha.pvals.expli=.15)
+DKplsRcox(Xplan=~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE,
+alpha.pvals.expli=.15)
+}\keyword{models}
 \keyword{regression}

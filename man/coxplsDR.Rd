@@ -4,7 +4,12 @@
 \alias{coxplsDR.formula}
 \title{Fitting a PLSR model on the (Deviance) Residuals}
 \description{
-This function computes the PLSR model with the Residuals of a Cox-Model fitted with an intercept as the only explanatory variable as the response and Xplan as explanatory variables. Default behaviour uses the Deviance residuals. It uses the package \code{pls}.
+This function computes the Cox Model based on PLSR components computed model with 
+\itemize{
+\item{as the response: the Residuals of a Cox-Model fitted with no covariate}
+\item{as explanatory variables: Xplan.} 
+}
+It uses the package \code{mixOmics} to perform PLSR fit.
 }
 \usage{
 coxplsDR(Xplan, \dots)

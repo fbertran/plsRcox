@@ -7,7 +7,7 @@ This function provides a predict method for the class \code{"plsRcoxmodel"}
 \usage{
 \method{predict}{plsRcoxmodel}(object,newdata,comps=object$computed_nt,
 type=c("lp", "risk", "expected", "terms", "scores"),se.fit=FALSE,
-weights,methodNA="adaptative",...)
+weights,methodNA="adaptative",verbose=TRUE,...)
 }
 \arguments{
   \item{object}{An object of the class \code{"plsRcoxmodel"}.}
@@ -17,6 +17,7 @@ weights,methodNA="adaptative",...)
   \item{se.fit}{If TRUE, pointwise standard errors are produced for the predictions using the Cox model.}
   \item{weights}{Vector of case weights. If \code{weights} is a vector of integers, then the estimated coefficients are equivalent to estimating the model from data with the individual \code{cases} replicated as many times as indicated by \code{weights}.}
   \item{methodNA}{Selects the way of predicting the response or the scores of the new data. For complete rows, without any missing value, there are two different ways of computing the prediction. As a consequence, for mixed datasets, with complete and incomplete rows, there are two ways of computing prediction : either predicts any row as if there were missing values in it (\code{missingdata}) or selects the prediction method accordingly to the completeness of the row (\code{adaptative}).}
+  \item{verbose}{Should some details be displayed ?}
   \item{\dots}{Arguments to be passed on to \code{survival::coxph} and to \code{plsRglm::PLS_lm}.}
 }
 \value{
@@ -43,7 +44,6 @@ modpls <- plsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=3)
 predict(modpls)    
 #Identical to predict(modpls,type="lp")    
 
-\donttest{
 predict(modpls,type="risk")    
 predict(modpls,type="expected")    
 predict(modpls,type="terms")    
@@ -72,18 +72,17 @@ predict(modpls,newdata=X_train_micro[1:5,],type="scores")
 predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=1)    
 predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=2)    
 predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=3)    
-predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=4)
+try(predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=4))
 
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=1)    
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=2)    
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=3)    
-predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=4)
+try(predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=4))
 
 predict(modpls,newdata=X_train_micro[1:5,],type="scores",comps=1)    
 predict(modpls,newdata=X_train_micro[1:5,],type="scores",comps=2)    
 predict(modpls,newdata=X_train_micro[1:5,],type="scores",comps=3)    
-predict(modpls,newdata=X_train_micro[1:5,],type="scores",comps=4)
-}    
+try(predict(modpls,newdata=X_train_micro[1:5,],type="scores",comps=4))
 }
 \keyword{methods}
 \keyword{predict}
