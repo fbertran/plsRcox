@@ -102,6 +102,7 @@ details=FALSE,namedataset="data", save=FALSE, verbose=TRUE,...)
 \item{lambda.se14}{Optimal Nbr of components, min+1se iSchmidScore w criterion.}
 \item{errormat1-14}{If \code{details=TRUE}, matrices with the error values for every folds across each of the components and each of the criteria}
 \item{completed.cv1-14}{If \code{details=TRUE}, matrices with logical values for every folds across each of the components and each of the criteria: \code{TRUE} if the computation was completed and \code{FALSE} it is failed.}
+\item{larsmodfull}{Lars model fitted on the residuals.}
 \item{All_indics}{All results of the functions that perform error computation, for each fold, each component and error criterion.}
 }
 \references{

@@ -14,22 +14,23 @@ citEntry(entry="Manual",
          note         = vers,
          url          = "http://www-irma.u-strasbg.fr/~fbertran/",
          textVersion = 
-         paste("Frédéric Bertrand, Myriam Maumy-Bertrand and Nicolas Meyer (",year ,"). ", 
+         paste("Frederic Bertrand, Myriam Maumy-Bertrand and Nicolas Meyer (",year ,"). ", 
                titl, ", ", vers, ".", sep=""
                )
 )
 
 citEntry(entry="InProceedings",
-         title = "plsRcox : modèles de Cox en présence d’un grand nombre de variables explicatives",
+         title = "plsRcox, Cox-Models in a high dimensional setting in R",
          author = personList(as.person("F. Bertrand"), 
-                             as.person("M. Maumy-Bertrand"),
-				     as.person("N. Meyer")),
-	 booktitle = "Proceedings of Chimiometrie 2010",
-         year         = 2010,
-         pages		= "67-68",
+    		     as.person("Ph. Bastien"),
+  			     as.person("N. Meyer"),
+as.person("M. Maumy-Bertrand")),
+	 booktitle = "Proceedings of User2014!",
+         year         = 2014,
+         pages		= "152",
          textVersion = 
-         paste("Frédéric Bertrand, Myriam Maumy-Bertrand et Nicolas Meyer (2010).", 
-               "plsRcox : modèles de Cox en présence d’un grand nombre de variables explicatives.", "Proceedings of Chimiometrie 2010", "pages ??-??.")
+         paste("Frederic Bertrand, Philippe Bastien, Nicolas Meyer et Myriam Maumy-Bertrand (2014).", 
+               "plsRcox, Cox-Models in a high dimensional setting in R.", "Proceedings of User2014!, Los Angeles,", "page 152." )
 )
 
 

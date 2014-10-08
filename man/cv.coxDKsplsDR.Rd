@@ -126,7 +126,7 @@ Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
 #Should be run with a higher value of nt (at least 10) and a grid of eta
-(cv.coxplsDR.res=cv.coxDKsplsDR(list(x=X_train_micro,time=Y_train_micro,
+(cv.coxDKsplsDR.res=cv.coxDKsplsDR(list(x=X_train_micro,time=Y_train_micro,
 status=C_train_micro),nt=3,eta=.1))
 }
 \keyword{models}

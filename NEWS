@@ -1,5 +1,6 @@
 This file documents software changes.
 
+1.7.1 Retrieve Lars Model on residuals in LarsDR
 1.7.0 Prediction accuracy indicators
 1.6.0 Goodness of fit indicators
 1.5.0 Cross validation functions for coxsplsDR and DKcoxsplsDR models

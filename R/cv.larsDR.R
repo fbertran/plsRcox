@@ -176,14 +176,14 @@ cv.larsDR =
                    lambda.min1 = lamin1[[1]], lambda.1se1 = lamin1[[2]], lambda.min2 = lamin2[[1]], lambda.1se2 = lamin2[[2]], lambda.min3 = lamin3[[1]], lambda.1se3 = lamin3[[2]], lambda.min4 = lamin4[[1]], lambda.1se4 = lamin4[[2]], 
                    lambda.min5 = lamin5[[1]], lambda.1se5 = lamin5[[2]], lambda.min6 = lamin6[[1]], lambda.1se6 = lamin6[[2]], lambda.min7 = lamin7[[1]], lambda.1se7 = lamin7[[2]], lambda.min8 = lamin8[[1]], lambda.1se8 = lamin8[[2]], 
                    lambda.min9 = lamin9[[1]], lambda.1se9 = lamin9[[2]], lambda.min10 = lamin10[[1]], lambda.1se10 = lamin10[[2]], lambda.min11 = lamin11[[1]], lambda.1se11 = lamin11[[2]], lambda.min12 = lamin12[[1]], lambda.1se12 = lamin12[[2]], 
-                   lambda.min13 = lamin13[[1]], lambda.1se13 = lamin13[[2]], lambda.min14 = lamin14[[1]], lambda.1se14 = lamin14[[2]], nzb=nzb 
+                   lambda.min13 = lamin13[[1]], lambda.1se13 = lamin13[[2]], lambda.min14 = lamin14[[1]], lambda.1se14 = lamin14[[2]], nzb=nzb, larsmodfull=larsmodfull 
                    )#sign.lambda=sign.lambda
     if(folddetails){object <- c(object,list(errormat1 = errormat1, errormat2 = errormat2, errormat3 = errormat3, errormat4 = errormat4, errormat5 = errormat5, errormat6 = errormat6, errormat7 = errormat7, errormat8 = errormat8, errormat9 = errormat9, errormat10 = errormat10, errormat11 = errormat11, errormat12 = errormat12, errormat13 = errormat13, errormat14 = errormat14, 
                    completed.cv1 = completed.cv1, completed.cv2 = completed.cv2, completed.cv3 = completed.cv3, completed.cv4 = completed.cv4, completed.cv5 = completed.cv5, completed.cv6 = completed.cv6, completed.cv7 = completed.cv7,
                    completed.cv8 = completed.cv8, completed.cv9 = completed.cv9, completed.cv10 = completed.cv10, completed.cv11 = completed.cv11, completed.cv12 = completed.cv12, completed.cv13 = completed.cv13, completed.cv14 = completed.cv14))}
     if(details){object <- c(object,list(All_indics=AUCs))}
     } else {
-      object <- list(fraction = fraction,cv.error2=cv.error2,cv.se2=cv.se2,folds=folds,lambda.min2=lamin2[[1]],lambda.1se2=lamin2[[2]],nzb=nzb)
+      object <- list(fraction = fraction,cv.error2=cv.error2,cv.se2=cv.se2,folds=folds,lambda.min2=lamin2[[1]],lambda.1se2=lamin2[[2]],nzb=nzb,larsmodfull=larsmodfull)
       if(folddetails){object <- c(object,list(errormat2 = errormat2, completed.cv2 = completed.cv2))}
     }
     
