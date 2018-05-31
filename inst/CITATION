@@ -7,14 +7,13 @@ vers <- paste("R package version", meta$Version)
 citEntry(entry="Manual",
          title = titl,
          author = personList(as.person("F. Bertrand"), 
-                             as.person("M. Maumy-Bertrand"),
-				     as.person("N. Meyer")),
+                             as.person("M. Maumy-Bertrand")),
 	 publisher = "manual",
          year         = year,
          note         = vers,
          url          = "http://www-irma.u-strasbg.fr/~fbertran/",
          textVersion = 
-         paste("Frederic Bertrand, Myriam Maumy-Bertrand and Nicolas Meyer (",year ,"). ", 
+         paste("Frederic Bertrand and Myriam Maumy-Bertrand (",year ,"). ", 
                titl, ", ", vers, ".", sep=""
                )
 )
@@ -31,6 +30,18 @@ as.person("M. Maumy-Bertrand")),
          textVersion = 
          paste("Frederic Bertrand, Philippe Bastien, Nicolas Meyer et Myriam Maumy-Bertrand (2014).", 
                "plsRcox, Cox-Models in a high dimensional setting in R.", "Proceedings of User2014!, Los Angeles,", "page 152." )
+)
+
+citEntry(entry="Article",
+         title = "Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data",
+         author = personList(as.person("Ph. Bastien"), as.person("F. Bertrand"), 
+  			     as.person("N. Meyer"),
+as.person("M. Maumy-Bertrand")),
+         year         = 2015,
+         pages		= "397--404",
+         journal = "Bioinformatics",
+         textVersion = 
+         paste("Philippe Bastien, Frederic Bertrand, Nicolas Meyer et Myriam Maumy-Bertrand (2015).", "Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data", "Bioinformatics,", "31(3):397--404, doi=10.1093/bioinformatics/btu660." )
 )
 
 

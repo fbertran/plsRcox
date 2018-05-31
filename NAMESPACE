@@ -11,6 +11,15 @@ import(survcomp)
 import(survAUC)
 import(rms)
 
+importFrom("grDevices", "dev.new")
+importFrom("graphics", "abline", "axis", "layout", "segments")
+importFrom("stats", "as.formula", "complete.cases", "contrasts",
+             "extractAIC", "is.empty.model", "median", "model.matrix",
+             "model.response", "model.weights", "residuals", "uniroot",
+             "var", "weighted.mean")
+importFrom("utils", "head")
+  
+
 # functions
 export(DR_coxph            )    
 export(larsDR_coxph        )
@@ -80,3 +89,26 @@ S3method("predict", "plsRcoxmodel")
 S3method("print", "plsRcoxmodel")
 S3method("summary", "plsRcoxmodel")
 S3method("print", "summary.plsRcoxmodel")
+S3method("coxDKplsDR", "formula")
+S3method("coxDKplsDR", "default")
+S3method("coxDKpls2DR", "formula")
+S3method("coxDKpls2DR", "default")
+S3method("coxDKsplsDR", "formula")
+S3method("coxDKsplsDR", "default")
+S3method("coxplsDR", "formula")
+S3method("coxplsDR", "default")
+S3method("coxpls2DR", "formula")
+S3method("coxpls2DR", "default")
+S3method("coxpls3DR", "formula")
+S3method("coxpls3DR", "default")
+S3method("coxsplsDR", "formula")
+S3method("coxsplsDR", "default")
+S3method("larsDR_coxph", "formula")
+S3method("larsDR_coxph", "default")
+S3method("coxpls", "formula")
+S3method("coxpls", "default")
+S3method("coxpls2", "formula")
+S3method("coxpls2", "default")
+S3method("coxpls3", "formula")
+S3method("coxpls3", "default")
+

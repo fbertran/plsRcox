@@ -3,8 +3,8 @@
         "caseSensitive" : false,
         "filePatterns" : [
         ],
-        "path" : "~/GitHub/plsRcox/R",
-        "query" : "c(object,list(errormat10 =",
+        "path" : "~/GitHub/plsRcox/man",
+        "query" : "http://smf4.emath.fr/P",
         "regex" : false
     }
 }
