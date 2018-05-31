@@ -6,8 +6,7 @@ Imports: survival, plsRglm, lars, pls, kernlab, mixOmics, risksetROC, survcomp, 
 Enhances: 
 Suggests: survivalROC, plsdof
 Title: Partial Least Squares Regression for Cox Models and Related Techniques
-Author: Frederic Bertrand <frederic.bertrand@math.unistra.fr>, Myriam Maumy-Bertrand <myriam.maumy-bertrand@math.unistra.fr>. 
-Maintainer: Frederic Bertrand <frederic.bertrand@math.unistra.fr>
+Authors@R: c(person("Frederic", "Bertrand", email = "frederic.bertrand@math.unistra.fr", role = c("cre", "aut", "res"), comment = c(ORCID = "0000-0002-0837-8281")), person("Myriam", "Maumy-Bertrand", email = "myriam.maumy-bertrand@math.unistra.fr", role = c("aut", "res"), comment = c(ORCID = "0000-0002-4615-1512")))
 Depends: R (>= 2.4.0)
 Description: Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings.
 License: GPL-3
