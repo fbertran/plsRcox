@@ -105,12 +105,16 @@ X_train_micro_df <- data.frame(X_train_micro)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
+\donttest{
 DKplsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
 DKplsRcox(~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
+}
 
-DKplsRcox(Xplan=X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE,
+\donttest{
+DKplsRcox(Xplan=X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE, 
 alpha.pvals.expli=.15)
 DKplsRcox(Xplan=~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE,
 alpha.pvals.expli=.15)
+}
 }\keyword{models}
 \keyword{regression}
