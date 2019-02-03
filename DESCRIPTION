@@ -1,7 +1,7 @@
 Package: plsRcox
-Version: 1.7.3
-Date: 2018-05-31
-Depends: 
+Version: 1.7.4
+Date: 2018-02-02
+Depends: R (>= 2.4.0)
 Imports: survival, plsRglm, lars, pls, kernlab, mixOmics, risksetROC, survcomp, survAUC, rms
 Enhances: 
 Suggests: survivalROC, plsdof
@@ -11,9 +11,10 @@ Authors@R: c(
 	person(given = "Myriam", family= "Maumy-Bertrand", role = c("aut"), email = "myriam.maumy-bertrand@math.unistra.fr", comment = c(ORCID = "0000-0002-4615-1512")))
 Author: Frederic Bertrand [cre, aut] (<https://orcid.org/0000-0002-0837-8281>), Myriam Maumy-Bertrand [aut] (<https://orcid.org/0000-0002-4615-1512>)
 Maintainer: Frederic Bertrand <frederic.bertrand@math.unistra.fr>
-Depends: R (>= 2.4.0)
-Description: Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings.
+Description: Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings <doi:10.1093/bioinformatics/btu660>, Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Bioinformatics, 31(3):397-404. Cross validation criteria were studied in <arXiv:1810.02962>, Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data.
 License: GPL-3
-Encoding: latin1
-URL: http://www-irma.u-strasbg.fr/~fbertran/
+Encoding: UTF-8
+URL: http://www-irma.u-strasbg.fr/~fbertran/, https://github.com/fbertran/plsRcox
+BugReports: https://github.com/fbertran/plsRcox/issues
 Classification/MSC: 62N01, 62N02, 62N03, 62N99
+RoxygenNote: 6.1.1

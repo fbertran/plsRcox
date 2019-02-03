@@ -57,8 +57,11 @@ If \code{allres=TRUE} :
 \item{cox_plsDR}{Final Cox-model.}
 \item{plsDR_mod}{The PLSR model.}
 }
-\references{plsRcox : \enc{mod?les}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiom?trie}{Chimiom\'etrie} 2010, Paris, 2010.}
-\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\references{plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.\cr
+  
+Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.
+}
+\author{\enc{Frédéric}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }

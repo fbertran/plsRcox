@@ -46,12 +46,15 @@ predict.pls.cox(object, newdata, scale.X=TRUE, scale.Y=TRUE,...)
 \details{
 These are not to be called by the user.
 }
-%\references{
-%% ~put references to the literature/web site here ~
-%}
-%\author{
-%%  ~~who you are~~
-%}
+\references{
+plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.\cr
+  
+Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.
+}
+\author{\enc{Frédéric}{Fr\'ed\'eric} Bertrand\cr
+\email{frederic.bertrand@math.unistra.fr}\cr
+\url{http://www-irma.u-strasbg.fr/~fbertran/}
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{internal}

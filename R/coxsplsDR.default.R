@@ -3,7 +3,7 @@ if(scaleX){Xplan <- scale(Xplan); XplanScal <- attr(Xplan,"scaled:scale"); Xplan
 if((scaleY & missing(time2))){time <- scale(time)}
 try(attachNamespace("survival"),silent=TRUE)
 #on.exit(try(unloadNamespace("survival"),silent=TRUE))
-try(attachNamespace("mixOmics"),silent=TRUE)
+suppressMessages(try(attachNamespace("mixOmics"),silent=TRUE))
 on.exit(try(unloadNamespace("mixOmics"),silent=TRUE),add=TRUE)
 suppressMessages(try(attachNamespace("spls"),silent=TRUE))
 on.exit(try(unloadNamespace("spls"),silent=TRUE),add=TRUE)

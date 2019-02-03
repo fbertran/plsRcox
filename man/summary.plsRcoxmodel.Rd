@@ -13,11 +13,13 @@ This function provides a summary method for the class \code{"plsRcoxmodel"}
 }
 %\details{}
 \value{
-  \item{call }{function call of plsR beta models}
+  \item{call }{function call of plsRcox models}
 }
-\references{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand et Nicolas Meyer (2011). \enc{R?gression}{R\'egression} \enc{B?ta}{B\^eta} PLS. \emph{Preprint}.
+\references{plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.\cr
+  
+Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.
 }
-\author{\enc{Fr?d?ric}{Fr\'ed\'eric} Bertrand\cr
+\author{\enc{Frédéric}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }

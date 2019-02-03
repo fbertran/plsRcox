@@ -1,1 +1,1 @@
-DKplsRcox <- function (Xplan, ...) UseMethod("DKplsRcoxmodel")
+DKplsRcox <- DKplsRcoxmodel <- function (Xplan, ...) UseMethod("DKplsRcoxmodel")

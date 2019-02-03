@@ -1,0 +1,178 @@
+---
+title: "plsRcox, Cox-Models in a High Dimensional Setting in R"
+author: "Frédéric Bertrand and Myriam Maumy-Bertrand"
+output: github_document
+---
+
+[![CRAN status](https://www.r-pkg.org/badges/version/plsRcox)](https://cran.r-project.org/package=plsRcox)
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  dpi=300,fig.width=7,
+  fig.keep="all"
+)
+```
+# plsRcox
+
+The goal of plsRcox is provide Cox models in a high dimensional setting in R.
+
+
+plsRcox implements partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings <https://doi.org/10.1093/bioinformatics/btu660>, Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Bioinformatics, 31(3):397-404. Cross validation criteria were studied in [<arXiv:1810.02962>](https://arxiv.org/abs/1810.01005), Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data.
+
+
+The package was presented at the [User2014!](http://user2014.r-project.org/) conference. Frédéric Bertrand, Jérémy Magnanensi, Nicolas Meyer and Myriam Bertrand (2014). "plsRglm, PLS generalized linear models for R", *book of abstracts*, User2014!, Los Angeles, page 152,
+<http://user2014.r-project.org/abstracts/posters/172_Bertrand.pdf>.
+
+
+The plsRcox package contains an original allelotyping dataset from "Allelotyping identification of genomic alterations in rectal chromosomally unstable tumors without preoperative treatment", Benoît Romain, Agnès Neuville, Nicolas Meyer, Cécile Brigand, Serge Rohr, Anne Schneider, Marie-Pierre Gaub and Dominique Guenot (2010), *BMC Cancer*, **10**:561, <https://doi.org/10.1186/1471-2407-10-561>.
+
+
+Support for parallel computation and GPU is being developped.
+
+
+The package provides several modelling techniques related to penalized Cox models or extensions of partial least squares to Cox models. The first two were new algorithms.
+
+- **coxsplsDR** and **cv.coxsplsDR** (Philippe Bastien, Frederic Bertrand, Nicolas Meyer, and Myriam Maumy-Bertrand (2015), "Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data", *Bioinformatics*, **31**(3):397-404, <https://doi.org/10.1093/bioinformatics/btu660>),
+
+- **coxDKsplsDR** and **cv.coxDKsplsDR** (Philippe Bastien, Frederic Bertrand, Nicolas Meyer, and Myriam Maumy-Bertrand (2015), "Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data", *Bioinformatics*, **31**(3):397-404, <https://doi.org/10.1093/bioinformatics/btu660>),
+
+- **coxDKplsDR** and **cv.coxDKplsDR** (Philippe Bastien (2008), "Deviance residuals based PLS regression for censored data in high dimensional setting", *Chemometrics and Intelligent Laboratory Systems*, **91**:78–86, <https://doi.org/10.1016/j.chemolab.2007.09.009>),
+
+- **coxpls** and **cv.coxpls** (Nguyen, D.V., Rocke, D.M. (2002), "Partial least squares proportional hazard regression for application to DNA microarray survival data", *Bioinformatics*, **18**(12):1625–1632),
+
+- **coxplsDR** and **cv.coxplsDR** (Philippe Bastien (2008), "Deviance residuals based PLS regression for censored data in high dimensional setting", *Chemometrics and Intelligent Laboratory Systems*, **91**:78–86, <https://doi.org/10.1016/j.chemolab.2007.09.009>),
+
+- **DKplsRcox**,
+
+- **larsDR** and **cv.larsDR** (Segal, M.R. (2006), "Microarray Gene Expression Data with Linked Survival Phenotypes: Diffuse large-B- Cell Lymphoma Revisited", *Biostatistics*, **7**:268-285, <https://doi.org/10.1093/biostatistics/kxj006>),
+
+- **plsRcox** and **cv.plsRcox** (Philippe Bastien, Vincenzo Esposito Vinzi, and Michel Tenenhaus (2005), "PLS generalised linear regression", *Computational Statistics & Data Analysis*, **48**(1):17–46, <https://doi.org/10.1016/j.csda.2004.02.005>),
+
+- **autoplsRcox** and **cv.autoplsRcox** (Philippe Bastien, Vincenzo Esposito Vinzi, and Michel Tenenhaus (2005), "PLS generalised linear regression", *Computational Statistics & Data Analysis*, **48**(1):17–46, <https://doi.org/10.1016/j.csda.2004.02.005>),
+
+
+
+## Installation
+
+You can install the released version of plsRcox from [CRAN](https://CRAN.R-project.org) with:
+
+```{r, eval = FALSE}
+install.packages("plsRcox")
+```
+
+You can install the development version of plsRcox from [github](https://github.com) with:
+
+```{r, eval = FALSE}
+devtools::install_github("fbertran/plsRcox")
+```
+
+## Example
+
+### The original allelotyping dataset
+
+```{r microcensure}
+library(plsRcox)
+data(micro.censure)
+Y_train_micro <- micro.censure$survyear[1:80]
+C_train_micro <- micro.censure$DC[1:80]
+Y_test_micro <- micro.censure$survyear[81:117]
+C_test_micro <- micro.censure$DC[81:117]
+
+data(Xmicro.censure_compl_imp)
+X_train_micro <- apply((as.matrix(Xmicro.censure_compl_imp)),FUN="as.numeric",MARGIN=2)[1:80,]
+X_train_micro_df <- data.frame(X_train_micro)
+```
+
+Compute deviance residuals with some options.
+
+```{r devianceresiduals, cache=FALSE}
+DR_coxph(Y_train_micro,C_train_micro,plot=TRUE)
+```
+```{r devianceresiduals2, cache=FALSE}
+DR_coxph(Y_train_micro,C_train_micro,scaleY=FALSE,plot=TRUE)
+```
+```{r devianceresiduals3, cache=FALSE}
+DR_coxph(Y_train_micro,C_train_micro,scaleY=TRUE,plot=TRUE)
+```
+
+### coxsplsDR
+
+```{r coxsplsDR, cache=TRUE}
+(cox_splsDR_fit=coxsplsDR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6,eta=.5))
+
+(cox_splsDR_fit2=coxsplsDR(~X_train_micro,Y_train_micro,C_train_micro,ncomp=6,eta=.5,trace=TRUE))
+
+(cox_splsDR_fit3=coxsplsDR(~.,Y_train_micro,C_train_micro,ncomp=6,
+dataXplan=X_train_micro_df,eta=.5))
+
+rm(cox_splsDR_fit,cox_splsDR_fit2,cox_splsDR_fit3)
+```
+
+### cv.coxsplsDR
+
+```{r cvcoxsplsDR, warning=FALSE, cache=TRUE}
+set.seed(123456)
+
+(cv.coxsplsDR.res=cv.coxsplsDR(list(x=X_train_micro,time=Y_train_micro, status=C_train_micro),nt=10,eta=.1))
+```
+
+
+### coxDKsplsDR
+
+```{r coxDKsplsDR, cache=TRUE}
+(cox_DKsplsDR_fit=coxDKsplsDR(X_train_micro,Y_train_micro,C_train_micro,ncomp=6, validation="CV",eta=.5))
+
+(cox_DKsplsDR_fit=coxDKsplsDR(~X_train_micro,Y_train_micro,C_train_micro,ncomp=6, validation="CV",eta=.5))
+
+(cox_DKsplsDR_fit=coxDKsplsDR(~.,Y_train_micro,C_train_micro,ncomp=6,
+validation="CV",dataXplan=data.frame(X_train_micro),eta=.5))
+
+rm(cox_DKsplsDR_fit)
+```
+
+### cv.coxsplsDR
+
+```{r cvcoxDKsplsDR, warning=FALSE, cache=TRUE}
+set.seed(123456)
+
+(cv.coxDKsplsDR.res=cv.coxDKsplsDR(list(x=X_train_micro,time=Y_train_micro, status=C_train_micro),nt=10,eta=.1))
+```
+
+
+## plsRcox
+
+```{r plsRcox, cache=TRUE}
+plsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
+
+plsRcox(~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
+
+plsRcox(Xplan=X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE, alpha.pvals.expli=.15)
+
+plsRcox(Xplan=~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE, alpha.pvals.expli=.15)
+```
+
+### cv.plsRcox
+
+```{r cvplsRcox, warning=FALSE, cache=TRUE}
+set.seed(123456)
+
+(cv.plsRcox.res=cv.plsRcox(list(x=X_train_micro,time=Y_train_micro,status=C_train_micro),nt=10,verbose = FALSE))
+```
+
+## DKplsRcox
+
+```{r DKplsRcox, cache=TRUE}
+DKplsRcox(X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
+
+DKplsRcox(~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5)
+
+DKplsRcox(Xplan=X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE, alpha.pvals.expli=.15)
+
+DKplsRcox(Xplan=~X_train_micro,time=Y_train_micro,event=C_train_micro,nt=5,sparse=TRUE, alpha.pvals.expli=.15)
+```

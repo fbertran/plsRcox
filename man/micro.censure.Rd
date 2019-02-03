@@ -54,8 +54,11 @@ This dataset provides Microsat specifications and survival times.
     \item{\code{DC}}{a numeric vector}
   }
 }
-\source{Allelotyping identification of genomic alterations in rectal chromosomally unstable tumors without preoperative treatment, \enc{Benoît}{Beno\^it} Romain, \enc{Agnès}{Agn\`es} Neuville, Nicolas Meyer, \enc{Cécile}{C\'ecile} Brigand, Serge Rohr, Anne Schneider, Marie-Pierre Gaub and Dominique Guenot, \emph{BMC Cancer 2010}, 10:561, doi:10.1186/1471-2407-10-561.}
-\references{plsRcox : \enc{modèles}{mod\`eles} de Cox en \enc{présence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Frédéric}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiométrie}{Chimiom\'etrie} 2010, Paris, 2010.}
+\source{Allelotyping identification of genomic alterations in rectal chromosomally unstable tumors without preoperative treatment, \enc{BenoÃ®t}{Beno\^it} Romain, \enc{AgnÃ¨s}{Agn\`es} Neuville, Nicolas Meyer, \enc{CÃ©cile}{C\'ecile} Brigand, Serge Rohr, Anne Schneider, Marie-Pierre Gaub and Dominique Guenot, \emph{BMC Cancer 2010}, 10:561, doi:10.1186/1471-2407-10-561.}
+\references{plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.\cr
+  
+Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.
+}
 \examples{
 \donttest{
 data(micro.censure)

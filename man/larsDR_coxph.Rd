@@ -64,7 +64,12 @@ If \code{allres=TRUE} :
 \item{X_larsDR}{The eXplanatory variables.}
 \item{cox_larsDR}{Final Cox-model.}
 }
-\references{plsRcox : \enc{modeles}{mod\`eles} de Cox en \enc{pr?sence}{pr\'esence} d'un grand nombre de variables explicatives, \enc{Frederic}{Fr\'ed\'eric} Bertrand, Myriam Maumy-Bertrand, Marie-Pierre Gaub, Nicolas Meyer, \enc{Chimiometrie}{Chimiom\'etrie} 2010, Paris, 2010.}
+
+\references{
+plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.\cr
+  
+Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.
+}
 \author{\enc{Frederic}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}

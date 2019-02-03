@@ -107,7 +107,11 @@ save=FALSE, verbose=TRUE,...)
 \item{All_indics}{All results of the functions that perform error computation, for each fold, each component and error criterion.}
 }
 \references{
-Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand. plsRcox, Cox-Models in a high dimensional setting in R. UseR 2014. Los Angeles. USA. 
+plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.\cr
+  
+Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.
+
+Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data, Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), \url{https://arxiv.org/abs/1810.01005}.
 }
 \author{\enc{Frederic}{Fr\'ed\'eric} Bertrand\cr
 \email{frederic.bertrand@math.unistra.fr}\cr
@@ -126,7 +130,7 @@ Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
 
 #Should be run with a higher value of nt (at least 10) and a grid of eta
-(cv.coxplsDR.res=cv.coxsplsDR(list(x=X_train_micro,time=Y_train_micro,
+(cv.coxsplsDR.res=cv.coxsplsDR(list(x=X_train_micro,time=Y_train_micro,
 status=C_train_micro),nt=3,eta=.1))
 }
 \keyword{models}

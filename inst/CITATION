@@ -28,7 +28,7 @@ as.person("M. Maumy-Bertrand")),
          year         = 2014,
          pages		= "152",
          textVersion = 
-         paste("Frederic Bertrand, Philippe Bastien, Nicolas Meyer et Myriam Maumy-Bertrand (2014).", 
+         paste("Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).", 
                "plsRcox, Cox-Models in a high dimensional setting in R.", "Proceedings of User2014!, Los Angeles,", "page 152." )
 )
 
@@ -41,7 +41,7 @@ as.person("M. Maumy-Bertrand")),
          pages		= "397--404",
          journal = "Bioinformatics",
          textVersion = 
-         paste("Philippe Bastien, Frederic Bertrand, Nicolas Meyer et Myriam Maumy-Bertrand (2015).", "Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data", "Bioinformatics,", "31(3):397--404, doi=10.1093/bioinformatics/btu660." )
+         paste("Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015).", "Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data", "Bioinformatics,", "31(3):397-404, doi:10.1093/bioinformatics/btu660." )
 )
 
 

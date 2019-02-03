@@ -84,6 +84,11 @@ export(summary.plsRcoxmodel      )
 #export(tilt.bootplscox           )
 
 
+S3method("plsRcoxmodel", "default")
+S3method("plsRcoxmodel", "formula")
+S3method("DKplsRcoxmodel", "default")
+S3method("DKplsRcoxmodel", "formula")
+
 ## S3 methods for generics in base
 S3method("predict", "plsRcoxmodel")
 S3method("print", "plsRcoxmodel")
