@@ -26,10 +26,10 @@ citEntry(entry="InProceedings",
 as.person("M. Maumy-Bertrand")),
 	 booktitle = "Proceedings of User2014!",
          year         = 2014,
-         pages		= "152",
+         pages		= "177",
          textVersion = 
          paste("Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).", 
-               "plsRcox, Cox-Models in a high dimensional setting in R.", "Proceedings of User2014!, Los Angeles,", "page 152." )
+               "plsRcox, Cox-Models in a high dimensional setting in R.", "Proceedings of User2014!, Los Angeles,", "page 177." )
 )
 
 citEntry(entry="Article",

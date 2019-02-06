@@ -1,6 +1,6 @@
 Package: plsRcox
 Version: 1.7.4
-Date: 2018-02-02
+Date: 2019-02-02
 Depends: R (>= 2.4.0)
 Imports: survival, plsRglm, lars, pls, kernlab, mixOmics, risksetROC, survcomp, survAUC, rms
 Enhances: 

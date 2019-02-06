@@ -270,8 +270,7 @@ allres=TRUE, verbose=TRUE,...)</pre>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>micro.censure</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>micro.censure</span>)
 <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)
 
 <span class='no'>X_train_micro</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>((<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)),<span class='kw'>FUN</span><span class='kw'>=</span><span class='st'>"as.numeric"</span>,<span class='kw'>MARGIN</span><span class='kw'>=</span><span class='fl'>2</span>)[<span class='fl'>1</span>:<span class='fl'>80</span>,]
@@ -279,14 +278,250 @@ allres=TRUE, verbose=TRUE,...)</pre>
 <span class='no'>Y_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>survyear</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
 <span class='no'>C_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>DC</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
 
-<span class='fu'>plsRcox</span>(<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>)
-<span class='fu'>plsRcox</span>(~<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>)
-
+<span class='fu'>plsRcox</span>(<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>)</div><div class='output co'>#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Component____ 4 ____
+#&gt; ____Component____ 5 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; </div><div class='output co'>#&gt; Number of required components:
+#&gt; [1] 5
+#&gt; Number of successfully computed components:
+#&gt; [1] 5
+#&gt; Coefficients:
+#&gt;                [,1]
+#&gt; D18S61   0.68964919
+#&gt; D17S794 -1.14362392
+#&gt; D13S173  1.37632457
+#&gt; D20S107  4.96128745
+#&gt; TP53     1.68453950
+#&gt; D9S171  -1.46691252
+#&gt; D8S264   0.66710776
+#&gt; D5S346  -4.61338196
+#&gt; D22S928 -1.82005524
+#&gt; D18S53   0.79853646
+#&gt; D1S225  -1.46234986
+#&gt; D3S1282 -1.67925042
+#&gt; D15S127  3.92225537
+#&gt; D1S305  -2.29680161
+#&gt; D1S207   2.02539691
+#&gt; D2S138  -3.48975878
+#&gt; D16S422 -2.92189625
+#&gt; D9S179  -0.59484679
+#&gt; D10S191 -1.30136747
+#&gt; D4S394   1.34265359
+#&gt; D1S197  -0.75014044
+#&gt; D6S264   1.32746604
+#&gt; D14S65  -3.20882866
+#&gt; D17S790  0.55427680
+#&gt; D5S430   3.40654627
+#&gt; D3S1283  2.12510239
+#&gt; D4S414   2.73619967
+#&gt; D8S283   0.71955323
+#&gt; D11S916  1.45026508
+#&gt; D2S159   0.90293134
+#&gt; D16S408 -0.59719901
+#&gt; D6S275  -1.02204186
+#&gt; D10S192  1.14220367
+#&gt; sexe     0.67314561
+#&gt; Agediag  0.04908478
+#&gt; Siege   -0.41985924
+#&gt; T        2.70581463
+#&gt; N        2.47039973
+#&gt; M       -4.53213922
+#&gt; STADE    0.48221697
+#&gt; Information criteria and Fit statistics:
+#&gt;                 AIC       BIC
+#&gt; Nb_Comp_0 112.87990 112.87990
+#&gt; Nb_Comp_1  85.11075  87.49278
+#&gt; Nb_Comp_2  75.49537  80.25942
+#&gt; Nb_Comp_3  68.45852  75.60460
+#&gt; Nb_Comp_4  63.09284  72.62094
+#&gt; Nb_Comp_5  55.30567  67.21581</div><div class='input'><span class='fu'>plsRcox</span>(~<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>)</div><div class='output co'>#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Component____ 4 ____
+#&gt; ____Component____ 5 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; </div><div class='output co'>#&gt; Number of required components:
+#&gt; [1] 5
+#&gt; Number of successfully computed components:
+#&gt; [1] 5
+#&gt; Coefficients:
+#&gt;                             [,1]
+#&gt; X_train_microD18S61   0.68964919
+#&gt; X_train_microD17S794 -1.14362392
+#&gt; X_train_microD13S173  1.37632457
+#&gt; X_train_microD20S107  4.96128745
+#&gt; X_train_microTP53     1.68453950
+#&gt; X_train_microD9S171  -1.46691252
+#&gt; X_train_microD8S264   0.66710776
+#&gt; X_train_microD5S346  -4.61338196
+#&gt; X_train_microD22S928 -1.82005524
+#&gt; X_train_microD18S53   0.79853646
+#&gt; X_train_microD1S225  -1.46234986
+#&gt; X_train_microD3S1282 -1.67925042
+#&gt; X_train_microD15S127  3.92225537
+#&gt; X_train_microD1S305  -2.29680161
+#&gt; X_train_microD1S207   2.02539691
+#&gt; X_train_microD2S138  -3.48975878
+#&gt; X_train_microD16S422 -2.92189625
+#&gt; X_train_microD9S179  -0.59484679
+#&gt; X_train_microD10S191 -1.30136747
+#&gt; X_train_microD4S394   1.34265359
+#&gt; X_train_microD1S197  -0.75014044
+#&gt; X_train_microD6S264   1.32746604
+#&gt; X_train_microD14S65  -3.20882866
+#&gt; X_train_microD17S790  0.55427680
+#&gt; X_train_microD5S430   3.40654627
+#&gt; X_train_microD3S1283  2.12510239
+#&gt; X_train_microD4S414   2.73619967
+#&gt; X_train_microD8S283   0.71955323
+#&gt; X_train_microD11S916  1.45026508
+#&gt; X_train_microD2S159   0.90293134
+#&gt; X_train_microD16S408 -0.59719901
+#&gt; X_train_microD6S275  -1.02204186
+#&gt; X_train_microD10S192  1.14220367
+#&gt; X_train_microsexe     0.67314561
+#&gt; X_train_microAgediag  0.04908478
+#&gt; X_train_microSiege   -0.41985924
+#&gt; X_train_microT        2.70581463
+#&gt; X_train_microN        2.47039973
+#&gt; X_train_microM       -4.53213922
+#&gt; X_train_microSTADE    0.48221697
+#&gt; Information criteria and Fit statistics:
+#&gt;                 AIC       BIC
+#&gt; Nb_Comp_0 112.87990 112.87990
+#&gt; Nb_Comp_1  85.11075  87.49278
+#&gt; Nb_Comp_2  75.49537  80.25942
+#&gt; Nb_Comp_3  68.45852  75.60460
+#&gt; Nb_Comp_4  63.09284  72.62094
+#&gt; Nb_Comp_5  55.30567  67.21581</div><div class='input'>
 <span class='fu'>plsRcox</span>(<span class='kw'>Xplan</span><span class='kw'>=</span><span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>,<span class='kw'>sparse</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-<span class='kw'>alpha.pvals.expli</span><span class='kw'>=</span><span class='fl'>.15</span>)
-<span class='fu'>plsRcox</span>(<span class='kw'>Xplan</span><span class='kw'>=</span>~<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>,<span class='kw'>sparse</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-<span class='kw'>alpha.pvals.expli</span><span class='kw'>=</span><span class='fl'>.15</span>)
-<span class='co'># }</span></pre>
+<span class='kw'>alpha.pvals.expli</span><span class='kw'>=</span><span class='fl'>.15</span>)</div><div class='output co'>#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; Warning : 25 &lt; 10^{-12}
+#&gt; Warning only 3 components could thus be extracted
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; </div><div class='output co'>#&gt; Number of required components:
+#&gt; [1] 5
+#&gt; Number of successfully computed components:
+#&gt; [1] 3
+#&gt; Coefficients:
+#&gt;                [,1]
+#&gt; D18S61   0.00000000
+#&gt; D17S794  0.00000000
+#&gt; D13S173  0.00000000
+#&gt; D20S107  2.22871454
+#&gt; TP53     0.00000000
+#&gt; D9S171   0.00000000
+#&gt; D8S264   0.00000000
+#&gt; D5S346  -1.20298526
+#&gt; D22S928  0.00000000
+#&gt; D18S53   0.00000000
+#&gt; D1S225  -1.29459798
+#&gt; D3S1282 -1.99426291
+#&gt; D15S127  1.39645601
+#&gt; D1S305   0.00000000
+#&gt; D1S207   1.25164327
+#&gt; D2S138  -1.65740160
+#&gt; D16S422  0.00000000
+#&gt; D9S179   0.00000000
+#&gt; D10S191 -1.25360805
+#&gt; D4S394   0.00000000
+#&gt; D1S197   0.00000000
+#&gt; D6S264   0.00000000
+#&gt; D14S65  -1.33587373
+#&gt; D17S790  0.00000000
+#&gt; D5S430   1.72799213
+#&gt; D3S1283  0.00000000
+#&gt; D4S414   1.03558702
+#&gt; D8S283   0.00000000
+#&gt; D11S916  0.00000000
+#&gt; D2S159   0.00000000
+#&gt; D16S408 -1.75748257
+#&gt; D6S275   0.00000000
+#&gt; D10S192  0.00000000
+#&gt; sexe     0.00000000
+#&gt; Agediag  0.05075304
+#&gt; Siege    0.00000000
+#&gt; T        1.36569407
+#&gt; N        1.27485618
+#&gt; M       -1.17682617
+#&gt; STADE   -0.65106093
+#&gt; Information criteria and Fit statistics:
+#&gt;                 AIC       BIC
+#&gt; Nb_Comp_0 112.87990 112.87990
+#&gt; Nb_Comp_1  85.54313  87.92516
+#&gt; Nb_Comp_2  75.16125  79.92530
+#&gt; Nb_Comp_3  73.63097  80.77705</div><div class='input'><span class='fu'>plsRcox</span>(<span class='kw'>Xplan</span><span class='kw'>=</span>~<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>,<span class='kw'>sparse</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
+<span class='kw'>alpha.pvals.expli</span><span class='kw'>=</span><span class='fl'>.15</span>)</div><div class='output co'>#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; Warning : 25 &lt; 10^{-12}
+#&gt; Warning only 3 components could thus be extracted
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; </div><div class='output co'>#&gt; Number of required components:
+#&gt; [1] 5
+#&gt; Number of successfully computed components:
+#&gt; [1] 3
+#&gt; Coefficients:
+#&gt;                             [,1]
+#&gt; X_train_microD18S61   0.00000000
+#&gt; X_train_microD17S794  0.00000000
+#&gt; X_train_microD13S173  0.00000000
+#&gt; X_train_microD20S107  2.22871454
+#&gt; X_train_microTP53     0.00000000
+#&gt; X_train_microD9S171   0.00000000
+#&gt; X_train_microD8S264   0.00000000
+#&gt; X_train_microD5S346  -1.20298526
+#&gt; X_train_microD22S928  0.00000000
+#&gt; X_train_microD18S53   0.00000000
+#&gt; X_train_microD1S225  -1.29459798
+#&gt; X_train_microD3S1282 -1.99426291
+#&gt; X_train_microD15S127  1.39645601
+#&gt; X_train_microD1S305   0.00000000
+#&gt; X_train_microD1S207   1.25164327
+#&gt; X_train_microD2S138  -1.65740160
+#&gt; X_train_microD16S422  0.00000000
+#&gt; X_train_microD9S179   0.00000000
+#&gt; X_train_microD10S191 -1.25360805
+#&gt; X_train_microD4S394   0.00000000
+#&gt; X_train_microD1S197   0.00000000
+#&gt; X_train_microD6S264   0.00000000
+#&gt; X_train_microD14S65  -1.33587373
+#&gt; X_train_microD17S790  0.00000000
+#&gt; X_train_microD5S430   1.72799213
+#&gt; X_train_microD3S1283  0.00000000
+#&gt; X_train_microD4S414   1.03558702
+#&gt; X_train_microD8S283   0.00000000
+#&gt; X_train_microD11S916  0.00000000
+#&gt; X_train_microD2S159   0.00000000
+#&gt; X_train_microD16S408 -1.75748257
+#&gt; X_train_microD6S275   0.00000000
+#&gt; X_train_microD10S192  0.00000000
+#&gt; X_train_microsexe     0.00000000
+#&gt; X_train_microAgediag  0.05075304
+#&gt; X_train_microSiege    0.00000000
+#&gt; X_train_microT        1.36569407
+#&gt; X_train_microN        1.27485618
+#&gt; X_train_microM       -1.17682617
+#&gt; X_train_microSTADE   -0.65106093
+#&gt; Information criteria and Fit statistics:
+#&gt;                 AIC       BIC
+#&gt; Nb_Comp_0 112.87990 112.87990
+#&gt; Nb_Comp_1  85.54313  87.92516
+#&gt; Nb_Comp_2  75.16125  79.92530
+#&gt; Nb_Comp_3  73.63097  80.77705</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
