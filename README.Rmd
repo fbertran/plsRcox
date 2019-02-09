@@ -62,6 +62,7 @@ The package provides several modelling techniques related to penalized Cox model
 
 ![Example of biplot of data.](man/figures/biplot_bioinfo.png)
 
+This website and these examples were created by F. Bertrand and M. Maumy-Bertrand.
 
 ## Installation
 
