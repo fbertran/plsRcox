@@ -1,3 +1,7 @@
+# plsRcox 1.7.5
+
+* Added biocViews: to Description.
+
 # plsRcox 1.7.4
 
 * Created website for the package.
