@@ -1,3 +1,7 @@
+# plsRcox 1.7.6
+
+* Roxygen the package, add badges, package description file and update pkgdown site.
+
 # plsRcox 1.7.5
 
 * Added biocViews: to Description.

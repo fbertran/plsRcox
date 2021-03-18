@@ -1,3 +1,25 @@
+#' @title Internal plsRcox functions
+#' 
+#' @name internal-plsRcox
+#' 
+#' @description These are not to be called by the user.
+#' 
+#' @aliases getIndic getIndicCV getIndicCViAUCSH getIndicCViAUCSurvROCTest
+#' correctp.cox spls.cox ust spls.dv pls.cox predict.pls.cox
+#' @author Frédéric Bertrand\cr
+#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \url{http://www-irma.u-strasbg.fr/~fbertran/}
+#' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+#' Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+#' Proceedings of User2014!, Los Angeles, page 152.\cr
+#' 
+#' Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+#' censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+#' Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+#' doi:10.1093/bioinformatics/btu660.
+#' @keywords internal
+NULL
+
 getIndic = function(lp,lpnew,Surv.rsp,Surv.rsp.new,times.auc=seq(10,1000,10),times.prederr=1:500,train.fit,train.fit.cph,tmax.train=365,tmax.test=365,TR,TE,plot.it=TRUE){
   try(attachNamespace("survival"),silent=TRUE)
   #on.exit(try(unloadNamespace("survival"),silent=TRUE))

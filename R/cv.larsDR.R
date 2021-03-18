@@ -1,3 +1,164 @@
+#' Cross-validating a larsDR-Model
+#' 
+#' This function cross-validates \link{larsDR_coxph} models.\cr
+#' 
+#' It only computes the recommended van Houwelingen CV partial likelihood
+#' criterion criterion. Set \code{allCVcrit=TRUE} to retrieve the 13 other
+#' ones.
+#' 
+#' 
+#' @param data A list of three items: \itemize{ \item\code{x} the explanatory
+#' variables passed to \code{\link{larsDR_coxph}}'s \code{Xplan} argument,
+#' \item\code{time} passed to \code{\link{larsDR_coxph}}'s \code{time}
+#' argument, \item\code{status} \code{\link{larsDR_coxph}}'s \code{status}
+#' argument.  }
+#' @param method A character string specifying the method for tie handling. If
+#' there are no tied death times all the methods are equivalent. The Efron
+#' approximation is used as the default here, it is more accurate when dealing
+#' with tied death times, and is as efficient computationally.
+#' @param nfold The number of folds to use to perform the cross-validation
+#' process.
+#' @param fraction L1 norm fraction.
+#' @param plot.it Shall the results be displayed on a plot ?
+#' @param se Should standard errors be plotted ?
+#' @param givefold Explicit list of omited values in each fold can be provided
+#' using this argument.
+#' @param scaleX Shall the predictors be standardized ?
+#' @param scaleY Should the \code{time} values be standardized ?
+#' @param folddetails Should values and completion status for each folds be
+#' returned ?
+#' @param allCVcrit Should the other 13 CV criteria be evaled and returned ?
+#' @param details Should all results of the functions that perform error
+#' computations be returned ?
+#' @param namedataset Name to use to craft temporary results names
+#' @param save Should temporary results be saved ?
+#' @param verbose Should some CV details be displayed ?
+#' @param \dots Other arguments to pass to \code{\link{larsDR_coxph}}.
+#' @return \item{nt}{The number of components requested}
+#' \item{cv.error1}{Vector with the mean values, across folds, of, per fold
+#' unit, Cross-validated log-partial-likelihood for models with 0 to nt
+#' components.} \item{cv.error2}{Vector with the mean values, across folds, of,
+#' per fold unit, van Houwelingen Cross-validated log-partial-likelihood for
+#' models with 0 to nt components.} \item{cv.error3}{Vector with the mean
+#' values, across folds, of iAUC_CD for models with 0 to nt components.}
+#' \item{cv.error4}{Vector with the mean values, across folds, of iAUC_hc for
+#' models with 0 to nt components.} \item{cv.error5}{Vector with the mean
+#' values, across folds, of iAUC_sh for models with 0 to nt components.}
+#' \item{cv.error6}{Vector with the mean values, across folds, of iAUC_Uno for
+#' models with 0 to nt components.} \item{cv.error7}{Vector with the mean
+#' values, across folds, of iAUC_hz.train for models with 0 to nt components.}
+#' \item{cv.error8}{Vector with the mean values, across folds, of iAUC_hz.test
+#' for models with 0 to nt components.} \item{cv.error9}{Vector with the mean
+#' values, across folds, of iAUC_survivalROC.train for models with 0 to nt
+#' components.} \item{cv.error10}{Vector with the mean values, across folds, of
+#' iAUC_survivalROC.test for models with 0 to nt components.}
+#' \item{cv.error11}{Vector with the mean values, across folds, of iBrierScore
+#' unw for models with 0 to nt components.} \item{cv.error12}{Vector with the
+#' mean values, across folds, of iSchmidScore (robust BS) unw for models with 0
+#' to nt components.} \item{cv.error13}{Vector with the mean values, across
+#' folds, of iBrierScore w for models with 0 to nt components.}
+#' \item{cv.error14}{Vector with the mean values, across folds, of iSchmidScore
+#' (robust BS) w for models with 0 to nt components.} \item{cv.se1}{Vector with
+#' the standard error values, across folds, of, per fold unit, Cross-validated
+#' log-partial-likelihood for models with 0 to nt components.}
+#' \item{cv.se2}{Vector with the standard error values, across folds, of, per
+#' fold unit, van Houwelingen Cross-validated log-partial-likelihood for models
+#' with 0 to nt components.} \item{cv.se3}{Vector with the standard error
+#' values, across folds, of iAUC_CD for models with 0 to nt components.}
+#' \item{cv.se4}{Vector with the standard error values, across folds, of
+#' iAUC_hc for models with 0 to nt components.} \item{cv.se5}{Vector with the
+#' standard error values, across folds, of iAUC_sh for models with 0 to nt
+#' components.} \item{cv.se6}{Vector with the standard error values, across
+#' folds, of iAUC_Uno for models with 0 to nt components.} \item{cv.se7}{Vector
+#' with the standard error values, across folds, of iAUC_hz.train for models
+#' with 0 to nt components.} \item{cv.se8}{Vector with the standard error
+#' values, across folds, of iAUC_hz.test for models with 0 to nt components.}
+#' \item{cv.se9}{Vector with the standard error values, across folds, of
+#' iAUC_survivalROC.train for models with 0 to nt components.}
+#' \item{cv.se10}{Vector with the standard error values, across folds, of
+#' iAUC_survivalROC.test for models with 0 to nt components.}
+#' \item{cv.se11}{Vector with the standard error values, across folds, of
+#' iBrierScore unw for models with 0 to nt components.} \item{cv.se12}{Vector
+#' with the standard error values, across folds, of iSchmidScore (robust BS)
+#' unw for models with 0 to nt components.} \item{cv.se13}{Vector with the
+#' standard error values, across folds, of iBrierScore w for models with 0 to
+#' nt components.} \item{cv.se14}{Vector with the standard error values, across
+#' folds, of iSchmidScore (robust BS) w for models with 0 to nt components.}
+#' \item{folds}{Explicit list of the values that were omited values in each
+#' fold.} \item{lambda.min1}{Vector with the standard error values, across
+#' folds, of, per fold unit, Cross-validated log-partial-likelihood for models
+#' with 0 to nt components.} \item{lambda.min2}{Vector with the standard error
+#' values, across folds, of, per fold unit, van Houwelingen Cross-validated
+#' log-partial-likelihood for models with 0 to nt components.}
+#' \item{lambda.min1}{Optimal Nbr of components, min Cross-validated
+#' log-partial-likelihood criterion.} \item{lambda.se1}{Optimal Nbr of
+#' components, min+1se Cross-validated log-partial-likelihood criterion.}
+#' \item{lambda.min2}{Optimal Nbr of components, min van Houwelingen
+#' Cross-validated log-partial-likelihood.} \item{lambda.se2}{Optimal Nbr of
+#' components, min+1se van Houwelingen Cross-validated log-partial-likelihood.}
+#' \item{lambda.min3}{Optimal Nbr of components, max iAUC_CD criterion.}
+#' \item{lambda.se3}{Optimal Nbr of components, max+1se iAUC_CD criterion.}
+#' \item{lambda.min4}{Optimal Nbr of components, max iAUC_hc criterion.}
+#' \item{lambda.se4}{Optimal Nbr of components, max+1se iAUC_hc criterion.}
+#' \item{lambda.min5}{Optimal Nbr of components, max iAUC_sh criterion.}
+#' \item{lambda.se5}{Optimal Nbr of components, max+1se iAUC_sh criterion.}
+#' \item{lambda.min6}{Optimal Nbr of components, max iAUC_Uno criterion.}
+#' \item{lambda.se6}{Optimal Nbr of components, max+1se iAUC_Uno criterion.}
+#' \item{lambda.min7}{Optimal Nbr of components, max iAUC_hz.train criterion.}
+#' \item{lambda.se7}{Optimal Nbr of components, max+1se iAUC_hz.train
+#' criterion.} \item{lambda.min8}{Optimal Nbr of components, max iAUC_hz.test
+#' criterion.} \item{lambda.se8}{Optimal Nbr of components, max+1se
+#' iAUC_hz.test criterion.} \item{lambda.min9}{Optimal Nbr of components, max
+#' iAUC_survivalROC.train criterion.} \item{lambda.se9}{Optimal Nbr of
+#' components, max+1se iAUC_survivalROC.train criterion.}
+#' \item{lambda.min10}{Optimal Nbr of components, max iAUC_survivalROC.test
+#' criterion.} \item{lambda.se10}{Optimal Nbr of components, max+1se
+#' iAUC_survivalROC.test criterion.} \item{lambda.min11}{Optimal Nbr of
+#' components, min iBrierScore unw criterion.} \item{lambda.se11}{Optimal Nbr
+#' of components, min+1se iBrierScore unw criterion.}
+#' \item{lambda.min12}{Optimal Nbr of components, min iSchmidScore unw
+#' criterion.} \item{lambda.se12}{Optimal Nbr of components, min+1se
+#' iSchmidScore unw criterion.} \item{lambda.min13}{Optimal Nbr of components,
+#' min iBrierScore w criterion.} \item{lambda.se13}{Optimal Nbr of components,
+#' min+1se iBrierScore w criterion.} \item{lambda.min14}{Optimal Nbr of
+#' components, min iSchmidScore w criterion.} \item{lambda.se14}{Optimal Nbr of
+#' components, min+1se iSchmidScore w criterion.} \item{errormat1-14}{If
+#' \code{details=TRUE}, matrices with the error values for every folds across
+#' each of the components and each of the criteria} \item{completed.cv1-14}{If
+#' \code{details=TRUE}, matrices with logical values for every folds across
+#' each of the components and each of the criteria: \code{TRUE} if the
+#' computation was completed and \code{FALSE} it is failed.}
+#' \item{larsmodfull}{Lars model fitted on the residuals.}
+#' \item{All_indics}{All results of the functions that perform error
+#' computation, for each fold, each component and error criterion.}
+#' @author Frédéric Bertrand\cr
+#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \url{http://www-irma.u-strasbg.fr/~fbertran/}
+#' @seealso See Also \code{\link{larsDR_coxph}}
+#' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+#' Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+#' Proceedings of User2014!, Los Angeles, page 152.\cr
+#' 
+#' Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+#' censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+#' Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+#' doi:10.1093/bioinformatics/btu660.
+#' @keywords models regression
+#' @examples
+#' 
+#' data(micro.censure)
+#' data(Xmicro.censure_compl_imp)
+#' set.seed(123456)
+#' X_train_micro <- apply((as.matrix(Xmicro.censure_compl_imp)),FUN="as.numeric",MARGIN=2)[1:80,]
+#' X_train_micro_df <- data.frame(X_train_micro)
+#' Y_train_micro <- micro.censure$survyear[1:80]
+#' C_train_micro <- micro.censure$DC[1:80]
+#' 
+#' #Should be run with the default: fraction = seq(0, 1, length = 100)
+#' (cv.larsDR.res=cv.larsDR(list(x=X_train_micro,time=Y_train_micro,
+#' status=C_train_micro),se=TRUE,fraction=seq(0, 1, length = 4)))
+#' 
+#' @export cv.larsDR
 cv.larsDR =
   function (data, method = c("efron", "breslow"), nfold = 5, fraction = seq(0, 1, length = 100), plot.it = TRUE, 
             se = TRUE, givefold, scaleX = TRUE, scaleY = FALSE, folddetails = FALSE, allCVcrit=FALSE, 

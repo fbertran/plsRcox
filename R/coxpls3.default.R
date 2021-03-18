@@ -1,3 +1,6 @@
+#' @rdname coxpls3
+#' @export
+
 coxpls3.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(7,ncol(Xplan)), typeVC="none", plot=FALSE, allres=FALSE,sparse=FALSE,sparseStop=TRUE,...) {
 if(scaleX){Xplan <- scale(Xplan)}
 if((scaleY & missing(time2))){time <- scale(time)}

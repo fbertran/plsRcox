@@ -8,21 +8,36 @@
 
 <title>Print method for plsRcox models — print.plsRcoxmodel • plsRcox</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +45,11 @@
 
 
 
-<meta property="og:title" content="Print method for plsRcox models — print.plsRcoxmodel" />
 
+<meta property="og:title" content="Print method for plsRcox models — print.plsRcoxmodel" />
 <meta property="og:description" content="This function provides a print method for the class &quot;plsRcoxmodel&quot;" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="/logo.png" />
+
 
 
 
@@ -47,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">plsRcox</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.6</span>
       </span>
     </div>
 
@@ -71,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,11 +99,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/fbertran/plsRcox">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/fbertran/plsRcox/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,25 +113,24 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Print method for plsRcox models</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/fbertran/plsRcox/blob/master/R/print.plsRcoxmodel.R'><code>R/print.plsRcoxmodel.R</code></a></small>
     <div class="hidden name"><code>print.plsRcoxmodel.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
     <p>This function provides a print method for the class <code>"plsRcoxmodel"</code></p>
-    
     </div>
 
-    <pre class="usage"># S3 method for plsRcoxmodel
-print(x, &#8230;)</pre>
-    
+    <pre class="usage"><span class='co'># S3 method for plsRcoxmodel</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -124,58 +139,110 @@ print(x, &#8230;)</pre>
       <td><p>an object of the class <code>"plsRcoxmodel"</code></p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>not used</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>NULL</code></p>
-    
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.<br /></p>  
-<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.</p>
-    
+    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+Proceedings of User2014!, Los Angeles, page 152.<br /></p>
+<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+doi:10.1093/bioinformatics/btu660.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='https://rdrr.io/r/base/print.html'>print</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>micro.censure</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)
-
-<span class='no'>X_train_micro</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>((<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)),<span class='kw'>FUN</span><span class='kw'>=</span><span class='st'>"as.numeric"</span>,<span class='kw'>MARGIN</span><span class='kw'>=</span><span class='fl'>2</span>)[<span class='fl'>1</span>:<span class='fl'>80</span>,]
-<span class='no'>Y_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>survyear</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
-<span class='no'>C_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>DC</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
-
-<span class='no'>modpls</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='plsRcox.html'>plsRcox</a></span>(<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>modpls</span>)
-<span class='co'># }</span></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
     <p>Frédéric Bertrand<br />
 <a href='mailto:frederic.bertrand@math.unistra.fr'>frederic.bertrand@math.unistra.fr</a><br />
 <a href='http://www-irma.u-strasbg.fr/~fbertran/'>http://www-irma.u-strasbg.fr/~fbertran/</a></p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>micro.censure</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span>
+
+<span class='va'>X_train_micro</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span><span class='op'>)</span>,FUN<span class='op'>=</span><span class='st'>"as.numeric"</span>,MARGIN<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span>,<span class='op'>]</span>
+<span class='va'>Y_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>survyear</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
+<span class='va'>C_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>DC</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
+
+<span class='va'>modpls</span> <span class='op'>&lt;-</span> <span class='fu'><a href='plsRcox.html'>plsRcox</a></span><span class='op'>(</span><span class='va'>X_train_micro</span>,time<span class='op'>=</span><span class='va'>Y_train_micro</span>,event<span class='op'>=</span><span class='va'>C_train_micro</span>,nt<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>modpls</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Number of required components:
+#&gt; [1] 3
+#&gt; Number of successfully computed components:
+#&gt; [1] 3
+#&gt; Coefficients:
+#&gt;                 [,1]
+#&gt; D18S61   0.657688859
+#&gt; D17S794 -0.265485544
+#&gt; D13S173  0.532071747
+#&gt; D20S107  2.764628048
+#&gt; TP53     0.635427658
+#&gt; D9S171   0.008139129
+#&gt; D8S264  -0.346586438
+#&gt; D5S346  -1.628707075
+#&gt; D22S928 -1.199432030
+#&gt; D18S53   0.550835752
+#&gt; D1S225  -1.098480981
+#&gt; D3S1282 -1.784482327
+#&gt; D15S127  1.905056253
+#&gt; D1S305  -1.028283057
+#&gt; D1S207   1.202494887
+#&gt; D2S138  -1.610961966
+#&gt; D16S422 -0.970535096
+#&gt; D9S179  -0.209672191
+#&gt; D10S191 -1.143815474
+#&gt; D4S394   0.239525569
+#&gt; D1S197   0.087674404
+#&gt; D6S264   0.289838007
+#&gt; D14S65  -1.281410428
+#&gt; D17S790 -0.335500453
+#&gt; D5S430   0.789195774
+#&gt; D3S1283  0.453349027
+#&gt; D4S414   1.313974219
+#&gt; D8S283  -0.179467540
+#&gt; D11S916  0.457823141
+#&gt; D2S159   0.719452513
+#&gt; D16S408 -1.343339387
+#&gt; D6S275  -0.568676682
+#&gt; D10S192 -0.011708963
+#&gt; sexe    -0.080266201
+#&gt; Agediag  0.051845736
+#&gt; Siege   -0.157190141
+#&gt; T        0.865566178
+#&gt; N        0.903857312
+#&gt; M       -0.883429770
+#&gt; STADE   -0.079069085
+#&gt; Information criteria and Fit statistics:
+#&gt;                 AIC       BIC
+#&gt; Nb_Comp_0 112.87990 112.87990
+#&gt; Nb_Comp_1  85.11075  87.49278
+#&gt; Nb_Comp_2  75.49537  80.25942
+#&gt; Nb_Comp_3  68.45852  75.60460</div><div class='input'>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -183,13 +250,16 @@ print(x, &#8230;)</pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

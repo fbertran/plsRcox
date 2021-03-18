@@ -8,21 +8,36 @@
 
 <title>Cross-validating a plsRcox-Model — cv.plsRcox • plsRcox</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,12 +45,11 @@
 
 
 
-<meta property="og:title" content="Cross-validating a plsRcox-Model — cv.plsRcox" />
 
-<meta property="og:description" content="This function cross-validates plsRcox models.  
-It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE 
-  to retrieve the 13 other ones." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Cross-validating a plsRcox-Model — cv.plsRcox" />
+<meta property="og:description" content="This function cross-validates plsRcox models." />
+<meta property="og:image" content="/logo.png" />
+
 
 
 
@@ -49,9 +63,10 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -65,7 +80,7 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">plsRcox</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.6</span>
       </span>
     </div>
 
@@ -73,7 +88,7 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -84,11 +99,10 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/fbertran/plsRcox">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/fbertran/plsRcox/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -99,51 +113,67 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Cross-validating a plsRcox-Model</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/fbertran/plsRcox/blob/master/R/cv.plsRcox.R'><code>R/cv.plsRcox.R</code></a></small>
     <div class="hidden name"><code>cv.plsRcox.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-    <p>This function cross-validates <a href='plsRcox.html'>plsRcox</a> models.<br /></p>  
-<p>It only computes the recommended iAUCSH criterion. Set <code>allCVcrit=TRUE</code> 
-  to retrieve the 13 other ones.</p>
-    
+    <p>This function cross-validates <a href='plsRcox.html'>plsRcox</a> models.<br /></p>
     </div>
 
-    <pre class="usage"><span class='fu'>cv.plsRcox</span>(<span class='no'>data</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"efron"</span>, <span class='st'>"breslow"</span>), <span class='kw'>nfold</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>nt</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>plot.it</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-<span class='kw'>se</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>givefold</span>, <span class='kw'>scaleX</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>folddetails</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>allCVcrit</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>details</span><span class='kw'>=</span><span class='fl'>FALSE</span>,
-<span class='kw'>namedataset</span><span class='kw'>=</span><span class='st'>"data"</span>, <span class='kw'>save</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>,<span class='no'>...</span>)</pre>
-    
+    <pre class="usage"><span class='fu'>cv.plsRcox</span><span class='op'>(</span>
+  <span class='va'>data</span>,
+  method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"efron"</span>, <span class='st'>"breslow"</span><span class='op'>)</span>,
+  nfold <span class='op'>=</span> <span class='fl'>5</span>,
+  nt <span class='op'>=</span> <span class='fl'>10</span>,
+  plot.it <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  se <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>givefold</span>,
+  scaleX <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  folddetails <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  allCVcrit <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  details <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  namedataset <span class='op'>=</span> <span class='st'>"data"</span>,
+  save <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data</th>
       <td><p>A list of three items:</p><ul>
-<li><p><code>x</code> the explanatory variables passed to <code><a href='plsRcox.html'>plsRcox</a></code>'s <code>Xplan</code> argument,</p></li>
+<li><p><code>x</code> the explanatory
+variables passed to <code><a href='plsRcox.html'>plsRcox</a></code>'s <code>Xplan</code> argument,</p></li>
 <li><p><code>time</code> passed to <code><a href='plsRcox.html'>plsRcox</a></code>'s <code>time</code> argument,</p></li>
 <li><p><code>status</code> <code><a href='plsRcox.html'>plsRcox</a></code>'s <code>status</code> argument.</p></li>
-</ul>
-</td>
+</ul></td>
     </tr>
     <tr>
       <th>method</th>
-      <td><p>A character string specifying the method for tie handling. If there are no tied death times all the methods are equivalent. The Efron approximation is used as the default here, it is more accurate when dealing with tied death times, and is as efficient computationally.</p></td>
+      <td><p>A character string specifying the method for tie handling. If
+there are no tied death times all the methods are equivalent. The Efron
+approximation is used as the default here, it is more accurate when dealing
+with tied death times, and is as efficient computationally.</p></td>
     </tr>
     <tr>
       <th>nfold</th>
-      <td><p>The number of folds to use to perform the cross-validation process.</p></td>
+      <td><p>The number of folds to use to perform the cross-validation
+process.</p></td>
     </tr>
     <tr>
       <th>nt</th>
-      <td><p>The number of components to include in the model. It this is not supplied, 10 components are fitted.</p></td>
+      <td><p>The number of components to include in the model. It this is not
+supplied, 10 components are fitted.</p></td>
     </tr>
     <tr>
       <th>plot.it</th>
@@ -155,7 +185,8 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
     </tr>
     <tr>
       <th>givefold</th>
-      <td><p>Explicit list of omited values in each fold can be provided using this argument.</p></td>
+      <td><p>Explicit list of omited values in each fold can be provided
+using this argument.</p></td>
     </tr>
     <tr>
       <th>scaleX</th>
@@ -163,7 +194,8 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
     </tr>
     <tr>
       <th>folddetails</th>
-      <td><p>Should values and completion status for each folds be returned ?</p></td>
+      <td><p>Should values and completion status for each folds be
+returned ?</p></td>
     </tr>
     <tr>
       <th>allCVcrit</th>
@@ -171,7 +203,8 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
     </tr>
     <tr>
       <th>details</th>
-      <td><p>Should all results of the functions that perform error computations be returned ?</p></td>
+      <td><p>Should all results of the functions that perform error
+computations be returned ?</p></td>
     </tr>
     <tr>
       <th>namedataset</th>
@@ -186,51 +219,77 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
       <td><p>Should some CV details be displayed ?</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
+      <th>...</th>
       <td><p>Other arguments to pass to <code><a href='plsRcox.html'>plsRcox</a></code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     
 
 <dt>nt</dt><dd><p>The number of components requested</p></dd>
-<dt>cv.error1</dt><dd><p>Vector with the mean values, across folds, of, per fold unit, Cross-validated log-partial-likelihood for models with 0 to nt components.</p></dd>
-<dt>cv.error2</dt><dd><p>Vector with the mean values, across folds, of, per fold unit, van Houwelingen Cross-validated log-partial-likelihood for models with 0 to nt components.</p></dd>
-<dt>cv.error3</dt><dd><p>Vector with the mean values, across folds, of iAUC_CD for models with 0 to nt components.</p></dd>
-<dt>cv.error4</dt><dd><p>Vector with the mean values, across folds, of iAUC_hc for models with 0 to nt components.</p></dd>
-<dt>cv.error5</dt><dd><p>Vector with the mean values, across folds, of iAUC_sh for models with 0 to nt components.</p></dd>
-<dt>cv.error6</dt><dd><p>Vector with the mean values, across folds, of iAUC_Uno for models with 0 to nt components.</p></dd>
-<dt>cv.error7</dt><dd><p>Vector with the mean values, across folds, of iAUC_hz.train for models with 0 to nt components.</p></dd>
-<dt>cv.error8</dt><dd><p>Vector with the mean values, across folds, of iAUC_hz.test for models with 0 to nt components.</p></dd>
-<dt>cv.error9</dt><dd><p>Vector with the mean values, across folds, of iAUC_survivalROC.train for models with 0 to nt components.</p></dd>
-<dt>cv.error10</dt><dd><p>Vector with the mean values, across folds, of iAUC_survivalROC.test for models with 0 to nt components.</p></dd>
-<dt>cv.error11</dt><dd><p>Vector with the mean values, across folds, of iBrierScore unw for models with 0 to nt components.</p></dd>
-<dt>cv.error12</dt><dd><p>Vector with the mean values, across folds, of iSchmidScore (robust BS) unw for models with 0 to nt components.</p></dd>
-<dt>cv.error13</dt><dd><p>Vector with the mean values, across folds, of iBrierScore w for models with 0 to nt components.</p></dd>
-<dt>cv.error14</dt><dd><p>Vector with the mean values, across folds, of iSchmidScore (robust BS) w for models with 0 to nt components.</p></dd>
-<dt>cv.se1</dt><dd><p>Vector with the standard error values, across folds, of, per fold unit, Cross-validated log-partial-likelihood for models with 0 to nt components.</p></dd>
-<dt>cv.se2</dt><dd><p>Vector with the standard error values, across folds, of, per fold unit, van Houwelingen Cross-validated log-partial-likelihood for models with 0 to nt components.</p></dd>
-<dt>cv.se3</dt><dd><p>Vector with the standard error values, across folds, of iAUC_CD for models with 0 to nt components.</p></dd>
-<dt>cv.se4</dt><dd><p>Vector with the standard error values, across folds, of iAUC_hc for models with 0 to nt components.</p></dd>
-<dt>cv.se5</dt><dd><p>Vector with the standard error values, across folds, of iAUC_sh for models with 0 to nt components.</p></dd>
-<dt>cv.se6</dt><dd><p>Vector with the standard error values, across folds, of iAUC_Uno for models with 0 to nt components.</p></dd>
-<dt>cv.se7</dt><dd><p>Vector with the standard error values, across folds, of iAUC_hz.train for models with 0 to nt components.</p></dd>
-<dt>cv.se8</dt><dd><p>Vector with the standard error values, across folds, of iAUC_hz.test for models with 0 to nt components.</p></dd>
-<dt>cv.se9</dt><dd><p>Vector with the standard error values, across folds, of iAUC_survivalROC.train for models with 0 to nt components.</p></dd>
-<dt>cv.se10</dt><dd><p>Vector with the standard error values, across folds, of iAUC_survivalROC.test for models with 0 to nt components.</p></dd>
-<dt>cv.se11</dt><dd><p>Vector with the standard error values, across folds, of iBrierScore unw for models with 0 to nt components.</p></dd>
-<dt>cv.se12</dt><dd><p>Vector with the standard error values, across folds, of iSchmidScore (robust BS) unw for models with 0 to nt components.</p></dd>
-<dt>cv.se13</dt><dd><p>Vector with the standard error values, across folds, of iBrierScore w for models with 0 to nt components.</p></dd>
-<dt>cv.se14</dt><dd><p>Vector with the standard error values, across folds, of iSchmidScore (robust BS) w for models with 0 to nt components.</p></dd>
-<dt>folds</dt><dd><p>Explicit list of the values that were omited values in each fold.</p></dd>
-<dt>lambda.min1</dt><dd><p>Vector with the standard error values, across folds, of, per fold unit, Cross-validated log-partial-likelihood for models with 0 to nt components.</p></dd>
-<dt>lambda.min2</dt><dd><p>Vector with the standard error values, across folds, of, per fold unit, van Houwelingen Cross-validated log-partial-likelihood for models with 0 to nt components.</p></dd>
-<dt>lambda.min1</dt><dd><p>Optimal Nbr of components, min Cross-validated log-partial-likelihood criterion.</p></dd>
-<dt>lambda.se1</dt><dd><p>Optimal Nbr of components, min+1se Cross-validated log-partial-likelihood criterion.</p></dd>
-<dt>lambda.min2</dt><dd><p>Optimal Nbr of components, min van Houwelingen Cross-validated log-partial-likelihood.</p></dd>
-<dt>lambda.se2</dt><dd><p>Optimal Nbr of components, min+1se van Houwelingen Cross-validated log-partial-likelihood.</p></dd>
+<dt>cv.error1</dt><dd><p>Vector with the mean values, across folds, of, per fold
+unit, Cross-validated log-partial-likelihood for models with 0 to nt
+components.</p></dd> <dt>cv.error2</dt><dd><p>Vector with the mean values, across folds, of,
+per fold unit, van Houwelingen Cross-validated log-partial-likelihood for
+models with 0 to nt components.</p></dd> <dt>cv.error3</dt><dd><p>Vector with the mean
+values, across folds, of iAUC_CD for models with 0 to nt components.</p></dd>
+<dt>cv.error4</dt><dd><p>Vector with the mean values, across folds, of iAUC_hc for
+models with 0 to nt components.</p></dd> <dt>cv.error5</dt><dd><p>Vector with the mean
+values, across folds, of iAUC_sh for models with 0 to nt components.</p></dd>
+<dt>cv.error6</dt><dd><p>Vector with the mean values, across folds, of iAUC_Uno for
+models with 0 to nt components.</p></dd> <dt>cv.error7</dt><dd><p>Vector with the mean
+values, across folds, of iAUC_hz.train for models with 0 to nt components.</p></dd>
+<dt>cv.error8</dt><dd><p>Vector with the mean values, across folds, of iAUC_hz.test
+for models with 0 to nt components.</p></dd> <dt>cv.error9</dt><dd><p>Vector with the mean
+values, across folds, of iAUC_survivalROC.train for models with 0 to nt
+components.</p></dd> <dt>cv.error10</dt><dd><p>Vector with the mean values, across folds, of
+iAUC_survivalROC.test for models with 0 to nt components.</p></dd>
+<dt>cv.error11</dt><dd><p>Vector with the mean values, across folds, of iBrierScore
+unw for models with 0 to nt components.</p></dd> <dt>cv.error12</dt><dd><p>Vector with the
+mean values, across folds, of iSchmidScore (robust BS) unw for models with 0
+to nt components.</p></dd> <dt>cv.error13</dt><dd><p>Vector with the mean values, across
+folds, of iBrierScore w for models with 0 to nt components.</p></dd>
+<dt>cv.error14</dt><dd><p>Vector with the mean values, across folds, of iSchmidScore
+(robust BS) w for models with 0 to nt components.</p></dd> <dt>cv.se1</dt><dd><p>Vector with
+the standard error values, across folds, of, per fold unit, Cross-validated
+log-partial-likelihood for models with 0 to nt components.</p></dd>
+<dt>cv.se2</dt><dd><p>Vector with the standard error values, across folds, of, per
+fold unit, van Houwelingen Cross-validated log-partial-likelihood for models
+with 0 to nt components.</p></dd> <dt>cv.se3</dt><dd><p>Vector with the standard error
+values, across folds, of iAUC_CD for models with 0 to nt components.</p></dd>
+<dt>cv.se4</dt><dd><p>Vector with the standard error values, across folds, of
+iAUC_hc for models with 0 to nt components.</p></dd> <dt>cv.se5</dt><dd><p>Vector with the
+standard error values, across folds, of iAUC_sh for models with 0 to nt
+components.</p></dd> <dt>cv.se6</dt><dd><p>Vector with the standard error values, across
+folds, of iAUC_Uno for models with 0 to nt components.</p></dd> <dt>cv.se7</dt><dd><p>Vector
+with the standard error values, across folds, of iAUC_hz.train for models
+with 0 to nt components.</p></dd> <dt>cv.se8</dt><dd><p>Vector with the standard error
+values, across folds, of iAUC_hz.test for models with 0 to nt components.</p></dd>
+<dt>cv.se9</dt><dd><p>Vector with the standard error values, across folds, of
+iAUC_survivalROC.train for models with 0 to nt components.</p></dd>
+<dt>cv.se10</dt><dd><p>Vector with the standard error values, across folds, of
+iAUC_survivalROC.test for models with 0 to nt components.</p></dd>
+<dt>cv.se11</dt><dd><p>Vector with the standard error values, across folds, of
+iBrierScore unw for models with 0 to nt components.</p></dd> <dt>cv.se12</dt><dd><p>Vector
+with the standard error values, across folds, of iSchmidScore (robust BS)
+unw for models with 0 to nt components.</p></dd> <dt>cv.se13</dt><dd><p>Vector with the
+standard error values, across folds, of iBrierScore w for models with 0 to
+nt components.</p></dd> <dt>cv.se14</dt><dd><p>Vector with the standard error values, across
+folds, of iSchmidScore (robust BS) w for models with 0 to nt components.</p></dd>
+<dt>folds</dt><dd><p>Explicit list of the values that were omited values in each
+fold.</p></dd> <dt>lambda.min1</dt><dd><p>Vector with the standard error values, across
+folds, of, per fold unit, Cross-validated log-partial-likelihood for models
+with 0 to nt components.</p></dd> <dt>lambda.min2</dt><dd><p>Vector with the standard error
+values, across folds, of, per fold unit, van Houwelingen Cross-validated
+log-partial-likelihood for models with 0 to nt components.</p></dd>
+<dt>lambda.min1</dt><dd><p>Optimal Nbr of components, min Cross-validated
+log-partial-likelihood criterion.</p></dd> <dt>lambda.se1</dt><dd><p>Optimal Nbr of
+components, min+1se Cross-validated log-partial-likelihood criterion.</p></dd>
+<dt>lambda.min2</dt><dd><p>Optimal Nbr of components, min van Houwelingen
+Cross-validated log-partial-likelihood.</p></dd> <dt>lambda.se2</dt><dd><p>Optimal Nbr of
+components, min+1se van Houwelingen Cross-validated log-partial-likelihood.</p></dd>
 <dt>lambda.min3</dt><dd><p>Optimal Nbr of components, max iAUC_CD criterion.</p></dd>
 <dt>lambda.se3</dt><dd><p>Optimal Nbr of components, max+1se iAUC_CD criterion.</p></dd>
 <dt>lambda.min4</dt><dd><p>Optimal Nbr of components, max iAUC_hc criterion.</p></dd>
@@ -240,71 +299,149 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
 <dt>lambda.min6</dt><dd><p>Optimal Nbr of components, max iAUC_Uno criterion.</p></dd>
 <dt>lambda.se6</dt><dd><p>Optimal Nbr of components, max+1se iAUC_Uno criterion.</p></dd>
 <dt>lambda.min7</dt><dd><p>Optimal Nbr of components, max iAUC_hz.train criterion.</p></dd>
-<dt>lambda.se7</dt><dd><p>Optimal Nbr of components, max+1se iAUC_hz.train criterion.</p></dd>
-<dt>lambda.min8</dt><dd><p>Optimal Nbr of components, max iAUC_hz.test criterion.</p></dd>
-<dt>lambda.se8</dt><dd><p>Optimal Nbr of components, max+1se iAUC_hz.test criterion.</p></dd>
-<dt>lambda.min9</dt><dd><p>Optimal Nbr of components, max iAUC_survivalROC.train criterion.</p></dd>
-<dt>lambda.se9</dt><dd><p>Optimal Nbr of components, max+1se iAUC_survivalROC.train criterion.</p></dd>
-<dt>lambda.min10</dt><dd><p>Optimal Nbr of components, max iAUC_survivalROC.test criterion.</p></dd>
-<dt>lambda.se10</dt><dd><p>Optimal Nbr of components, max+1se iAUC_survivalROC.test criterion.</p></dd>
-<dt>lambda.min11</dt><dd><p>Optimal Nbr of components, min iBrierScore unw criterion.</p></dd>
-<dt>lambda.se11</dt><dd><p>Optimal Nbr of components, min+1se iBrierScore unw criterion.</p></dd>
-<dt>lambda.min12</dt><dd><p>Optimal Nbr of components, min iSchmidScore unw criterion.</p></dd>
-<dt>lambda.se12</dt><dd><p>Optimal Nbr of components, min+1se iSchmidScore unw criterion.</p></dd>
-<dt>lambda.min13</dt><dd><p>Optimal Nbr of components, min iBrierScore w criterion.</p></dd>
-<dt>lambda.se13</dt><dd><p>Optimal Nbr of components, min+1se iBrierScore w criterion.</p></dd>
-<dt>lambda.min14</dt><dd><p>Optimal Nbr of components, min iSchmidScore w criterion.</p></dd>
-<dt>lambda.se14</dt><dd><p>Optimal Nbr of components, min+1se iSchmidScore w criterion.</p></dd>
-<dt>errormat1-14</dt><dd><p>If <code>details=TRUE</code>, matrices with the error values for every folds across each of the components and each of the criteria</p></dd>
-<dt>completed.cv1-14</dt><dd><p>If <code>details=TRUE</code>, matrices with logical values for every folds across each of the components and each of the criteria: <code>TRUE</code> if the computation was completed and <code>FALSE</code> it is failed.</p></dd>
-<dt>All_indics</dt><dd><p>All results of the functions that perform error computation, for each fold, each component and error criterion.</p></dd>
+<dt>lambda.se7</dt><dd><p>Optimal Nbr of components, max+1se iAUC_hz.train
+criterion.</p></dd> <dt>lambda.min8</dt><dd><p>Optimal Nbr of components, max iAUC_hz.test
+criterion.</p></dd> <dt>lambda.se8</dt><dd><p>Optimal Nbr of components, max+1se
+iAUC_hz.test criterion.</p></dd> <dt>lambda.min9</dt><dd><p>Optimal Nbr of components, max
+iAUC_survivalROC.train criterion.</p></dd> <dt>lambda.se9</dt><dd><p>Optimal Nbr of
+components, max+1se iAUC_survivalROC.train criterion.</p></dd>
+<dt>lambda.min10</dt><dd><p>Optimal Nbr of components, max iAUC_survivalROC.test
+criterion.</p></dd> <dt>lambda.se10</dt><dd><p>Optimal Nbr of components, max+1se
+iAUC_survivalROC.test criterion.</p></dd> <dt>lambda.min11</dt><dd><p>Optimal Nbr of
+components, min iBrierScore unw criterion.</p></dd> <dt>lambda.se11</dt><dd><p>Optimal Nbr
+of components, min+1se iBrierScore unw criterion.</p></dd>
+<dt>lambda.min12</dt><dd><p>Optimal Nbr of components, min iSchmidScore unw
+criterion.</p></dd> <dt>lambda.se12</dt><dd><p>Optimal Nbr of components, min+1se
+iSchmidScore unw criterion.</p></dd> <dt>lambda.min13</dt><dd><p>Optimal Nbr of components,
+min iBrierScore w criterion.</p></dd> <dt>lambda.se13</dt><dd><p>Optimal Nbr of components,
+min+1se iBrierScore w criterion.</p></dd> <dt>lambda.min14</dt><dd><p>Optimal Nbr of
+components, min iSchmidScore w criterion.</p></dd> <dt>lambda.se14</dt><dd><p>Optimal Nbr of
+components, min+1se iSchmidScore w criterion.</p></dd> <dt>errormat1-14</dt><dd><p>If
+<code>details=TRUE</code>, matrices with the error values for every folds across
+each of the components and each of the criteria</p></dd> <dt>completed.cv1-14</dt><dd><p>If
+<code>details=TRUE</code>, matrices with logical values for every folds across
+each of the components and each of the criteria: <code>TRUE</code> if the
+computation was completed and <code>FALSE</code> it is failed.</p></dd>
+<dt>All_indics</dt><dd><p>All results of the functions that perform error
+computation, for each fold, each component and error criterion.</p></dd>
 
-    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>It only computes the recommended iAUCSH criterion. Set <code>allCVcrit=TRUE</code>
+to retrieve the 13 other ones.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.<br /></p>  
-<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.</p>
-<p>Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data, Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), <a href='https://arxiv.org/abs/1810.01005'>https://arxiv.org/abs/1810.01005</a>.</p>
-    
+    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+Proceedings of User2014!, Los Angeles, page 152.<br /></p>
+<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+doi:10.1093/bioinformatics/btu660.</p>
+<p>Cross validating extensions of kernel, sparse or regular partial least
+squares regression models to censored data, Bertrand, F., Bastien, Ph. and
+Maumy-Bertrand, M. (2018), <a href='https://arxiv.org/abs/1810.01005'>https://arxiv.org/abs/1810.01005</a>.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>See Also <code><a href='plsRcox.html'>plsRcox</a></code></p></div>
-    
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>micro.censure</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/Random'>set.seed</a></span>(<span class='fl'>123456</span>)
-<span class='no'>X_train_micro</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>((<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)),<span class='kw'>FUN</span><span class='kw'>=</span><span class='st'>"as.numeric"</span>,<span class='kw'>MARGIN</span><span class='kw'>=</span><span class='fl'>2</span>)[<span class='fl'>1</span>:<span class='fl'>80</span>,]
-<span class='no'>X_train_micro_df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='no'>X_train_micro</span>)
-<span class='no'>Y_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>survyear</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
-<span class='no'>C_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>DC</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
-
-<span class='co'>#Should be run with a higher value of nt (at least 10)</span>
-(<span class='no'>cv.plsRcox.res</span><span class='kw'>=</span><span class='fu'>cv.plsRcox</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>status</span><span class='kw'>=</span><span class='no'>C_train_micro</span>),<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>3</span>))
-<span class='co'># }</span></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Frederic Bertrand<br />
+    <p>Frédéric Bertrand<br />
 <a href='mailto:frederic.bertrand@math.unistra.fr'>frederic.bertrand@math.unistra.fr</a><br />
 <a href='http://www-irma.u-strasbg.fr/~fbertran/'>http://www-irma.u-strasbg.fr/~fbertran/</a></p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>micro.censure</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123456</span><span class='op'>)</span>
+<span class='va'>X_train_micro</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span><span class='op'>)</span>,FUN<span class='op'>=</span><span class='st'>"as.numeric"</span>,MARGIN<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span>,<span class='op'>]</span>
+<span class='va'>X_train_micro_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>X_train_micro</span><span class='op'>)</span>
+<span class='va'>Y_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>survyear</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
+<span class='va'>C_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>DC</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
+
+<span class='co'>#Should be run with a higher value of nt (at least 10)</span>
+<span class='op'>(</span><span class='va'>cv.plsRcox.res</span><span class='op'>=</span><span class='fu'>cv.plsRcox</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>X_train_micro</span>,time<span class='op'>=</span><span class='va'>Y_train_micro</span>,status<span class='op'>=</span><span class='va'>C_train_micro</span><span class='op'>)</span>,nt<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; 
+#&gt; CV Fold 1 
+#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; 
+#&gt; CV Fold 2 
+#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; 
+#&gt; CV Fold 3 
+#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; 
+#&gt; CV Fold 4 
+#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; 
+#&gt; CV Fold 5 </div><div class='img'><img src='cv.plsRcox-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; $nt
+#&gt; [1] 3
+#&gt; 
+#&gt; $cv.error5
+#&gt; [1] 0.5000000 0.9057532 0.8875761 0.9189727
+#&gt; 
+#&gt; $cv.se5
+#&gt; [1] 0.000000000 0.008326560 0.009089276 0.008281982
+#&gt; 
+#&gt; $folds
+#&gt; $folds$`1`
+#&gt;  [1] 60  3  2 14 77  6 50  4 72 32 22  1 41 21 63 25
+#&gt; 
+#&gt; $folds$`2`
+#&gt;  [1] 42 67 65 15 73 48 57 26  7 13 31 53  5 27 37 64
+#&gt; 
+#&gt; $folds$`3`
+#&gt;  [1] 71 23 56 35 75 29 30 18 62 44 12 33 68 49 43 55
+#&gt; 
+#&gt; $folds$`4`
+#&gt;  [1] 54 76 24 16 34 66  9 11 69 40 70 36 39  8 19 20
+#&gt; 
+#&gt; $folds$`5`
+#&gt;  [1] 74 38 46 80 47 78 10 45 51 28 61 79 58 17 52 59
+#&gt; 
+#&gt; 
+#&gt; $lambda.min5
+#&gt; [1] 3
+#&gt; 
+#&gt; $lambda.1se5
+#&gt; [1] 0
+#&gt; </div><div class='input'>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -312,13 +449,16 @@ It only computes the recommended iAUCSH criterion. Set allCVcrit=TRUE
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

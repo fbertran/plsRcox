@@ -1,3 +1,6 @@
+#' @rdname plsRcox
+#' @export
+
 plsRcoxmodel.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,tol_Xi=10^(-12),weights,control, sparse=FALSE,sparseStop=TRUE,allres=TRUE, verbose=TRUE,...) {
 
 ##################################################

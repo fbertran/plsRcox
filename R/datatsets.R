@@ -1,0 +1,155 @@
+#' Microsat features and survival times
+#' 
+#' This dataset provides Microsat specifications and survival times.
+#' 
+#' 
+#' @name micro.censure
+#' @docType data
+#' @format A data frame with 117 observations on the following 43 variables.
+#' \describe{ \item{numpat}{a factor with levels \code{B1006}
+#' \code{B1017} \code{B1028} \code{B1031} \code{B1046} \code{B1059}
+#' \code{B1068} \code{B1071} \code{B1102} \code{B1115} \code{B1124}
+#' \code{B1139} \code{B1157} \code{B1161} \code{B1164} \code{B1188}
+#' \code{B1190} \code{B1192} \code{B1203} \code{B1211} \code{B1221}
+#' \code{B1225} \code{B1226} \code{B1227} \code{B1237} \code{B1251}
+#' \code{B1258} \code{B1266} \code{B1271} \code{B1282} \code{B1284}
+#' \code{B1285} \code{B1286} \code{B1287} \code{B1290} \code{B1292}
+#' \code{B1298} \code{B1302} \code{B1304} \code{B1310} \code{B1319}
+#' \code{B1327} \code{B1353} \code{B1357} \code{B1363} \code{B1368}
+#' \code{B1372} \code{B1373} \code{B1379} \code{B1388} \code{B1392}
+#' \code{B1397} \code{B1403} \code{B1418} \code{B1421t1} \code{B1421t2}
+#' \code{B1448} \code{B1451} \code{B1455} \code{B1460} \code{B1462}
+#' \code{B1466} \code{B1469} \code{B1493} \code{B1500} \code{B1502}
+#' \code{B1519} \code{B1523} \code{B1529} \code{B1530} \code{B1544}
+#' \code{B1548} \code{B500} \code{B532} \code{B550} \code{B558} \code{B563}
+#' \code{B582} \code{B605} \code{B609} \code{B634} \code{B652} \code{B667}
+#' \code{B679} \code{B701} \code{B722} \code{B728} \code{B731} \code{B736}
+#' \code{B739} \code{B744} \code{B766} \code{B771} \code{B777} \code{B788}
+#' \code{B800} \code{B836} \code{B838} \code{B841} \code{B848} \code{B871}
+#' \code{B873} \code{B883} \code{B889} \code{B912} \code{B924} \code{B925}
+#' \code{B927} \code{B938} \code{B952} \code{B954} \code{B955} \code{B968}
+#' \code{B972} \code{B976} \code{B982} \code{B984}} \item{D18S61}{a
+#' numeric vector} \item{D17S794}{a numeric vector}
+#' \item{D13S173}{a numeric vector} \item{D20S107}{a numeric
+#' vector} \item{TP53}{a numeric vector} \item{D9S171}{a
+#' numeric vector} \item{D8S264}{a numeric vector}
+#' \item{D5S346}{a numeric vector} \item{D22S928}{a numeric
+#' vector} \item{D18S53}{a numeric vector} \item{D1S225}{a
+#' numeric vector} \item{D3S1282}{a numeric vector}
+#' \item{D15S127}{a numeric vector} \item{D1S305}{a numeric
+#' vector} \item{D1S207}{a numeric vector} \item{D2S138}{a
+#' numeric vector} \item{D16S422}{a numeric vector}
+#' \item{D9S179}{a numeric vector} \item{D10S191}{a numeric
+#' vector} \item{D4S394}{a numeric vector} \item{D1S197}{a
+#' numeric vector} \item{D6S264}{a numeric vector}
+#' \item{D14S65}{a numeric vector} \item{D17S790}{a numeric
+#' vector} \item{D5S430}{a numeric vector} \item{D3S1283}{a
+#' numeric vector} \item{D4S414}{a numeric vector}
+#' \item{D8S283}{a numeric vector} \item{D11S916}{a numeric
+#' vector} \item{D2S159}{a numeric vector} \item{D16S408}{a
+#' numeric vector} \item{D6S275}{a numeric vector}
+#' \item{D10S192}{a numeric vector} \item{sexe}{a numeric
+#' vector} \item{Agediag}{a numeric vector} \item{Siege}{a
+#' numeric vector} \item{T}{a numeric vector} \item{N}{a
+#' numeric vector} \item{M}{a numeric vector} \item{STADE}{a
+#' factor with levels \code{0} \code{1} \code{2} \code{3} \code{4}}
+#' \item{survyear}{a numeric vector} \item{DC}{a numeric
+#' vector} }
+#' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+#' Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+#' Proceedings of User2014!, Los Angeles, page 152.\cr
+#' 
+#' Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+#' censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+#' Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+#' doi:10.1093/bioinformatics/btu660.
+#' @source Allelotyping identification of genomic alterations in rectal
+#' chromosomally unstable tumors without preoperative treatment,
+#' #' Benoît Romain, Agnès Neuville, Nicolas Meyer,
+#' Cécile Brigand, Serge Rohr, Anne Schneider, Marie-Pierre Gaub
+#' and Dominique Guenot, \emph{BMC Cancer 2010}, 10:561,
+#' doi:10.1186/1471-2407-10-561.
+#' @keywords datasets
+#' @examples
+#' 
+#' \donttest{
+#' data(micro.censure)
+#' Y_train_micro <- micro.censure$survyear[1:80]
+#' C_train_micro <- micro.censure$DC[1:80]
+#' Y_test_micro <- micro.censure$survyear[81:117]
+#' C_test_micro <- micro.censure$DC[81:117]
+#' rm(Y_train_micro,C_train_micro,Y_test_micro,C_test_micro)
+#' }
+#' 
+NULL
+
+
+
+
+
+#' Imputed Microsat features
+#' 
+#' This dataset provides imputed microsat specifications. Imputations were
+#' computed using Multivariate Imputation by Chained Equations (MICE) using
+#' predictive mean matching for the numeric columns, logistic regression
+#' imputation for the binary data or the factors with 2 levels and polytomous
+#' regression imputation for categorical data i.e. factors with three or more
+#' levels.
+#' 
+#' 
+#' @name Xmicro.censure_compl_imp
+#' @docType data
+#' @format A data frame with 117 observations on the following 40 variables.
+#' \describe{ \item{D18S61}{a numeric vector} \item{D17S794}{a
+#' numeric vector} \item{D13S173}{a numeric vector}
+#' \item{D20S107}{a numeric vector} \item{TP53}{a numeric
+#' vector} \item{D9S171}{a numeric vector} \item{D8S264}{a
+#' numeric vector} \item{D5S346}{a numeric vector}
+#' \item{D22S928}{a numeric vector} \item{D18S53}{a numeric
+#' vector} \item{D1S225}{a numeric vector} \item{D3S1282}{a
+#' numeric vector} \item{D15S127}{a numeric vector}
+#' \item{D1S305}{a numeric vector} \item{D1S207}{a numeric
+#' vector} \item{D2S138}{a numeric vector} \item{D16S422}{a
+#' numeric vector} \item{D9S179}{a numeric vector}
+#' \item{D10S191}{a numeric vector} \item{D4S394}{a numeric
+#' vector} \item{D1S197}{a numeric vector} \item{D6S264}{a
+#' numeric vector} \item{D14S65}{a numeric vector}
+#' \item{D17S790}{a numeric vector} \item{D5S430}{a numeric
+#' vector} \item{D3S1283}{a numeric vector} \item{D4S414}{a
+#' numeric vector} \item{D8S283}{a numeric vector}
+#' \item{D11S916}{a numeric vector} \item{D2S159}{a numeric
+#' vector} \item{D16S408}{a numeric vector} \item{D6S275}{a
+#' numeric vector} \item{D10S192}{a numeric vector}
+#' \item{sexe}{a numeric vector} \item{Agediag}{a numeric
+#' vector} \item{Siege}{a numeric vector} \item{T}{a numeric
+#' vector} \item{N}{a numeric vector} \item{M}{a numeric
+#' vector} \item{STADE}{a factor with levels \code{0} \code{1} \code{2}
+#' \code{3} \code{4}} }
+#' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+#' Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+#' Proceedings of User2014!, Los Angeles, page 152.\cr
+#' 
+#' Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+#' censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+#' Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+#' doi:10.1093/bioinformatics/btu660.
+#' @source Allelotyping identification of genomic alterations in rectal
+#' chromosomally unstable tumors without preoperative treatment,
+#' Benoît Romain, Agnès Neuville, Nicolas Meyer,
+#' Cécile Brigand, Serge Rohr, Anne Schneider, Marie-Pierre Gaub
+#' and Dominique Guenot, \emph{BMC Cancer 2010}, 10:561,
+#' doi:10.1186/1471-2407-10-561.
+#' @keywords datasets
+#' @examples
+#' 
+#' \donttest{
+#' data(Xmicro.censure_compl_imp)
+#' X_train_micro <- Xmicro.censure_compl_imp[1:80,]
+#' X_test_micro <- Xmicro.censure_compl_imp[81:117,]
+#' rm(X_train_micro,X_test_micro)
+#' }
+#' 
+NULL
+
+
+

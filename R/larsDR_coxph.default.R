@@ -1,3 +1,6 @@
+#' @rdname larsDR_coxph
+#' @export
+
 larsDR_coxph.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=FALSE, scaleY=TRUE, plot=FALSE, typelars="lasso", normalize = TRUE, max.steps, use.Gram = TRUE, allres=FALSE, verbose=TRUE,...){
 try(attachNamespace("survival"),silent=TRUE)
 #on.exit(try(unloadNamespace("survival"),silent=TRUE))

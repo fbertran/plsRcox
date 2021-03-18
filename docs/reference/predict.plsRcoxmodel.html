@@ -8,21 +8,36 @@
 
 <title>Print method for plsRcox models — predict.plsRcoxmodel • plsRcox</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +45,11 @@
 
 
 
-<meta property="og:title" content="Print method for plsRcox models — predict.plsRcoxmodel" />
 
+<meta property="og:title" content="Print method for plsRcox models — predict.plsRcoxmodel" />
 <meta property="og:description" content="This function provides a predict method for the class &quot;plsRcoxmodel&quot;" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:image" content="/logo.png" />
+
 
 
 
@@ -47,9 +63,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +80,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">plsRcox</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.6</span>
       </span>
     </div>
 
@@ -71,7 +88,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,11 +99,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/fbertran/plsRcox">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/fbertran/plsRcox/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,27 +113,34 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Print method for plsRcox models</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/fbertran/plsRcox/blob/master/R/predict.plsRcoxmodel.R'><code>R/predict.plsRcoxmodel.R</code></a></small>
     <div class="hidden name"><code>predict.plsRcoxmodel.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
     <p>This function provides a predict method for the class <code>"plsRcoxmodel"</code></p>
-    
     </div>
 
     <pre class="usage"><span class='co'># S3 method for plsRcoxmodel</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>object</span>,<span class='no'>newdata</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='no'>object</span>$<span class='no'>computed_nt</span>,
-<span class='kw'>type</span><span class='kw'>=</span><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"lp"</span>, <span class='st'>"risk"</span>, <span class='st'>"expected"</span>, <span class='st'>"terms"</span>, <span class='st'>"scores"</span>),<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>FALSE</span>,
-<span class='no'>weights</span>,<span class='kw'>methodNA</span><span class='kw'>=</span><span class='st'>"adaptative"</span>,<span class='kw'>verbose</span><span class='kw'>=</span><span class='fl'>TRUE</span>,<span class='no'>...</span>)</pre>
-    
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span>
+  <span class='va'>object</span>,
+  <span class='va'>newdata</span>,
+  comps <span class='op'>=</span> <span class='va'>object</span><span class='op'>$</span><span class='va'>computed_nt</span>,
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"lp"</span>, <span class='st'>"risk"</span>, <span class='st'>"expected"</span>, <span class='st'>"terms"</span>, <span class='st'>"scores"</span><span class='op'>)</span>,
+  se.fit <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  <span class='va'>weights</span>,
+  methodNA <span class='op'>=</span> <span class='st'>"adaptative"</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -127,7 +150,8 @@
     </tr>
     <tr>
       <th>newdata</th>
-      <td><p>An optional data frame in which to look for variables with which to predict. If omitted, the fitted values are used.</p></td>
+      <td><p>An optional data frame in which to look for variables with
+which to predict. If omitted, the fitted values are used.</p></td>
     </tr>
     <tr>
       <th>comps</th>
@@ -135,120 +159,844 @@
     </tr>
     <tr>
       <th>type</th>
-      <td><p>Type of predicted value. Choices are the linear predictor ("<code>lp</code>"), the risk score exp(lp) ("<code>risk</code>"), the expected number of events given the covariates and follow-up time ("<code>expected</code>"), the terms of the linear predictor ("<code>terms</code>") or the scores ("<code>scores</code>").</p></td>
+      <td><p>Type of predicted value. Choices are the linear predictor
+("<code>lp</code>"), the risk score exp(lp) ("<code>risk</code>"), the expected number
+of events given the covariates and follow-up time ("<code>expected</code>"), the
+terms of the linear predictor ("<code>terms</code>") or the scores
+("<code>scores</code>").</p></td>
     </tr>
     <tr>
       <th>se.fit</th>
-      <td><p>If TRUE, pointwise standard errors are produced for the predictions using the Cox model.</p></td>
+      <td><p>If TRUE, pointwise standard errors are produced for the
+predictions using the Cox model.</p></td>
     </tr>
     <tr>
       <th>weights</th>
-      <td><p>Vector of case weights. If <code>weights</code> is a vector of integers, then the estimated coefficients are equivalent to estimating the model from data with the individual <code>cases</code> replicated as many times as indicated by <code>weights</code>.</p></td>
+      <td><p>Vector of case weights. If <code>weights</code> is a vector of
+integers, then the estimated coefficients are equivalent to estimating the
+model from data with the individual <code>cases</code> replicated as many times as
+indicated by <code>weights</code>.</p></td>
     </tr>
     <tr>
       <th>methodNA</th>
-      <td><p>Selects the way of predicting the response or the scores of the new data. For complete rows, without any missing value, there are two different ways of computing the prediction. As a consequence, for mixed datasets, with complete and incomplete rows, there are two ways of computing prediction : either predicts any row as if there were missing values in it (<code>missingdata</code>) or selects the prediction method accordingly to the completeness of the row (<code>adaptative</code>).</p></td>
+      <td><p>Selects the way of predicting the response or the scores of
+the new data. For complete rows, without any missing value, there are two
+different ways of computing the prediction. As a consequence, for mixed
+datasets, with complete and incomplete rows, there are two ways of computing
+prediction : either predicts any row as if there were missing values in it
+(<code>missingdata</code>) or selects the prediction method accordingly to the
+completeness of the row (<code>adaptative</code>).</p></td>
     </tr>
     <tr>
       <th>verbose</th>
       <td><p>Should some details be displayed ?</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
-      <td><p>Arguments to be passed on to <code><a href='https://www.rdocumentation.org/packages/survival/topics/coxph'>survival::coxph</a></code> and to <code><a href='https://www.rdocumentation.org/packages/plsRglm/topics/plsR'>plsRglm::PLS_lm</a></code>.</p></td>
+      <th>...</th>
+      <td><p>Arguments to be passed on to <code><a href='https://rdrr.io/pkg/survival/man/coxph.html'>survival::coxph</a></code> and to
+<code><a href='https://fbertran.github.io/plsRglm/reference/plsR.html'>plsRglm::PLS_lm</a></code>.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>When type is "<code>response</code>", a matrix of predicted response values is returned.<br />
-When type is "<code>scores</code>", a score matrix is returned.</p>
-    
+    <p>When type is "<code>response</code>", a matrix of predicted response
+values is returned.<br /> When type is "<code>scores</code>", a score matrix is
+returned.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.<br /></p>  
-<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.</p>
-    
+    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+Proceedings of User2014!, Los Angeles, page 152.<br /></p>
+<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+doi:10.1093/bioinformatics/btu660.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/survival/topics/predict.coxph'>predict.coxph</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/survival/man/predict.coxph.html'>predict.coxph</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>micro.censure</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)
-
-<span class='no'>X_train_micro</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>((<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)),<span class='kw'>FUN</span><span class='kw'>=</span><span class='st'>"as.numeric"</span>,<span class='kw'>MARGIN</span><span class='kw'>=</span><span class='fl'>2</span>)[<span class='fl'>1</span>:<span class='fl'>80</span>,]
-<span class='no'>Y_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>survyear</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
-<span class='no'>C_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>DC</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
-
-<span class='no'>modpls</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='plsRcox.html'>plsRcox</a></span>(<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>3</span>)
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>)
-<span class='co'>#Identical to predict(modpls,type="lp")    </span>
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"expected"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>)
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='co'>#Identical to predict(modpls,type="lp")    </span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>,<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"expected"</span>,<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>,<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>,<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-
-
-<span class='co'>#Identical to predict(modpls,type="lp")    </span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>)
-<span class='co'>#predict(modpls,newdata=X_train_micro[1:5,],type="expected")    </span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>)
-
-<span class='co'>#Identical to predict(modpls,type="lp")    </span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>,<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='co'>#predict(modpls,newdata=X_train_micro[1:5,],type="expected",se.fit=TRUE)    </span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>,<span class='kw'>se.fit</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>)
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/try'>try</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"risk"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>4</span>))
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/try'>try</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"terms"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>4</span>))
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>1</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>2</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>3</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/try'>try</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/stats/topics/predict'>predict</a></span>(<span class='no'>modpls</span>,<span class='kw'>newdata</span><span class='kw'>=</span><span class='no'>X_train_micro</span>[<span class='fl'>1</span>:<span class='fl'>5</span>,],<span class='kw'>type</span><span class='kw'>=</span><span class='st'>"scores"</span>,<span class='kw'>comps</span><span class='kw'>=</span><span class='fl'>4</span>))
-<span class='co'># }</span></pre>
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
     <p>Frédéric Bertrand<br />
 <a href='mailto:frederic.bertrand@math.unistra.fr'>frederic.bertrand@math.unistra.fr</a><br />
 <a href='http://www-irma.u-strasbg.fr/~fbertran/'>http://www-irma.u-strasbg.fr/~fbertran/</a></p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>micro.censure</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span>
+
+<span class='va'>X_train_micro</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span><span class='op'>)</span>,FUN<span class='op'>=</span><span class='st'>"as.numeric"</span>,MARGIN<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span>,<span class='op'>]</span>
+<span class='va'>Y_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>survyear</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
+<span class='va'>C_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>DC</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
+
+<span class='va'>modpls</span> <span class='op'>&lt;-</span> <span class='fu'><a href='plsRcox.html'>plsRcox</a></span><span class='op'>(</span><span class='va'>X_train_micro</span>,time<span class='op'>=</span><span class='va'>Y_train_micro</span>,event<span class='op'>=</span><span class='va'>C_train_micro</span>,nt<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ____************************************************____
+#&gt; ____Component____ 1 ____
+#&gt; ____Component____ 2 ____
+#&gt; ____Component____ 3 ____
+#&gt; ____Predicting X without NA neither in X nor in Y____
+#&gt; ****________________________________________________****
+#&gt; </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;           1           2           3           4           5           6 
+#&gt; -3.91149897 -0.01103427  2.29488351  0.77390739  1.81792717 -2.07323031 
+#&gt;           7           8           9          10          11          12 
+#&gt; -2.31730512  4.07156130 -1.81103896  1.32578127  2.48317798 -1.91438957 
+#&gt;          13          14          15          16          17          18 
+#&gt;  0.69486087 -1.40225489 -0.70950316 -0.24670449 -3.67870398 -4.16645669 
+#&gt;          19          20          21          22          23          24 
+#&gt;  1.81768091 -3.02734320 -2.13745459 -1.92831286  0.98589347  1.14971022 
+#&gt;          25          26          27          28          29          30 
+#&gt; -5.89616340 -2.34994661  4.42353417  0.80061019 -0.51396920 -3.08443396 
+#&gt;          31          32          33          34          35          36 
+#&gt;  3.56453166 -3.55117411 -2.73950599  0.22916899  2.63357746  0.08206085 
+#&gt;          37          38          39          40          41          42 
+#&gt;  5.74551756 -0.15211159 -3.34205848  0.50932362  1.49286943  1.00697968 
+#&gt;          43          44          45          46          47          48 
+#&gt; -1.69053571 -0.43807672 -1.88100209  0.57105812 -1.94086294  0.13737583 
+#&gt;          49          50          51          52          53          54 
+#&gt;  2.91478046 -0.19794750 -0.53317032  1.81309897  0.05410920  6.74653169 
+#&gt;          55          56          57          58          59          60 
+#&gt;  6.02372222 -3.15552724 -5.38533967  1.93977635  0.36991240 -1.30359496 
+#&gt;          61          62          63          64          65          66 
+#&gt;  3.40800015  2.42212390  6.44149568 -1.36663839  3.82119344  0.41050691 
+#&gt;          67          68          69          70          71          72 
+#&gt; -5.59789050 -1.73207956  3.64545451 -2.33472431  1.90409918  2.74143690 
+#&gt;          73          74          75          76          77          78 
+#&gt;  2.27208915 -1.50499888  1.61558478  2.36442373 -1.52350702 -1.62287584 
+#&gt;          79          80 
+#&gt; -1.11760516 -5.22936005 </div><div class='input'><span class='co'>#Identical to predict(modpls,type="lp")    </span>
+
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"risk"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;            1            2            3            4            5            6 
+#&gt; 2.001048e-02 9.890264e-01 9.923280e+00 2.168222e+00 6.159078e+00 1.257788e-01 
+#&gt;            7            8            9           10           11           12 
+#&gt; 9.853878e-02 5.864846e+01 1.634842e-01 3.765126e+00 1.197927e+01 1.474318e-01 
+#&gt;           13           14           15           16           17           18 
+#&gt; 2.003430e+00 2.460415e-01 4.918885e-01 7.813716e-01 2.525569e-02 1.550711e-02 
+#&gt;           19           20           21           22           23           24 
+#&gt; 6.157562e+00 4.844417e-02 1.179547e-01 1.453933e-01 2.680205e+00 3.157278e+00 
+#&gt;           25           26           27           28           29           30 
+#&gt; 2.749975e-03 9.537425e-02 8.339048e+01 2.226899e+00 5.981168e-01 4.575593e-02 
+#&gt;           31           32           33           34           35           36 
+#&gt; 3.532291e+01 2.869093e-02 6.460225e-02 1.257555e+00 1.392349e+01 1.085522e+00 
+#&gt;           37           38           39           40           41           42 
+#&gt; 3.127855e+02 8.588924e-01 3.536409e-02 1.664165e+00 4.449846e+00 2.737321e+00 
+#&gt;           43           44           45           46           47           48 
+#&gt; 1.844207e-01 6.452763e-01 1.524373e-01 1.770139e+00 1.435800e-01 1.147259e+00 
+#&gt;           49           50           51           52           53           54 
+#&gt; 1.844476e+01 8.204129e-01 5.867419e-01 6.129413e+00 1.055600e+00 8.511017e+02 
+#&gt;           55           56           57           58           59           60 
+#&gt; 4.131134e+02 4.261593e-02 4.583283e-03 6.957195e+00 1.447608e+00 2.715538e-01 
+#&gt;           61           62           63           64           65           66 
+#&gt; 3.020478e+01 1.126977e+01 6.273444e+02 2.549626e-01 4.565867e+01 1.507582e+00 
+#&gt;           67           68           69           70           71           72 
+#&gt; 3.705673e-03 1.769161e-01 3.830018e+01 9.683718e-02 6.713357e+00 1.550925e+01 
+#&gt;           73           74           75           76           77           78 
+#&gt; 9.699644e+00 2.220175e-01 5.030829e+00 1.063791e+01 2.179462e-01 1.973304e-01 
+#&gt;           79           80 
+#&gt; 3.270621e-01 5.356952e-03 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"expected"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;  [1] 2.883280e-02 1.380608e-02 8.122308e-03 3.764026e-03 7.153829e-01
+#&gt;  [6] 3.147782e-04 2.466064e-04 4.834946e-01 2.282118e-03 1.405932e-03
+#&gt; [11] 1.524722e-02 1.206745e-04 5.013850e-03 6.175850e-02 1.836756e-04
+#&gt; [16] 2.917712e-04 3.525507e-04 3.880860e-05 7.152067e-01 1.215990e-02
+#&gt; [21] 4.772813e-04 1.850566e-04 6.707570e-03 3.667208e-01 6.902670e-04
+#&gt; [26] 3.561361e-05 3.374238e-01 9.010726e-03 1.496867e-03 3.745170e-05
+#&gt; [31] 2.891217e-02 2.365264e-04 9.017997e-04 4.542828e-02 2.807208e-01
+#&gt; [36] 1.260844e-01 1.265627e+00 1.198950e-02 1.320527e-05 6.011681e-02
+#&gt; [41] 1.661613e-03 2.256632e-02 3.201537e-04 7.494946e-02 5.692145e-05
+#&gt; [46] 1.501472e-01 3.603979e-02 4.642167e-03 4.616046e-02 1.182121e+00
+#&gt; [51] 2.672665e-02 1.538534e+00 1.832518e-03 1.477510e+00 1.542603e-01
+#&gt; [56] 5.948868e-04 1.150443e-03 2.597879e-03 1.193400e-02 3.154123e-02
+#&gt; [61] 3.844464e-02 1.573176e-01 1.570013e+00 6.380777e-04 2.079795e+00
+#&gt; [66] 5.629446e-04 1.499430e-05 1.458487e-03 1.032203e+00 1.124773e-02
+#&gt; [71] 7.797629e-01 9.656531e-01 3.924777e-02 1.830300e-03 1.259032e-02
+#&gt; [76] 9.023316e-01 2.531466e-02 7.984600e-04 4.565545e-03 2.167589e-05</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"terms"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;           tt.1        tt.2         tt.3
+#&gt; 1  -2.18710337 -1.48886332 -0.235532283
+#&gt; 2  -0.81612842 -0.15285272  0.957946868
+#&gt; 3   1.98230440  0.21817877  0.094400341
+#&gt; 4  -0.03763442  0.71295698  0.098584833
+#&gt; 5   2.76422524 -0.99036777  0.044069693
+#&gt; 6  -0.67244092 -1.10346519 -0.297324191
+#&gt; 7  -2.58500221  0.75832999 -0.490632893
+#&gt; 8   4.44407584  0.24616686 -0.618681405
+#&gt; 9  -0.22541827 -0.58024569 -1.005375007
+#&gt; 10 -0.84227497  0.28025877  1.887797465
+#&gt; 11  2.04910586  0.79213735 -0.358065231
+#&gt; 12 -2.69538483  0.85828666 -0.077291400
+#&gt; 13  1.92380082 -1.33725629  0.108316345
+#&gt; 14 -1.86302758  0.61053657 -0.149763886
+#&gt; 15  0.64929894 -0.66908891 -0.689713189
+#&gt; 16  1.81629288 -2.07233767  0.009340293
+#&gt; 17 -2.48051171 -0.85356060 -0.344631671
+#&gt; 18 -2.62201033 -1.05144670 -0.492999659
+#&gt; 19  1.09917459  1.95539108 -1.236884761
+#&gt; 20 -2.72786696  0.70395989 -1.003436130
+#&gt; 21 -2.31982425 -1.16242677  1.344796432
+#&gt; 22 -0.33710697 -1.77249772  0.181291831
+#&gt; 23  0.83670151 -0.49844873  0.647640690
+#&gt; 24  0.92709769  0.37666249 -0.154049958
+#&gt; 25 -4.17839003 -1.00436509 -0.713408282
+#&gt; 26 -3.23849773  0.82991867  0.058632456
+#&gt; 27  3.76915233  0.10875940  0.545622446
+#&gt; 28  2.77597103 -1.04890130 -0.926459549
+#&gt; 29 -1.62093845  1.14441654 -0.037447280
+#&gt; 30 -3.52772907  0.02533532  0.417959794
+#&gt; 31  2.05389237  0.24889469  1.261744606
+#&gt; 32 -4.12827545 -0.66279231  1.239893653
+#&gt; 33 -2.77012808 -0.46454837  0.495170455
+#&gt; 34  0.32516821  1.28520067 -1.381199884
+#&gt; 35  3.50256781 -0.94459787  0.075607524
+#&gt; 36 -0.07995553  0.65671168 -0.494695292
+#&gt; 37  3.03853777  1.97459796  0.732381837
+#&gt; 38 -1.45636298  0.93856907  0.365682320
+#&gt; 39 -3.53282556 -0.26343210  0.454199186
+#&gt; 40  0.74036729 -0.64349416  0.412450488
+#&gt; 41 -0.86913640  1.77284506  0.589160765
+#&gt; 42  2.68507617 -1.49011174 -0.187984755
+#&gt; 43 -3.60834238  0.57507560  1.342731063
+#&gt; 44 -1.23093622 -0.58200803  1.374867531
+#&gt; 45 -1.59763012  0.84059090 -1.123962874
+#&gt; 46  1.10000467 -0.82419326  0.295246713
+#&gt; 47 -0.50059170 -0.96816688 -0.472104369
+#&gt; 48  1.24805046 -1.02426486 -0.086409764
+#&gt; 49  2.96084678 -1.01995965  0.973893338
+#&gt; 50  0.06882002  0.22611338 -0.492880907
+#&gt; 51 -1.11588680  0.98052575 -0.397809267
+#&gt; 52  4.01703405 -2.83545722  0.631522149
+#&gt; 53  0.90902159 -0.48356886 -0.371343527
+#&gt; 54  2.13579403  2.45286756  2.157870098
+#&gt; 55  3.74121422  1.27919360  1.003314392
+#&gt; 56 -2.77980196 -0.43857585  0.062850575
+#&gt; 57 -4.24248067 -0.52612401 -0.616734987
+#&gt; 58 -0.68204492  1.66466779  0.957153476
+#&gt; 59 -2.32344267  2.10728040  0.586074673
+#&gt; 60 -1.79884966  0.91229467 -0.417039976
+#&gt; 61  2.23759637  1.86135124 -0.690947459
+#&gt; 62  1.65814317 -0.08633734  0.850318072
+#&gt; 63  6.58084023  0.49206731 -0.631411857
+#&gt; 64  1.53997918 -2.73887126 -0.167746309
+#&gt; 65  3.35162942  0.65176772 -0.182203701
+#&gt; 66 -0.02929053  0.92472060 -0.484923160
+#&gt; 67 -3.19754704 -1.17547958 -1.224863879
+#&gt; 68  0.18287169 -0.71576532 -1.199185933
+#&gt; 69  2.37682745  1.57609851 -0.307471453
+#&gt; 70 -1.24791377 -0.41580352 -0.671007023
+#&gt; 71 -0.48138068  0.95498256  1.430497301
+#&gt; 72  2.02397146  2.38359745 -1.666132008
+#&gt; 73  2.40114203 -0.50630766  0.377254774
+#&gt; 74 -1.80842119  0.21331778  0.090104528
+#&gt; 75  2.86058583 -0.78279774 -0.462203310
+#&gt; 76  3.06726572 -0.79914281  0.096300823
+#&gt; 77 -1.26148410  0.15994260 -0.421965529
+#&gt; 78 -0.80170514 -0.09059412 -0.730576581
+#&gt; 79 -1.37219178  1.09425077 -0.839664154
+#&gt; 80 -3.95053329 -1.58030167  0.301474909
+#&gt; attr(,"constant")
+#&gt; [1] -3.218013e-16</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"scores"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;         Comp_1      Comp_2      Comp_3
+#&gt; 1  -1.51471639 -1.61173906 -0.44174968
+#&gt; 2  -0.56522390 -0.16546763  1.79666550
+#&gt; 3   1.37287931  0.23618504  0.17705140
+#&gt; 4  -0.02606437  0.77179724  0.18489957
+#&gt; 5   1.91441216 -1.07210272  0.08265437
+#&gt; 6  -0.46571063 -1.19453407 -0.55764274
+#&gt; 7  -1.79028814  0.82091488 -0.92020050
+#&gt; 8   3.07782184  0.26648299 -1.16036032
+#&gt; 9  -0.15611733 -0.62813331 -1.88561876
+#&gt; 10 -0.58333215  0.30338850  3.54063538
+#&gt; 11  1.41914382  0.85751237 -0.67156485
+#&gt; 12 -1.86673554  0.92912097 -0.14496294
+#&gt; 13  1.33236164 -1.44761991  0.20315139
+#&gt; 14 -1.29027208  0.66092409 -0.28088782
+#&gt; 15  0.44968325 -0.72430875 -1.29358311
+#&gt; 16  1.25790515 -2.24336748  0.01751807
+#&gt; 17 -1.71792143 -0.92400487 -0.64636970
+#&gt; 18 -1.81591875 -1.13822249 -0.92463946
+#&gt; 19  0.76125243  2.11676931 -2.31982404
+#&gt; 20 -1.88923160  0.76205763 -1.88198233
+#&gt; 21 -1.60663454 -1.25836174  2.52221645
+#&gt; 22 -0.23346928 -1.91878178  0.34001967
+#&gt; 23  0.57947215 -0.53958566  1.21467455
+#&gt; 24  0.64207759  0.40774841 -0.28892651
+#&gt; 25 -2.89381652 -1.08725524 -1.33802415
+#&gt; 26 -2.24287780  0.89841177  0.10996738
+#&gt; 27  2.61039185  0.11773530  1.02333549
+#&gt; 28  1.92254691 -1.13546701 -1.73760984
+#&gt; 29 -1.12260905  1.23886512 -0.07023379
+#&gt; 30 -2.44318998  0.02742624  0.78389936
+#&gt; 31  1.42245880  0.26943594  2.36644962
+#&gt; 32 -2.85910880 -0.71749249  2.32546733
+#&gt; 33 -1.91850027 -0.50288750  0.92871087
+#&gt; 34  0.22520089  1.39126815 -2.59049250
+#&gt; 35  2.42576411 -1.02255543  0.14180476
+#&gt; 36 -0.05537459  0.71091002 -0.92781969
+#&gt; 37  2.10439206  2.13756133  1.37360977
+#&gt; 38 -1.00862945  1.01602908  0.68585099
+#&gt; 39 -2.44671964 -0.28517313  0.85186771
+#&gt; 40  0.51275421 -0.69660167  0.77356645
+#&gt; 41 -0.60193549  1.91915778  1.10499325
+#&gt; 42  1.85959610 -1.61309051 -0.35257250
+#&gt; 43 -2.49902013  0.62253653  2.51834278
+#&gt; 44 -0.85250624 -0.63004109  2.57861593
+#&gt; 45 -1.10646646  0.90996478 -2.10803478
+#&gt; 46  0.76182732 -0.89221385  0.55374635
+#&gt; 47 -0.34669346 -1.04806959 -0.88544956
+#&gt; 48  0.86435900 -1.10879734 -0.16206477
+#&gt; 49  2.05058581 -1.10413682  1.82657371
+#&gt; 50  0.04766250  0.24477450 -0.92441674
+#&gt; 51 -0.77282677  1.06144844 -0.74610629
+#&gt; 52  2.78206663 -3.06946722  1.18444362
+#&gt; 53  0.62955868 -0.52347775 -0.69646880
+#&gt; 54  1.47918121  2.65530247  4.04716679
+#&gt; 55  2.59104283  1.38476532  1.88175400
+#&gt; 56 -1.92520009 -0.47477147  0.11787862
+#&gt; 57 -2.93820361 -0.56954497 -1.15670974
+#&gt; 58 -0.47236205  1.80205266  1.79517746
+#&gt; 59 -1.60914054  2.28119403  1.09920516
+#&gt; 60 -1.24582455  0.98758626 -0.78217421
+#&gt; 61  1.54968619  2.01496837 -1.29589803
+#&gt; 62  1.14837582 -0.09346275  1.59480363
+#&gt; 63  4.55767509  0.53267757 -1.18423676
+#&gt; 64  1.06653930 -2.96491002 -0.31461453
+#&gt; 65  2.32122911  0.70555804 -0.34172992
+#&gt; 66 -0.02028567  1.00103770 -0.90949169
+#&gt; 67 -2.21451669 -1.27249179 -2.29727842
+#&gt; 68  0.12665096 -0.77483736 -2.24911847
+#&gt; 69  1.64611310  1.70617376 -0.57667431
+#&gt; 70 -0.86426433 -0.45011974 -1.25849899
+#&gt; 71 -0.33338854  1.03379717  2.68295167
+#&gt; 72  1.40173655  2.58031550 -3.12489345
+#&gt; 73  1.66295258 -0.54809318  0.70755556
+#&gt; 74 -1.25245347  0.23092288  0.16899444
+#&gt; 75  1.98114835 -0.84740196 -0.86687975
+#&gt; 76  2.12428810 -0.86509599  0.18061583
+#&gt; 77 -0.87366270  0.17314265 -0.79141227
+#&gt; 78 -0.55523481 -0.09807084 -1.37022395
+#&gt; 79 -0.95033523  1.18455918 -1.57482181
+#&gt; 80 -2.73601038 -1.71072380  0.56542757</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,se.fit<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt; $fit
+#&gt;           1           2           3           4           5           6 
+#&gt; -3.91149897 -0.01103427  2.29488351  0.77390739  1.81792717 -2.07323031 
+#&gt;           7           8           9          10          11          12 
+#&gt; -2.31730512  4.07156130 -1.81103896  1.32578127  2.48317798 -1.91438957 
+#&gt;          13          14          15          16          17          18 
+#&gt;  0.69486087 -1.40225489 -0.70950316 -0.24670449 -3.67870398 -4.16645669 
+#&gt;          19          20          21          22          23          24 
+#&gt;  1.81768091 -3.02734320 -2.13745459 -1.92831286  0.98589347  1.14971022 
+#&gt;          25          26          27          28          29          30 
+#&gt; -5.89616340 -2.34994661  4.42353417  0.80061019 -0.51396920 -3.08443396 
+#&gt;          31          32          33          34          35          36 
+#&gt;  3.56453166 -3.55117411 -2.73950599  0.22916899  2.63357746  0.08206085 
+#&gt;          37          38          39          40          41          42 
+#&gt;  5.74551756 -0.15211159 -3.34205848  0.50932362  1.49286943  1.00697968 
+#&gt;          43          44          45          46          47          48 
+#&gt; -1.69053571 -0.43807672 -1.88100209  0.57105812 -1.94086294  0.13737583 
+#&gt;          49          50          51          52          53          54 
+#&gt;  2.91478046 -0.19794750 -0.53317032  1.81309897  0.05410920  6.74653169 
+#&gt;          55          56          57          58          59          60 
+#&gt;  6.02372222 -3.15552724 -5.38533967  1.93977635  0.36991240 -1.30359496 
+#&gt;          61          62          63          64          65          66 
+#&gt;  3.40800015  2.42212390  6.44149568 -1.36663839  3.82119344  0.41050691 
+#&gt;          67          68          69          70          71          72 
+#&gt; -5.59789050 -1.73207956  3.64545451 -2.33472431  1.90409918  2.74143690 
+#&gt;          73          74          75          76          77          78 
+#&gt;  2.27208915 -1.50499888  1.61558478  2.36442373 -1.52350702 -1.62287584 
+#&gt;          79          80 
+#&gt; -1.11760516 -5.22936005 
+#&gt; 
+#&gt; $se.fit
+#&gt;         1         2         3         4         5         6         7         8 
+#&gt; 0.8162219 0.2763778 0.4841867 0.1945131 0.4939491 0.4477485 0.5608206 0.9168810 
+#&gt;         9        10        11        12        13        14        15        16 
+#&gt; 0.4488860 0.5799729 0.5418386 0.4943679 0.3531245 0.3569619 0.2650980 0.4302105 
+#&gt;        17        18        19        20        21        22        23        24 
+#&gt; 0.7619582 0.8630618 0.6109658 0.7205740 0.6316150 0.4856943 0.2938761 0.2498695 
+#&gt;        25        26        27        28        29        30        31        32 
+#&gt; 1.2262466 0.5876082 0.9420914 0.4544296 0.2932452 0.7015508 0.7918338 0.8726003 
+#&gt;        33        34        35        36        37        38        39        40 
+#&gt; 0.6132601 0.4553099 0.6526979 0.1856844 1.1957187 0.2515113 0.7444075 0.2118061 
+#&gt;        41        42        43        44        45        46        47        48 
+#&gt; 0.4586467 0.4458471 0.6223899 0.4201203 0.5349032 0.2406794 0.4248530 0.2337450 
+#&gt;        49        50        51        52        53        54        55        56 
+#&gt; 0.7266590 0.1480826 0.2696072 0.7941012 0.1632820 1.4785420 1.2541028 0.6686363 
+#&gt;        57        58        59        60        61        62        63        64 
+#&gt; 1.1303158 0.5371830 0.4846529 0.3809646 0.7815128 0.5475350 1.4139451 0.5831624 
+#&gt;        65        66        67        68        69        70        71        72 
+#&gt; 0.8122094 0.2311461 1.1765103 0.4766329 0.7851201 0.5009383 0.5542336 0.8408220 
+#&gt;        73        74        75        76        77        78        79        80 
+#&gt; 0.5247789 0.3476377 0.4720976 0.5791829 0.3427235 0.3778105 0.4108927 1.1068457 
+#&gt; </div><div class='input'><span class='co'>#Identical to predict(modpls,type="lp")    </span>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"risk"</span>,se.fit<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt; $fit
+#&gt;            1            2            3            4            5            6 
+#&gt; 2.001048e-02 9.890264e-01 9.923280e+00 2.168222e+00 6.159078e+00 1.257788e-01 
+#&gt;            7            8            9           10           11           12 
+#&gt; 9.853878e-02 5.864846e+01 1.634842e-01 3.765126e+00 1.197927e+01 1.474318e-01 
+#&gt;           13           14           15           16           17           18 
+#&gt; 2.003430e+00 2.460415e-01 4.918885e-01 7.813716e-01 2.525569e-02 1.550711e-02 
+#&gt;           19           20           21           22           23           24 
+#&gt; 6.157562e+00 4.844417e-02 1.179547e-01 1.453933e-01 2.680205e+00 3.157278e+00 
+#&gt;           25           26           27           28           29           30 
+#&gt; 2.749975e-03 9.537425e-02 8.339048e+01 2.226899e+00 5.981168e-01 4.575593e-02 
+#&gt;           31           32           33           34           35           36 
+#&gt; 3.532291e+01 2.869093e-02 6.460225e-02 1.257555e+00 1.392349e+01 1.085522e+00 
+#&gt;           37           38           39           40           41           42 
+#&gt; 3.127855e+02 8.588924e-01 3.536409e-02 1.664165e+00 4.449846e+00 2.737321e+00 
+#&gt;           43           44           45           46           47           48 
+#&gt; 1.844207e-01 6.452763e-01 1.524373e-01 1.770139e+00 1.435800e-01 1.147259e+00 
+#&gt;           49           50           51           52           53           54 
+#&gt; 1.844476e+01 8.204129e-01 5.867419e-01 6.129413e+00 1.055600e+00 8.511017e+02 
+#&gt;           55           56           57           58           59           60 
+#&gt; 4.131134e+02 4.261593e-02 4.583283e-03 6.957195e+00 1.447608e+00 2.715538e-01 
+#&gt;           61           62           63           64           65           66 
+#&gt; 3.020478e+01 1.126977e+01 6.273444e+02 2.549626e-01 4.565867e+01 1.507582e+00 
+#&gt;           67           68           69           70           71           72 
+#&gt; 3.705673e-03 1.769161e-01 3.830018e+01 9.683718e-02 6.713357e+00 1.550925e+01 
+#&gt;           73           74           75           76           77           78 
+#&gt; 9.699644e+00 2.220175e-01 5.030829e+00 1.063791e+01 2.179462e-01 1.973304e-01 
+#&gt;           79           80 
+#&gt; 3.270621e-01 5.356952e-03 
+#&gt; 
+#&gt; $se.fit
+#&gt;           1           2           3           4           5           6 
+#&gt;  0.11546146  0.27485715  1.52524793  0.28641823  1.22585771  0.15879541 
+#&gt;           7           8           9          10          11          12 
+#&gt;  0.17604657  7.02168369  0.18149889  1.12537539  1.87536232  0.18982169 
+#&gt;          13          14          15          16          17          18 
+#&gt;  0.49982148  0.17706227  0.18592584  0.38028552  0.12109069  0.10747497 
+#&gt;          19          20          21          22          23          24 
+#&gt;  1.51607717  0.15859861  0.21692523  0.18519753  0.48111434  0.44398632 
+#&gt;          25          26          27          28          29          30 
+#&gt;  0.06430462  0.18146940  8.60302677  0.67813619  0.22678997  0.15006617 
+#&gt;          31          32          33          34          35          36 
+#&gt;  4.70611196  0.14780451  0.15587215  0.51058791  2.43548975  0.19346158 
+#&gt;          37          38          39          40          41          42 
+#&gt; 21.14717201  0.23309178  0.13998837  0.27323526  0.96749953  0.73764731 
+#&gt;          43          44          45          46          47          48 
+#&gt;  0.26728056  0.33747878  0.20884343  0.32021565  0.16098511  0.25036470 
+#&gt;          49          50          51          52          53          54 
+#&gt;  3.12080913  0.13412824  0.20651660  1.96600797  0.16775979 43.13446322 
+#&gt;          55          56          57          58          59          60 
+#&gt; 25.48988026  0.13803078  0.07652232  1.41690048  0.58311772  0.19852377 
+#&gt;          61          62          63          64          65          66 
+#&gt;  4.29510626  1.83810102 35.41486238  0.29446098  5.48819583  0.28380960 
+#&gt;          67          68          69          70          71          72 
+#&gt;  0.07161916  0.20047844  4.85888346  0.15588535  1.43602756  3.31130759 
+#&gt;          73          74          75          76          77          78 
+#&gt;  1.63438469  0.16380247  1.05889179  1.88905148  0.15999948  0.16783053 
+#&gt;          79          80 
+#&gt;  0.23498683  0.08101137 
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"expected"</span>,se.fit<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt; $fit
+#&gt;  [1] 2.883280e-02 1.380608e-02 8.122308e-03 3.764026e-03 7.153829e-01
+#&gt;  [6] 3.147782e-04 2.466064e-04 4.834946e-01 2.282118e-03 1.405932e-03
+#&gt; [11] 1.524722e-02 1.206745e-04 5.013850e-03 6.175850e-02 1.836756e-04
+#&gt; [16] 2.917712e-04 3.525507e-04 3.880860e-05 7.152067e-01 1.215990e-02
+#&gt; [21] 4.772813e-04 1.850566e-04 6.707570e-03 3.667208e-01 6.902670e-04
+#&gt; [26] 3.561361e-05 3.374238e-01 9.010726e-03 1.496867e-03 3.745170e-05
+#&gt; [31] 2.891217e-02 2.365264e-04 9.017997e-04 4.542828e-02 2.807208e-01
+#&gt; [36] 1.260844e-01 1.265627e+00 1.198950e-02 1.320527e-05 6.011681e-02
+#&gt; [41] 1.661613e-03 2.256632e-02 3.201537e-04 7.494946e-02 5.692145e-05
+#&gt; [46] 1.501472e-01 3.603979e-02 4.642167e-03 4.616046e-02 1.182121e+00
+#&gt; [51] 2.672665e-02 1.538534e+00 1.832518e-03 1.477510e+00 1.542603e-01
+#&gt; [56] 5.948868e-04 1.150443e-03 2.597879e-03 1.193400e-02 3.154123e-02
+#&gt; [61] 3.844464e-02 1.573176e-01 1.570013e+00 6.380777e-04 2.079795e+00
+#&gt; [66] 5.629446e-04 1.499430e-05 1.458487e-03 1.032203e+00 1.124773e-02
+#&gt; [71] 7.797629e-01 9.656531e-01 3.924777e-02 1.830300e-03 1.259032e-02
+#&gt; [76] 9.023316e-01 2.531466e-02 7.984600e-04 4.565545e-03 2.167589e-05
+#&gt; 
+#&gt; $se.fit
+#&gt;  [1] 3.406705e-02 1.373203e-02 8.318021e-03 4.414805e-03 3.323965e-01
+#&gt;  [6] 5.283104e-04 4.339381e-04 2.960415e-01 2.844664e-03 2.018374e-03
+#&gt; [11] 1.421937e-02 2.144790e-04 5.855288e-03 6.315959e-02 3.126687e-04
+#&gt; [16] 4.834845e-04 5.653308e-04 8.141610e-05 4.461899e-01 1.605200e-02
+#&gt; [21] 7.969296e-04 3.192707e-04 7.374734e-03 1.680227e-01 1.201299e-03
+#&gt; [26] 7.095361e-05 1.822379e-01 9.960405e-03 2.109728e-03 7.457524e-05
+#&gt; [31] 2.537306e-02 4.225683e-04 1.316041e-03 3.711109e-02 1.651624e-01
+#&gt; [36] 7.893326e-02 6.531176e-01 1.205310e-02 2.846891e-05 4.379305e-02
+#&gt; [41] 2.297955e-03 2.067452e-02 5.466169e-04 6.211512e-02 1.098280e-04
+#&gt; [46] 8.881650e-02 3.543230e-02 5.465062e-03 3.813097e-02 9.892654e-01
+#&gt; [51] 2.356531e-02 1.040102e+00 2.412576e-03 1.021390e+00 1.547032e-01
+#&gt; [56] 9.035359e-04 1.917129e-03 3.440573e-03 1.339237e-02 2.815578e-02
+#&gt; [61] 3.315152e-02 1.023384e-01 1.012679e+00 1.022091e-03 8.780925e-01
+#&gt; [66] 8.589894e-04 3.456508e-05 1.978790e-03 4.882389e-01 1.153031e-02
+#&gt; [71] 4.938505e-01 6.351421e-01 3.160159e-02 2.423648e-03 1.265539e-02
+#&gt; [76] 4.133363e-01 2.244496e-02 1.206846e-03 5.308087e-03 4.848122e-05
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"terms"</span>,se.fit<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt; $fit
+#&gt;           tt.1        tt.2         tt.3
+#&gt; 1  -2.18710337 -1.48886332 -0.235532283
+#&gt; 2  -0.81612842 -0.15285272  0.957946868
+#&gt; 3   1.98230440  0.21817877  0.094400341
+#&gt; 4  -0.03763442  0.71295698  0.098584833
+#&gt; 5   2.76422524 -0.99036777  0.044069693
+#&gt; 6  -0.67244092 -1.10346519 -0.297324191
+#&gt; 7  -2.58500221  0.75832999 -0.490632893
+#&gt; 8   4.44407584  0.24616686 -0.618681405
+#&gt; 9  -0.22541827 -0.58024569 -1.005375007
+#&gt; 10 -0.84227497  0.28025877  1.887797465
+#&gt; 11  2.04910586  0.79213735 -0.358065231
+#&gt; 12 -2.69538483  0.85828666 -0.077291400
+#&gt; 13  1.92380082 -1.33725629  0.108316345
+#&gt; 14 -1.86302758  0.61053657 -0.149763886
+#&gt; 15  0.64929894 -0.66908891 -0.689713189
+#&gt; 16  1.81629288 -2.07233767  0.009340293
+#&gt; 17 -2.48051171 -0.85356060 -0.344631671
+#&gt; 18 -2.62201033 -1.05144670 -0.492999659
+#&gt; 19  1.09917459  1.95539108 -1.236884761
+#&gt; 20 -2.72786696  0.70395989 -1.003436130
+#&gt; 21 -2.31982425 -1.16242677  1.344796432
+#&gt; 22 -0.33710697 -1.77249772  0.181291831
+#&gt; 23  0.83670151 -0.49844873  0.647640690
+#&gt; 24  0.92709769  0.37666249 -0.154049958
+#&gt; 25 -4.17839003 -1.00436509 -0.713408282
+#&gt; 26 -3.23849773  0.82991867  0.058632456
+#&gt; 27  3.76915233  0.10875940  0.545622446
+#&gt; 28  2.77597103 -1.04890130 -0.926459549
+#&gt; 29 -1.62093845  1.14441654 -0.037447280
+#&gt; 30 -3.52772907  0.02533532  0.417959794
+#&gt; 31  2.05389237  0.24889469  1.261744606
+#&gt; 32 -4.12827545 -0.66279231  1.239893653
+#&gt; 33 -2.77012808 -0.46454837  0.495170455
+#&gt; 34  0.32516821  1.28520067 -1.381199884
+#&gt; 35  3.50256781 -0.94459787  0.075607524
+#&gt; 36 -0.07995553  0.65671168 -0.494695292
+#&gt; 37  3.03853777  1.97459796  0.732381837
+#&gt; 38 -1.45636298  0.93856907  0.365682320
+#&gt; 39 -3.53282556 -0.26343210  0.454199186
+#&gt; 40  0.74036729 -0.64349416  0.412450488
+#&gt; 41 -0.86913640  1.77284506  0.589160765
+#&gt; 42  2.68507617 -1.49011174 -0.187984755
+#&gt; 43 -3.60834238  0.57507560  1.342731063
+#&gt; 44 -1.23093622 -0.58200803  1.374867531
+#&gt; 45 -1.59763012  0.84059090 -1.123962874
+#&gt; 46  1.10000467 -0.82419326  0.295246713
+#&gt; 47 -0.50059170 -0.96816688 -0.472104369
+#&gt; 48  1.24805046 -1.02426486 -0.086409764
+#&gt; 49  2.96084678 -1.01995965  0.973893338
+#&gt; 50  0.06882002  0.22611338 -0.492880907
+#&gt; 51 -1.11588680  0.98052575 -0.397809267
+#&gt; 52  4.01703405 -2.83545722  0.631522149
+#&gt; 53  0.90902159 -0.48356886 -0.371343527
+#&gt; 54  2.13579403  2.45286756  2.157870098
+#&gt; 55  3.74121422  1.27919360  1.003314392
+#&gt; 56 -2.77980196 -0.43857585  0.062850575
+#&gt; 57 -4.24248067 -0.52612401 -0.616734987
+#&gt; 58 -0.68204492  1.66466779  0.957153476
+#&gt; 59 -2.32344267  2.10728040  0.586074673
+#&gt; 60 -1.79884966  0.91229467 -0.417039976
+#&gt; 61  2.23759637  1.86135124 -0.690947459
+#&gt; 62  1.65814317 -0.08633734  0.850318072
+#&gt; 63  6.58084023  0.49206731 -0.631411857
+#&gt; 64  1.53997918 -2.73887126 -0.167746309
+#&gt; 65  3.35162942  0.65176772 -0.182203701
+#&gt; 66 -0.02929053  0.92472060 -0.484923160
+#&gt; 67 -3.19754704 -1.17547958 -1.224863879
+#&gt; 68  0.18287169 -0.71576532 -1.199185933
+#&gt; 69  2.37682745  1.57609851 -0.307471453
+#&gt; 70 -1.24791377 -0.41580352 -0.671007023
+#&gt; 71 -0.48138068  0.95498256  1.430497301
+#&gt; 72  2.02397146  2.38359745 -1.666132008
+#&gt; 73  2.40114203 -0.50630766  0.377254774
+#&gt; 74 -1.80842119  0.21331778  0.090104528
+#&gt; 75  2.86058583 -0.78279774 -0.462203310
+#&gt; 76  3.06726572 -0.79914281  0.096300823
+#&gt; 77 -1.26148410  0.15994260 -0.421965529
+#&gt; 78 -0.80170514 -0.09059412 -0.730576581
+#&gt; 79 -1.37219178  1.09425077 -0.839664154
+#&gt; 80 -3.95053329 -1.58030167  0.301474909
+#&gt; attr(,"constant")
+#&gt; [1] -3.218013e-16
+#&gt; 
+#&gt; $se.fit
+#&gt;           tt.1        tt.2        tt.3
+#&gt; 1  0.474934889 0.386146562 0.078545808
+#&gt; 2  0.177224300 0.039643364 0.319458164
+#&gt; 3  0.430462288 0.056586108 0.031480827
+#&gt; 4  0.008172408 0.184910113 0.032876280
+#&gt; 5  0.600258328 0.256858439 0.014696455
+#&gt; 6  0.146022205 0.286191005 0.099152305
+#&gt; 7  0.561339605 0.196677904 0.163617303
+#&gt; 8  0.965042028 0.063845006 0.206319194
+#&gt; 9  0.048950133 0.150490562 0.335274601
+#&gt; 10 0.182902087 0.072686969 0.629546723
+#&gt; 11 0.444968391 0.205446068 0.119408357
+#&gt; 12 0.585309462 0.222602330 0.025775301
+#&gt; 13 0.417758091 0.346826273 0.036121566
+#&gt; 14 0.404561032 0.158346702 0.049943580
+#&gt; 15 0.140996866 0.173532640 0.230007025
+#&gt; 16 0.394412477 0.537474496 0.003114821
+#&gt; 17 0.538649234 0.221376593 0.114928504
+#&gt; 18 0.569376009 0.272699663 0.164406577
+#&gt; 19 0.238688472 0.507143624 0.412478967
+#&gt; 20 0.592363036 0.182576660 0.334628020
+#&gt; 21 0.503755555 0.301483081 0.448465581
+#&gt; 22 0.073203610 0.459709022 0.060457586
+#&gt; 23 0.181691797 0.129275980 0.215976598
+#&gt; 24 0.201321549 0.097689911 0.051372908
+#&gt; 25 0.907347699 0.260488736 0.237908915
+#&gt; 26 0.703247767 0.215244902 0.019552876
+#&gt; 27 0.818480723 0.028207470 0.181955336
+#&gt; 28 0.602808955 0.272039497 0.308957706
+#&gt; 29 0.351990782 0.296812007 0.012487999
+#&gt; 30 0.766055066 0.006570882 0.139382123
+#&gt; 31 0.446007792 0.064552485 0.420769281
+#&gt; 32 0.896465194 0.171899574 0.413482379
+#&gt; 33 0.601540143 0.120483695 0.165130499
+#&gt; 34 0.070611078 0.333325303 0.460605482
+#&gt; 35 0.760591236 0.244987711 0.025213758
+#&gt; 36 0.017362541 0.170322522 0.164972041
+#&gt; 37 0.659825968 0.512125056 0.244236256
+#&gt; 38 0.316252812 0.243424104 0.121948520
+#&gt; 39 0.767161782 0.068322860 0.151467313
+#&gt; 40 0.160772582 0.166894471 0.137544868
+#&gt; 41 0.188735112 0.459799106 0.196474588
+#&gt; 42 0.583070912 0.386470347 0.062689557
+#&gt; 43 0.783560444 0.149149666 0.447776817
+#&gt; 44 0.267300835 0.150947637 0.458493755
+#&gt; 45 0.346929320 0.218012817 0.374821535
+#&gt; 46 0.238868726 0.213759981 0.098459503
+#&gt; 47 0.108704721 0.251100490 0.157438372
+#&gt; 48 0.271017234 0.265649875 0.028816112
+#&gt; 49 0.642955178 0.264533290 0.324776027
+#&gt; 50 0.014944438 0.058644003 0.164366976
+#&gt; 51 0.242317570 0.254305845 0.132662283
+#&gt; 52 0.872308848 0.735394607 0.210601353
+#&gt; 53 0.197396280 0.125416787 0.123836431
+#&gt; 54 0.463792939 0.636167444 0.719611121
+#&gt; 55 0.812413894 0.331767332 0.334587422
+#&gt; 56 0.603640851 0.113747550 0.020959544
+#&gt; 57 0.921265139 0.136453747 0.205670098
+#&gt; 58 0.148107737 0.431742615 0.319193582
+#&gt; 59 0.504541304 0.546537125 0.195445431
+#&gt; 60 0.390624639 0.236609665 0.139075380
+#&gt; 61 0.485899569 0.482753769 0.230418632
+#&gt; 62 0.360069878 0.022392161 0.283565883
+#&gt; 63 1.429045683 0.127620914 0.210564572
+#&gt; 64 0.334410275 0.710344397 0.055940397
+#&gt; 65 0.727814593 0.169040274 0.060761679
+#&gt; 66 0.006360511 0.239832412 0.161713209
+#&gt; 67 0.694355224 0.304868413 0.408470218
+#&gt; 68 0.039711039 0.185638475 0.399907082
+#&gt; 69 0.516133942 0.408771584 0.102536236
+#&gt; 70 0.270987552 0.107841396 0.223768853
+#&gt; 71 0.104533002 0.247681051 0.477045290
+#&gt; 72 0.439510393 0.618201782 0.555625254
+#&gt; 73 0.521413913 0.131314244 0.125807726
+#&gt; 74 0.392703120 0.055325380 0.030048250
+#&gt; 75 0.621183266 0.203023778 0.154136545
+#&gt; 76 0.666064314 0.207262980 0.032114604
+#&gt; 77 0.273934382 0.041482173 0.140717964
+#&gt; 78 0.174092248 0.023496185 0.243634236
+#&gt; 79 0.297974828 0.283801184 0.280012992
+#&gt; 80 0.857868045 0.409861702 0.100536495
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,type<span class='op'>=</span><span class='st'>"scores"</span>,se.fit<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;         Comp_1      Comp_2      Comp_3
+#&gt; 1  -1.51471639 -1.61173906 -0.44174968
+#&gt; 2  -0.56522390 -0.16546763  1.79666550
+#&gt; 3   1.37287931  0.23618504  0.17705140
+#&gt; 4  -0.02606437  0.77179724  0.18489957
+#&gt; 5   1.91441216 -1.07210272  0.08265437
+#&gt; 6  -0.46571063 -1.19453407 -0.55764274
+#&gt; 7  -1.79028814  0.82091488 -0.92020050
+#&gt; 8   3.07782184  0.26648299 -1.16036032
+#&gt; 9  -0.15611733 -0.62813331 -1.88561876
+#&gt; 10 -0.58333215  0.30338850  3.54063538
+#&gt; 11  1.41914382  0.85751237 -0.67156485
+#&gt; 12 -1.86673554  0.92912097 -0.14496294
+#&gt; 13  1.33236164 -1.44761991  0.20315139
+#&gt; 14 -1.29027208  0.66092409 -0.28088782
+#&gt; 15  0.44968325 -0.72430875 -1.29358311
+#&gt; 16  1.25790515 -2.24336748  0.01751807
+#&gt; 17 -1.71792143 -0.92400487 -0.64636970
+#&gt; 18 -1.81591875 -1.13822249 -0.92463946
+#&gt; 19  0.76125243  2.11676931 -2.31982404
+#&gt; 20 -1.88923160  0.76205763 -1.88198233
+#&gt; 21 -1.60663454 -1.25836174  2.52221645
+#&gt; 22 -0.23346928 -1.91878178  0.34001967
+#&gt; 23  0.57947215 -0.53958566  1.21467455
+#&gt; 24  0.64207759  0.40774841 -0.28892651
+#&gt; 25 -2.89381652 -1.08725524 -1.33802415
+#&gt; 26 -2.24287780  0.89841177  0.10996738
+#&gt; 27  2.61039185  0.11773530  1.02333549
+#&gt; 28  1.92254691 -1.13546701 -1.73760984
+#&gt; 29 -1.12260905  1.23886512 -0.07023379
+#&gt; 30 -2.44318998  0.02742624  0.78389936
+#&gt; 31  1.42245880  0.26943594  2.36644962
+#&gt; 32 -2.85910880 -0.71749249  2.32546733
+#&gt; 33 -1.91850027 -0.50288750  0.92871087
+#&gt; 34  0.22520089  1.39126815 -2.59049250
+#&gt; 35  2.42576411 -1.02255543  0.14180476
+#&gt; 36 -0.05537459  0.71091002 -0.92781969
+#&gt; 37  2.10439206  2.13756133  1.37360977
+#&gt; 38 -1.00862945  1.01602908  0.68585099
+#&gt; 39 -2.44671964 -0.28517313  0.85186771
+#&gt; 40  0.51275421 -0.69660167  0.77356645
+#&gt; 41 -0.60193549  1.91915778  1.10499325
+#&gt; 42  1.85959610 -1.61309051 -0.35257250
+#&gt; 43 -2.49902013  0.62253653  2.51834278
+#&gt; 44 -0.85250624 -0.63004109  2.57861593
+#&gt; 45 -1.10646646  0.90996478 -2.10803478
+#&gt; 46  0.76182732 -0.89221385  0.55374635
+#&gt; 47 -0.34669346 -1.04806959 -0.88544956
+#&gt; 48  0.86435900 -1.10879734 -0.16206477
+#&gt; 49  2.05058581 -1.10413682  1.82657371
+#&gt; 50  0.04766250  0.24477450 -0.92441674
+#&gt; 51 -0.77282677  1.06144844 -0.74610629
+#&gt; 52  2.78206663 -3.06946722  1.18444362
+#&gt; 53  0.62955868 -0.52347775 -0.69646880
+#&gt; 54  1.47918121  2.65530247  4.04716679
+#&gt; 55  2.59104283  1.38476532  1.88175400
+#&gt; 56 -1.92520009 -0.47477147  0.11787862
+#&gt; 57 -2.93820361 -0.56954497 -1.15670974
+#&gt; 58 -0.47236205  1.80205266  1.79517746
+#&gt; 59 -1.60914054  2.28119403  1.09920516
+#&gt; 60 -1.24582455  0.98758626 -0.78217421
+#&gt; 61  1.54968619  2.01496837 -1.29589803
+#&gt; 62  1.14837582 -0.09346275  1.59480363
+#&gt; 63  4.55767509  0.53267757 -1.18423676
+#&gt; 64  1.06653930 -2.96491002 -0.31461453
+#&gt; 65  2.32122911  0.70555804 -0.34172992
+#&gt; 66 -0.02028567  1.00103770 -0.90949169
+#&gt; 67 -2.21451669 -1.27249179 -2.29727842
+#&gt; 68  0.12665096 -0.77483736 -2.24911847
+#&gt; 69  1.64611310  1.70617376 -0.57667431
+#&gt; 70 -0.86426433 -0.45011974 -1.25849899
+#&gt; 71 -0.33338854  1.03379717  2.68295167
+#&gt; 72  1.40173655  2.58031550 -3.12489345
+#&gt; 73  1.66295258 -0.54809318  0.70755556
+#&gt; 74 -1.25245347  0.23092288  0.16899444
+#&gt; 75  1.98114835 -0.84740196 -0.86687975
+#&gt; 76  2.12428810 -0.86509599  0.18061583
+#&gt; 77 -0.87366270  0.17314265 -0.79141227
+#&gt; 78 -0.55523481 -0.09807084 -1.37022395
+#&gt; 79 -0.95033523  1.18455918 -1.57482181
+#&gt; 80 -2.73601038 -1.71072380  0.56542757</div><div class='input'>
+
+<span class='co'>#Identical to predict(modpls,type="lp")    </span>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"risk"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          1          2          3          4          5 
+#&gt; 0.02001048 0.98902638 9.92327996 2.16822181 6.15907848 </div><div class='input'><span class='co'>#predict(modpls,newdata=X_train_micro[1:5,],type="expected")    </span>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"terms"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          tt.1       tt.2        tt.3
+#&gt; 1 -2.18710337 -1.4888633 -0.23553228
+#&gt; 2 -0.81612842 -0.1528527  0.95794687
+#&gt; 3  1.98230440  0.2181788  0.09440034
+#&gt; 4 -0.03763442  0.7129570  0.09858483
+#&gt; 5  2.76422524 -0.9903678  0.04406969
+#&gt; attr(,"constant")
+#&gt; [1] -3.218013e-16</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"scores"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;           Comp_1     Comp_2      Comp_3
+#&gt; [1,] -1.51471639 -1.6117391 -0.44174968
+#&gt; [2,] -0.56522390 -0.1654676  1.79666550
+#&gt; [3,]  1.37287931  0.2361850  0.17705140
+#&gt; [4,] -0.02606437  0.7717972  0.18489957
+#&gt; [5,]  1.91441216 -1.0721027  0.08265437</div><div class='input'>
+<span class='co'>#Identical to predict(modpls,type="lp")    </span>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"risk"</span>,se.fit<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt; $fit
+#&gt;          1          2          3          4          5 
+#&gt; 0.02001048 0.98902638 9.92327996 2.16822181 6.15907848 
+#&gt; 
+#&gt; $se.fit
+#&gt;         1         2         3         4         5 
+#&gt; 0.1154615 0.2748572 1.5252479 0.2864182 1.2258577 
+#&gt; </div><div class='input'><span class='co'>#predict(modpls,newdata=X_train_micro[1:5,],type="expected",se.fit=TRUE)    </span>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"terms"</span>,se.fit<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt; $fit
+#&gt;          tt.1       tt.2        tt.3
+#&gt; 1 -2.18710337 -1.4888633 -0.23553228
+#&gt; 2 -0.81612842 -0.1528527  0.95794687
+#&gt; 3  1.98230440  0.2181788  0.09440034
+#&gt; 4 -0.03763442  0.7129570  0.09858483
+#&gt; 5  2.76422524 -0.9903678  0.04406969
+#&gt; attr(,"constant")
+#&gt; [1] -3.218013e-16
+#&gt; 
+#&gt; $se.fit
+#&gt;          tt.1       tt.2       tt.3
+#&gt; 1 0.474934889 0.38614656 0.07854581
+#&gt; 2 0.177224300 0.03964336 0.31945816
+#&gt; 3 0.430462288 0.05658611 0.03148083
+#&gt; 4 0.008172408 0.18491011 0.03287628
+#&gt; 5 0.600258328 0.25685844 0.01469646
+#&gt; </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"scores"</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;           Comp_1     Comp_2      Comp_3
+#&gt; [1,] -1.51471639 -1.6117391 -0.44174968
+#&gt; [2,] -0.56522390 -0.1654676  1.79666550
+#&gt; [3,]  1.37287931  0.2361850  0.17705140
+#&gt; [4,] -0.02606437  0.7717972  0.18489957
+#&gt; [5,]  1.91441216 -1.0721027  0.08265437</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"risk"</span>,comps<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          1          2          3          4          5 
+#&gt;  0.1122414  0.4421401  7.2594524  0.9630650 15.8667424 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"risk"</span>,comps<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          1          2          3          4          5 
+#&gt; 0.02532491 0.37946947 9.02937514 1.96466659 5.89354378 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"risk"</span>,comps<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          1          2          3          4          5 
+#&gt; 0.02001048 0.98902638 9.92327996 2.16822181 6.15907848 </div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"risk"</span>,comps<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Error in predict.plsRcoxmodel(modpls, newdata = X_train_micro[1:5, ],  : 
+#&gt;   Cannot predict using more components than extracted.</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"terms"</span>,comps<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          tt.1         tt.2          tt.3
+#&gt; 1 -2.18710337 1.461454e-16 -2.071822e-17
+#&gt; 2 -0.81612842 1.461454e-16 -2.071822e-17
+#&gt; 3  1.98230440 1.461454e-16 -2.071822e-17
+#&gt; 4 -0.03763442 1.461454e-16 -2.071822e-17
+#&gt; 5  2.76422524 1.461454e-16 -2.071822e-17
+#&gt; attr(,"constant")
+#&gt; [1] -3.218013e-16</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"terms"</span>,comps<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          tt.1       tt.2          tt.3
+#&gt; 1 -2.18710337 -1.4888633 -2.071822e-17
+#&gt; 2 -0.81612842 -0.1528527 -2.071822e-17
+#&gt; 3  1.98230440  0.2181788 -2.071822e-17
+#&gt; 4 -0.03763442  0.7129570 -2.071822e-17
+#&gt; 5  2.76422524 -0.9903678 -2.071822e-17
+#&gt; attr(,"constant")
+#&gt; [1] -3.218013e-16</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"terms"</span>,comps<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;          tt.1       tt.2        tt.3
+#&gt; 1 -2.18710337 -1.4888633 -0.23553228
+#&gt; 2 -0.81612842 -0.1528527  0.95794687
+#&gt; 3  1.98230440  0.2181788  0.09440034
+#&gt; 4 -0.03763442  0.7129570  0.09858483
+#&gt; 5  2.76422524 -0.9903678  0.04406969
+#&gt; attr(,"constant")
+#&gt; [1] -3.218013e-16</div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"terms"</span>,comps<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Error in predict.plsRcoxmodel(modpls, newdata = X_train_micro[1:5, ],  : 
+#&gt;   Cannot predict using more components than extracted.</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"scores"</span>,comps<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;           Comp_1
+#&gt; [1,] -1.51471639
+#&gt; [2,] -0.56522390
+#&gt; [3,]  1.37287931
+#&gt; [4,] -0.02606437
+#&gt; [5,]  1.91441216</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"scores"</span>,comps<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;           Comp_1     Comp_2
+#&gt; [1,] -1.51471639 -1.6117391
+#&gt; [2,] -0.56522390 -0.1654676
+#&gt; [3,]  1.37287931  0.2361850
+#&gt; [4,] -0.02606437  0.7717972
+#&gt; [5,]  1.91441216 -1.0721027</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"scores"</span>,comps<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>    
+</div><div class='output co'>#&gt;           Comp_1     Comp_2      Comp_3
+#&gt; [1,] -1.51471639 -1.6117391 -0.44174968
+#&gt; [2,] -0.56522390 -0.1654676  1.79666550
+#&gt; [3,]  1.37287931  0.2361850  0.17705140
+#&gt; [4,] -0.02606437  0.7717972  0.18489957
+#&gt; [5,]  1.91441216 -1.0721027  0.08265437</div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>modpls</span>,newdata<span class='op'>=</span><span class='va'>X_train_micro</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span>,<span class='op'>]</span>,type<span class='op'>=</span><span class='st'>"scores"</span>,comps<span class='op'>=</span><span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Error in predict.plsRcoxmodel(modpls, newdata = X_train_micro[1:5, ],  : 
+#&gt;   Cannot predict using more components than extracted.</div><div class='input'>
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -256,13 +1004,16 @@ When type is "<code>scores</code>", a score matrix is returned.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

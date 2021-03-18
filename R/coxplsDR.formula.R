@@ -1,3 +1,6 @@
+#' @rdname coxplsDR
+#' @export
+
 coxplsDR.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE,...) {
 
 if (missing(dataXplan)) 

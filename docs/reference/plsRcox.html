@@ -8,21 +8,36 @@
 
 <title>Partial least squares Regression generalized linear models — plsRcox • plsRcox</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
+
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +45,12 @@
 
 
 
-<meta property="og:title" content="Partial least squares Regression generalized linear models — plsRcox" />
 
-<meta property="og:description" content="This function implements an extension of Partial least squares Regression to Cox Models." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Partial least squares Regression generalized linear models — plsRcox" />
+<meta property="og:description" content="This function implements an extension of Partial least squares Regression to
+Cox Models." />
+<meta property="og:image" content="/logo.png" />
+
 
 
 
@@ -47,9 +64,10 @@
 <![endif]-->
 
 
+
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -63,7 +81,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">plsRcox</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.7.6</span>
       </span>
     </div>
 
@@ -71,7 +89,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,11 +100,10 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/fbertran/plsRcox">
-    <span class="fa fa-github fa-lg"></span>
+  <a href="https://github.com/fbertran/plsRcox/">
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,77 +114,154 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Partial least squares Regression generalized linear models</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/fbertran/plsRcox/blob/master/R/plsRcox.R'><code>R/plsRcox.R</code></a>, <a href='https://github.com/fbertran/plsRcox/blob/master/R/plsRcoxmodel.default.R'><code>R/plsRcoxmodel.default.R</code></a>, <a href='https://github.com/fbertran/plsRcox/blob/master/R/plsRcoxmodel.formula.R'><code>R/plsRcoxmodel.formula.R</code></a></small>
     <div class="hidden name"><code>plsRcox.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    
-    <p>This function implements an extension of Partial least squares Regression to Cox Models.</p>
-    
+    <p>This function implements an extension of Partial least squares Regression to
+Cox Models.</p>
     </div>
 
-    <pre class="usage">plsRcox(Xplan, &#8230;)
-# S3 method for default
-plsRcoxmodel(Xplan,time,time2,event,type,
-origin,typeres="deviance", collapse, weighted, scaleX=TRUE, 
-scaleY=TRUE, nt=min(2,ncol(Xplan)),limQ2set=.0975, 
-dataPredictY=Xplan, pvals.expli=FALSE,alpha.pvals.expli=.05,
-tol_Xi=10^(-12),weights,control, sparse=FALSE,
-sparseStop=TRUE,allres=TRUE, verbose=TRUE,...)
-# S3 method for formula
-plsRcoxmodel(Xplan,time,time2,event,type,
-origin,typeres="deviance", collapse, weighted,scaleX=TRUE,
-scaleY=NULL,dataXplan=NULL, nt=min(2,ncol(Xplan)),
-limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE, 
-model_frame=FALSE, alpha.pvals.expli=.05,tol_Xi=10^(-12),
-weights,subset,control,sparse=FALSE,sparseStop=TRUE,
-allres=TRUE, verbose=TRUE,...)</pre>
-    
+    <pre class="usage"><span class='fu'>plsRcox</span><span class='op'>(</span><span class='va'>Xplan</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>plsRcoxmodel</span><span class='op'>(</span><span class='va'>Xplan</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>plsRcoxmodel</span><span class='op'>(</span>
+  <span class='va'>Xplan</span>,
+  <span class='va'>time</span>,
+  <span class='va'>time2</span>,
+  <span class='va'>event</span>,
+  <span class='va'>type</span>,
+  <span class='va'>origin</span>,
+  typeres <span class='op'>=</span> <span class='st'>"deviance"</span>,
+  <span class='va'>collapse</span>,
+  <span class='va'>weighted</span>,
+  scaleX <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  scaleY <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  nt <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>Xplan</span><span class='op'>)</span><span class='op'>)</span>,
+  limQ2set <span class='op'>=</span> <span class='fl'>0.0975</span>,
+  dataPredictY <span class='op'>=</span> <span class='va'>Xplan</span>,
+  pvals.expli <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  alpha.pvals.expli <span class='op'>=</span> <span class='fl'>0.05</span>,
+  tol_Xi <span class='op'>=</span> <span class='fl'>10</span><span class='op'>^</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>12</span><span class='op'>)</span>,
+  <span class='va'>weights</span>,
+  <span class='va'>control</span>,
+  sparse <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  sparseStop <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  allres <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span>
+
+<span class='co'># S3 method for formula</span>
+<span class='fu'>plsRcoxmodel</span><span class='op'>(</span>
+  <span class='va'>Xplan</span>,
+  <span class='va'>time</span>,
+  <span class='va'>time2</span>,
+  <span class='va'>event</span>,
+  <span class='va'>type</span>,
+  <span class='va'>origin</span>,
+  typeres <span class='op'>=</span> <span class='st'>"deviance"</span>,
+  <span class='va'>collapse</span>,
+  <span class='va'>weighted</span>,
+  scaleX <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  scaleY <span class='op'>=</span> <span class='cn'>NULL</span>,
+  dataXplan <span class='op'>=</span> <span class='cn'>NULL</span>,
+  nt <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>Xplan</span><span class='op'>)</span><span class='op'>)</span>,
+  limQ2set <span class='op'>=</span> <span class='fl'>0.0975</span>,
+  dataPredictY <span class='op'>=</span> <span class='va'>Xplan</span>,
+  pvals.expli <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  model_frame <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  alpha.pvals.expli <span class='op'>=</span> <span class='fl'>0.05</span>,
+  tol_Xi <span class='op'>=</span> <span class='fl'>10</span><span class='op'>^</span><span class='op'>(</span><span class='op'>-</span><span class='fl'>12</span><span class='op'>)</span>,
+  <span class='va'>weights</span>,
+  <span class='va'>subset</span>,
+  <span class='va'>control</span>,
+  sparse <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  sparseStop <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  allres <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  verbose <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>Xplan</th>
-      <td><p>a formula or a matrix with the eXplanatory variables (training) dataset</p></td>
+      <td><p>a formula or a matrix with the eXplanatory variables (training)
+dataset</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>arguments to pass to <code>plsRmodel.default</code> or to
+<code>plsRmodel.formula</code></p></td>
     </tr>
     <tr>
       <th>time</th>
-      <td><p>for right censored data, this is the follow up time. For interval data, the first argument is the starting time for the interval.</p></td>
+      <td><p>for right censored data, this is the follow up time. For
+interval data, the first argument is the starting time for the interval.</p></td>
     </tr>
     <tr>
       <th>time2</th>
-      <td><p>The status indicator, normally 0=alive, 1=dead. Other choices are <code>TRUE/FALSE</code> (<code>TRUE</code> = death) or 1/2 (2=death). For interval censored data, the status indicator is 0=right censored, 1=event at <code>time</code>, 2=left censored, 3=interval censored. Although unusual, the event indicator can be omitted, in which case all subjects are assumed to have an event.</p></td>
+      <td><p>The status indicator, normally 0=alive, 1=dead. Other choices
+are <code>TRUE/FALSE</code> (<code>TRUE</code> = death) or 1/2 (2=death). For interval
+censored data, the status indicator is 0=right censored, 1=event at
+<code>time</code>, 2=left censored, 3=interval censored. Although unusual, the
+event indicator can be omitted, in which case all subjects are assumed to
+have an event.</p></td>
     </tr>
     <tr>
       <th>event</th>
-      <td><p>ending time of the interval for interval censored or counting process data only. Intervals are assumed to be open on the left and closed on the right, <code>(start, end]</code>. For counting process data, event indicates whether an event occurred at the end of the interval.</p></td>
+      <td><p>ending time of the interval for interval censored or counting
+process data only. Intervals are assumed to be open on the left and closed
+on the right, <code>(start, end]</code>. For counting process data, event
+indicates whether an event occurred at the end of the interval.</p></td>
     </tr>
     <tr>
       <th>type</th>
-      <td><p>character string specifying the type of censoring. Possible values are <code>"right"</code>, <code>"left"</code>, <code>"counting"</code>, <code>"interval"</code>, or <code>"interval2"</code>. The default is <code>"right"</code> or <code>"counting"</code> depending on whether the <code>time2</code> argument is absent or present, respectively.</p></td>
+      <td><p>character string specifying the type of censoring. Possible
+values are <code>"right"</code>, <code>"left"</code>, <code>"counting"</code>,
+<code>"interval"</code>, or <code>"interval2"</code>. The default is <code>"right"</code> or
+<code>"counting"</code> depending on whether the <code>time2</code> argument is absent
+or present, respectively.</p></td>
     </tr>
     <tr>
       <th>origin</th>
-      <td><p>for counting process data, the hazard function origin. This option was intended to be used in conjunction with a model containing time dependent strata in order to align the subjects properly when they cross over from one strata to another, but it has rarely proven useful.</p></td>
+      <td><p>for counting process data, the hazard function origin. This
+option was intended to be used in conjunction with a model containing time
+dependent strata in order to align the subjects properly when they cross
+over from one strata to another, but it has rarely proven useful.</p></td>
     </tr>
     <tr>
       <th>typeres</th>
-      <td><p>character string indicating the type of residual desired. Possible values are <code>"martingale"</code>, <code>"deviance"</code>, <code>"score"</code>, <code>"schoenfeld"</code>, <code>"dfbeta"</code>, <code>"dfbetas"</code>, and <code>"scaledsch"</code>. Only enough of the string to determine a unique match is required.</p></td>
+      <td><p>character string indicating the type of residual desired.
+Possible values are <code>"martingale"</code>, <code>"deviance"</code>, <code>"score"</code>,
+<code>"schoenfeld"</code>, <code>"dfbeta"</code>, <code>"dfbetas"</code>, and
+<code>"scaledsch"</code>. Only enough of the string to determine a unique match is
+required.</p></td>
     </tr>
     <tr>
       <th>collapse</th>
-      <td><p>vector indicating which rows to collapse (sum) over. In time-dependent models more than one row data can pertain to a single individual. If there were 4 individuals represented by 3, 1, 2 and 4 rows of data respectively, then <code>collapse=c(1,1,1,2,3,3,4,4,4,4)</code> could be used to obtain per subject rather than per observation residuals.</p></td>
+      <td><p>vector indicating which rows to collapse (sum) over. In
+time-dependent models more than one row data can pertain to a single
+individual. If there were 4 individuals represented by 3, 1, 2 and 4 rows of
+data respectively, then <code>collapse=c(1,1,1,2,3,3,4,4,4,4)</code> could be used
+to obtain per subject rather than per observation residuals.</p></td>
     </tr>
     <tr>
       <th>weighted</th>
-      <td><p>if <code>TRUE</code> and the model was fit with case weights, then the weighted residuals are returned.</p></td>
+      <td><p>if <code>TRUE</code> and the model was fit with case weights, then
+the weighted residuals are returned.</p></td>
     </tr>
     <tr>
       <th>scaleX</th>
@@ -191,94 +285,128 @@ allres=TRUE, verbose=TRUE,...)</pre>
     </tr>
     <tr>
       <th>pvals.expli</th>
-      <td><p>should individual p-values be reported to tune model selection ?</p></td>
+      <td><p>should individual p-values be reported to tune model
+selection ?</p></td>
     </tr>
     <tr>
       <th>alpha.pvals.expli</th>
-      <td><p>level of significance for predictors when pvals.expli=TRUE</p></td>
+      <td><p>level of significance for predictors when
+pvals.expli=TRUE</p></td>
     </tr>
     <tr>
       <th>tol_Xi</th>
-      <td><p>minimal value for Norm2(Xi) and \(\mathrm{det}(pp' \times pp)\) if there is any missing value in the <code>dataX</code>. It defaults to \(10^{-12}\)</p></td>
+      <td><p>minimal value for Norm2(Xi) and \(\mathrm{det}(pp' \times
+pp)\) if there is any missing value in the <code>dataX</code>. It
+defaults to \(10^{-12}\)</p></td>
     </tr>
     <tr>
       <th>weights</th>
-      <td><p>an optional vector of 'prior weights' to be used in the fitting process. Should be <code>NULL</code> or a numeric vector.</p></td>
-    </tr>
-    <tr>
-      <th>subset</th>
-      <td><p>an optional vector specifying a subset of observations to be used in the fitting process.</p></td>
-    </tr>
-    <tr>
-      <th>allres</th>
-      <td><p>FALSE to return only the Cox model and TRUE for additionnal results. See details. Defaults to FALSE.</p></td>
-    </tr>
-    <tr>
-      <th>dataXplan</th>
-      <td><p>an optional data frame, list or environment (or object coercible by <code><a href='https://www.rdocumentation.org/packages/base/topics/as.data.frame'>as.data.frame</a></code> to a data frame) containing the variables in the model. If not found in <code>dataXplan</code>, the variables are taken from <code><a href='https://www.rdocumentation.org/packages/base/topics/environment'>environment(Xplan)</a></code>, typically the environment from which <code>coxDKplsDR</code> is called.</p></td>
-    </tr>
-    <tr>
-      <th>model_frame</th>
-      <td><p>If <code>TRUE</code>, the model frame is returned.</p></td>
-    </tr>
-    <tr>
-      <th>method</th>
-      <td><p>the method to be used in fitting the model. The default method <code>"glm.fit"</code> uses iteratively reweighted least squares (IWLS). User-supplied fitting functions can be supplied either as a function or a character string naming a function, with a function which takes the same arguments as <code>glm.fit</code>.</p></td>
+      <td><p>an optional vector of 'prior weights' to be used in the
+fitting process. Should be <code>NULL</code> or a numeric vector.</p></td>
     </tr>
     <tr>
       <th>control</th>
-      <td><p>a list of parameters for controlling the fitting process. For <code>glm.fit</code> this is passed to <code><a href='https://www.rdocumentation.org/packages/stats/topics/glm.control'>glm.control</a></code>.</p></td>
+      <td><p>a list of parameters for controlling the fitting process. For
+<code>glm.fit</code> this is passed to <code><a href='https://rdrr.io/r/stats/glm.control.html'>glm.control</a></code>.</p></td>
     </tr>
     <tr>
       <th>sparse</th>
-      <td><p>should the coefficients of non-significant predictors (&lt;<code>alpha.pvals.expli</code>) be set to 0</p></td>
+      <td><p>should the coefficients of non-significant predictors
+(&lt;<code>alpha.pvals.expli</code>) be set to 0</p></td>
     </tr>
     <tr>
       <th>sparseStop</th>
-      <td><p>should component extraction stop when no significant predictors (&lt;<code>alpha.pvals.expli</code>) are found</p></td>
+      <td><p>should component extraction stop when no significant
+predictors (&lt;<code>alpha.pvals.expli</code>) are found</p></td>
+    </tr>
+    <tr>
+      <th>allres</th>
+      <td><p>FALSE to return only the Cox model and TRUE for additionnal
+results. See details. Defaults to FALSE.</p></td>
     </tr>
     <tr>
       <th>verbose</th>
       <td><p>Should some details be displayed ?</p></td>
     </tr>
     <tr>
-      <th>&#8230;</th>
-      <td><p>arguments to pass to <code>plsRmodel.default</code> or to <code>plsRmodel.formula</code></p></td>
+      <th>dataXplan</th>
+      <td><p>an optional data frame, list or environment (or object
+coercible by <code><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></code> to a data frame) containing the
+variables in the model. If not found in <code>dataXplan</code>, the variables are
+taken from <code><a href='https://rdrr.io/r/base/environment.html'>environment(Xplan)</a></code>, typically the environment from which
+<code>coxDKplsDR</code> is called.</p></td>
+    </tr>
+    <tr>
+      <th>model_frame</th>
+      <td><p>If <code>TRUE</code>, the model frame is returned.</p></td>
+    </tr>
+    <tr>
+      <th>subset</th>
+      <td><p>an optional vector specifying a subset of observations to be
+used in the fitting process.</p></td>
+    </tr>
+    <tr>
+      <th>method</th>
+      <td><p>the method to be used in fitting the model. The default method
+<code>"glm.fit"</code> uses iteratively reweighted least squares (IWLS).
+User-supplied fitting functions can be supplied either as a function or a
+character string naming a function, with a function which takes the same
+arguments as <code>glm.fit</code>.</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    
-    <p>A typical predictor has the form response ~ terms where response is the (numeric) response vector and terms is a series of terms which specifies a linear predictor for response. A terms specification of the form first + second indicates all the terms in first together with all the terms in second with any duplicates removed.</p>
-<p>A specification of the form first:second indicates the the set of terms obtained by taking the interactions of all terms in first with all terms in second. The specification first*second indicates the cross of first and second. This is the same as first + second + first:second.</p>
-<p>The terms in the formula will be re-ordered so that main effects come first, followed by the interactions, all second-order, all third-order and so on: to avoid this pass a terms object as the formula.</p>
-<p>Non-NULL weights can be used to indicate that different observations have different dispersions (with the values in weights being inversely proportional to the dispersions); or equivalently, when the elements of weights are positive integers w_i, that each response y_i is the mean of w_i unit-weight observations.</p>
-    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>Depends on the model that was used to fit the model.</p>
-    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>A typical predictor has the form response ~ terms where response is the
+(numeric) response vector and terms is a series of terms which specifies a
+linear predictor for response. A terms specification of the form first +
+second indicates all the terms in first together with all the terms in
+second with any duplicates removed.</p>
+<p>A specification of the form first:second indicates the the set of terms
+obtained by taking the interactions of all terms in first with all terms in
+second. The specification first*second indicates the cross of first and
+second. This is the same as first + second + first:second.</p>
+<p>The terms in the formula will be re-ordered so that main effects come first,
+followed by the interactions, all second-order, all third-order and so on:
+to avoid this pass a terms object as the formula.</p>
+<p>Non-NULL weights can be used to indicate that different observations have
+different dispersions (with the values in weights being inversely
+proportional to the dispersions); or equivalently, when the elements of
+weights are positive integers w_i, that each response y_i is the mean of w_i
+unit-weight observations.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014). Proceedings of User2014!, Los Angeles, page 152.<br /></p>  
-<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404, doi:10.1093/bioinformatics/btu660.</p>
-    
+    <p>plsRcox, Cox-Models in a high dimensional setting in R, Frederic
+Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
+Proceedings of User2014!, Los Angeles, page 152.<br /></p>
+<p>Deviance residuals-based sparse PLS and sparse kernel PLS regression for
+censored data, Philippe Bastien, Frederic Bertrand, Nicolas Meyer and Myriam
+Maumy-Bertrand (2015), Bioinformatics, 31(3):397-404,
+doi:10.1093/bioinformatics/btu660.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://www.rdocumentation.org/packages/plsRglm/topics/plsR'>plsR</a></code> and <code><a href='https://www.rdocumentation.org/packages/plsRglm/topics/plsRglm'>plsRglm</a></code></p></div>
-    
+    <div class='dont-index'><p><code><a href='https://fbertran.github.io/plsRglm/reference/plsR.html'>plsR</a></code> and <code><a href='https://fbertran.github.io/plsRglm/reference/plsRglm.html'>plsRglm</a></code></p></div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Frédéric Bertrand<br />
+<a href='mailto:frederic.bertrand@math.unistra.fr'>frederic.bertrand@math.unistra.fr</a><br />
+<a href='http://www-irma.u-strasbg.fr/~fbertran/'>http://www-irma.u-strasbg.fr/~fbertran/</a></p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>micro.censure</span>)
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)
+    <pre class="examples"><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>micro.censure</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span>
 
-<span class='no'>X_train_micro</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/apply'>apply</a></span>((<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/matrix'>as.matrix</a></span>(<span class='no'>Xmicro.censure_compl_imp</span>)),<span class='kw'>FUN</span><span class='kw'>=</span><span class='st'>"as.numeric"</span>,<span class='kw'>MARGIN</span><span class='kw'>=</span><span class='fl'>2</span>)[<span class='fl'>1</span>:<span class='fl'>80</span>,]
-<span class='no'>X_train_micro_df</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a></span>(<span class='no'>X_train_micro</span>)
-<span class='no'>Y_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>survyear</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
-<span class='no'>C_train_micro</span> <span class='kw'>&lt;-</span> <span class='no'>micro.censure</span>$<span class='no'>DC</span>[<span class='fl'>1</span>:<span class='fl'>80</span>]
+<span class='va'>X_train_micro</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/apply.html'>apply</a></span><span class='op'>(</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>Xmicro.censure_compl_imp</span><span class='op'>)</span><span class='op'>)</span>,FUN<span class='op'>=</span><span class='st'>"as.numeric"</span>,MARGIN<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span>,<span class='op'>]</span>
+<span class='va'>X_train_micro_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='va'>X_train_micro</span><span class='op'>)</span>
+<span class='va'>Y_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>survyear</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
+<span class='va'>C_train_micro</span> <span class='op'>&lt;-</span> <span class='va'>micro.censure</span><span class='op'>$</span><span class='va'>DC</span><span class='op'>[</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>80</span><span class='op'>]</span>
 
-<span class='fu'>plsRcox</span>(<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>)</div><div class='output co'>#&gt; ____************************************************____
+<span class='fu'>plsRcox</span><span class='op'>(</span><span class='va'>X_train_micro</span>,time<span class='op'>=</span><span class='va'>Y_train_micro</span>,event<span class='op'>=</span><span class='va'>C_train_micro</span>,nt<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ____************************************************____
 #&gt; ____Component____ 1 ____
 #&gt; ____Component____ 2 ____
 #&gt; ____Component____ 3 ____
@@ -339,7 +467,8 @@ allres=TRUE, verbose=TRUE,...)</pre>
 #&gt; Nb_Comp_2  75.49537  80.25942
 #&gt; Nb_Comp_3  68.45852  75.60460
 #&gt; Nb_Comp_4  63.09284  72.62094
-#&gt; Nb_Comp_5  55.30567  67.21581</div><div class='input'><span class='fu'>plsRcox</span>(~<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>)</div><div class='output co'>#&gt; ____************************************************____
+#&gt; Nb_Comp_5  55.30567  67.21581</div><div class='input'><span class='fu'>plsRcox</span><span class='op'>(</span><span class='op'>~</span><span class='va'>X_train_micro</span>,time<span class='op'>=</span><span class='va'>Y_train_micro</span>,event<span class='op'>=</span><span class='va'>C_train_micro</span>,nt<span class='op'>=</span><span class='fl'>5</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: non-list contrasts argument ignored</span></div><div class='output co'>#&gt; ____************************************************____
 #&gt; ____Component____ 1 ____
 #&gt; ____Component____ 2 ____
 #&gt; ____Component____ 3 ____
@@ -401,8 +530,9 @@ allres=TRUE, verbose=TRUE,...)</pre>
 #&gt; Nb_Comp_3  68.45852  75.60460
 #&gt; Nb_Comp_4  63.09284  72.62094
 #&gt; Nb_Comp_5  55.30567  67.21581</div><div class='input'>
-<span class='fu'>plsRcox</span>(<span class='kw'>Xplan</span><span class='kw'>=</span><span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>,<span class='kw'>sparse</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-<span class='kw'>alpha.pvals.expli</span><span class='kw'>=</span><span class='fl'>.15</span>)</div><div class='output co'>#&gt; ____************************************************____
+<span class='fu'>plsRcox</span><span class='op'>(</span>Xplan<span class='op'>=</span><span class='va'>X_train_micro</span>,time<span class='op'>=</span><span class='va'>Y_train_micro</span>,event<span class='op'>=</span><span class='va'>C_train_micro</span>,nt<span class='op'>=</span><span class='fl'>5</span>,sparse<span class='op'>=</span><span class='cn'>TRUE</span>,
+alpha.pvals.expli<span class='op'>=</span><span class='fl'>.15</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; ____************************************************____
 #&gt; ____Component____ 1 ____
 #&gt; ____Component____ 2 ____
 #&gt; ____Component____ 3 ____
@@ -461,8 +591,9 @@ allres=TRUE, verbose=TRUE,...)</pre>
 #&gt; Nb_Comp_0 112.87990 112.87990
 #&gt; Nb_Comp_1  85.54313  87.92516
 #&gt; Nb_Comp_2  75.16125  79.92530
-#&gt; Nb_Comp_3  73.63097  80.77705</div><div class='input'><span class='fu'>plsRcox</span>(<span class='kw'>Xplan</span><span class='kw'>=</span>~<span class='no'>X_train_micro</span>,<span class='kw'>time</span><span class='kw'>=</span><span class='no'>Y_train_micro</span>,<span class='kw'>event</span><span class='kw'>=</span><span class='no'>C_train_micro</span>,<span class='kw'>nt</span><span class='kw'>=</span><span class='fl'>5</span>,<span class='kw'>sparse</span><span class='kw'>=</span><span class='fl'>TRUE</span>,
-<span class='kw'>alpha.pvals.expli</span><span class='kw'>=</span><span class='fl'>.15</span>)</div><div class='output co'>#&gt; ____************************************************____
+#&gt; Nb_Comp_3  73.63097  80.77705</div><div class='input'><span class='fu'>plsRcox</span><span class='op'>(</span>Xplan<span class='op'>=</span><span class='op'>~</span><span class='va'>X_train_micro</span>,time<span class='op'>=</span><span class='va'>Y_train_micro</span>,event<span class='op'>=</span><span class='va'>C_train_micro</span>,nt<span class='op'>=</span><span class='fl'>5</span>,sparse<span class='op'>=</span><span class='cn'>TRUE</span>,
+alpha.pvals.expli<span class='op'>=</span><span class='fl'>.15</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: non-list contrasts argument ignored</span></div><div class='output co'>#&gt; ____************************************************____
 #&gt; ____Component____ 1 ____
 #&gt; ____Component____ 2 ____
 #&gt; ____Component____ 3 ____
@@ -521,30 +652,16 @@ allres=TRUE, verbose=TRUE,...)</pre>
 #&gt; Nb_Comp_0 112.87990 112.87990
 #&gt; Nb_Comp_1  85.54313  87.92516
 #&gt; Nb_Comp_2  75.16125  79.92530
-#&gt; Nb_Comp_3  73.63097  80.77705</div></pre>
+#&gt; Nb_Comp_3  73.63097  80.77705</div><div class='input'>
+</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#details">Details</a></li>
-
-      <li><a href="#value">Value</a></li>
-
-      <li><a href="#references">References</a></li>
-
-      <li><a href="#see-also">See also</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
-    <h2>Author</h2>
-    <p>Frédéric Bertrand<br />
-<a href='mailto:frederic.bertrand@math.unistra.fr'>frederic.bertrand@math.unistra.fr</a><br />
-<a href='http://www-irma.u-strasbg.fr/~fbertran/'>http://www-irma.u-strasbg.fr/~fbertran/</a></p>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -552,13 +669,16 @@ allres=TRUE, verbose=TRUE,...)</pre>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

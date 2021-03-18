@@ -1,3 +1,6 @@
+#' @rdname coxpls2
+#' @export
+
 coxpls2.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), methodpls="kernelpls", validation = "CV", plot=FALSE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE,...) {
 
 if (missing(dataXplan)) 

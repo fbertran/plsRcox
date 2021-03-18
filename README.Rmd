@@ -1,12 +1,3 @@
----
-title: "plsRcox, Cox-Models in a High Dimensional Setting in R"
-author: "Frédéric Bertrand and Myriam Maumy-Bertrand"
-output: github_document
----
-
-[![CRAN status](https://www.r-pkg.org/badges/version/plsRcox)](https://cran.r-project.org/package=plsRcox)
-[![DOI](https://zenodo.org/badge/18454102.svg)](https://zenodo.org/badge/latestdoi/18454102)
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r setup, include = FALSE}
@@ -19,7 +10,23 @@ knitr::opts_chunk$set(
   fig.keep="all"
 )
 ```
-# plsRcox
+
+# plsRcox <img src="man/figures/logo.png" align="right" width="200"/>
+
+# plsRcox, Cox-Models in a High Dimensional Setting in R
+## Frédéric Bertrand and Myriam Maumy-Bertrand
+
+<!-- badges: start -->
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![R-CMD-check](https://github.com/fbertran/plsRcox/workflows/R-CMD-check/badge.svg)](https://github.com/fbertran/plsRcox/actions)
+[![Codecov test coverage](https://codecov.io/gh/fbertran/plsRcox/branch/master/graph/badge.svg)](https://codecov.io/gh/fbertran/plsRcox?branch=master)
+[![CRAN status](https://www.r-pkg.org/badges/version/plsRcox)](https://cran.r-project.org/package=plsRcox)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/plsRcox)](https://cran.r-project.org/package=plsRcox)
+[![GitHub Repo stars](https://img.shields.io/github/stars/fbertran/plsRcox?style=social)](https://github.com/fbertran/plsRcox)
+[![DOI](https://zenodo.org/badge/18454102.svg)](https://zenodo.org/badge/latestdoi/18454102)
+<!-- badges: end -->
+
 
 The goal of plsRcox is provide Cox models in a high dimensional setting in R.
 
