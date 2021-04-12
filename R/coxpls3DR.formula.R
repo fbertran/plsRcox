@@ -1,7 +1,7 @@
 #' @rdname coxpls3DR
 #' @export
 
-coxpls3DR.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(7,ncol(Xplan)), typeVC="none", plot=FALSE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE,sparse=FALSE,sparseStop=TRUE,...) {
+coxpls3DR.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, nt=min(7,ncol(Xplan)), typeVC="none", plot=FALSE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE,sparse=FALSE,sparseStop=TRUE, model_matrix=FALSE, contrasts.arg,...) {
 
 if (missing(dataXplan)) 
 dataXplan <- environment(Xplan)
@@ -9,7 +9,7 @@ mf0 <- match.call(expand.dots = FALSE)
 m0 <- match(c("subset", "weights"), names(mf0), 0L)
 mf0 <- mf0[c(1L, m0)]
 mf0$data <- dataXplan
-mf0$formula <- Xplan
+mf0$formula <- as.formula(paste(c(as.character(Xplan),"+0"),collapse=""))
 mf0$drop.unused.levels <- TRUE
 mf0[[1L]] <- as.name("model.frame")
 mf0 <- eval(mf0, parent.frame())
@@ -23,8 +23,10 @@ if (length(dim(Y)) == 1L) {
    if (!is.null(nm)) 
        names(Y) <- nm
 }
-Xplan <- if (!is.empty.model(mt0)) model.matrix(mt0, mf0, contrasts)[,-1]
+Xplan <- if (!is.empty.model(mt0)) model.matrix(mt0, mf0, , contrasts.arg=contrasts.arg)
 else matrix(, NROW(Y), 0L)
+if (model_matrix) 
+  return(Xplan)
 weights <- as.vector(model.weights(mf0))
 if (!is.null(weights) && !is.numeric(weights)) 
     stop("'weights' must be a numeric vector")

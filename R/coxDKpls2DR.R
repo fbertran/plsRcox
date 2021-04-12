@@ -98,6 +98,11 @@
 #' Laplacian kernel, if \code{hyperkernel} is missing, the heuristics in sigest
 #' are used to calculate a good sigma value from the data.
 #' @param verbose Should some details be displayed ?
+#' @param model_matrix If \code{TRUE}, the model matrix is returned.
+#' @param contrasts.arg a list, whose entries are values (numeric matrices, 
+#' functions or character strings naming functions) to be used as replacement 
+#' values for the contrasts replacement function and whose names are the names 
+#' of columns of data containing factors.
 #' @param \dots Arguments to be passed on to \code{survival::coxph}.
 #' @return If \code{allres=FALSE} : \item{cox_DKpls2DR}{Final Cox-model.} If
 #' \code{allres=TRUE} : \item{tt_DKpls2DR}{PLSR components.}

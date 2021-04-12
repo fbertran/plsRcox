@@ -66,6 +66,11 @@
 #' @param weights an optional vector of 'prior weights' to be used in the
 #' fitting process. Should be \code{NULL} or a numeric vector.
 #' @param model_frame If \code{TRUE}, the model frame is returned.
+#' @param model_matrix If \code{TRUE}, the model matrix is returned.
+#' @param contrasts.arg a list, whose entries are values (numeric matrices, 
+#' functions or character strings naming functions) to be used as replacement 
+#' values for the contrasts replacement function and whose names are the names 
+#' of columns of data containing factors.
 #' @param \dots Arguments to be passed on to \code{survival::coxph}.
 #' @return If \code{allres=FALSE} : \item{cox_pls}{Final Cox-model.} If
 #' \code{allres=TRUE} : \item{tt_pls}{PLSR components.} \item{cox_pls}{Final

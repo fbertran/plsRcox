@@ -73,6 +73,11 @@
 #' (<\code{alpha.pvals.expli}) be set to 0
 #' @param sparseStop should component extraction stop when no significant
 #' predictors (<\code{alpha.pvals.expli}) are found
+#' @param model_matrix If \code{TRUE}, the model matrix is returned.
+#' @param contrasts.arg a list, whose entries are values (numeric matrices, 
+#' functions or character strings naming functions) to be used as replacement 
+#' values for the contrasts replacement function and whose names are the names 
+#' of columns of data containing factors.
 #' @param \dots Arguments to be passed on to \code{survival::coxph} and to
 #' \code{plsRglm::PLS_lm}.
 #' @return If \code{allres=FALSE} : \item{cox_pls3}{Final Cox-model.} If

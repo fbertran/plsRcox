@@ -87,6 +87,11 @@
 #' @param model_matrix If \code{TRUE}, the "unweighted" model matrix is
 #' returned.
 #' @param verbose Should some details be displayed ?
+#' @param model_matrix If \code{TRUE}, the model matrix is returned.
+#' @param contrasts.arg a list, whose entries are values (numeric matrices, 
+#' functions or character strings naming functions) to be used as replacement 
+#' values for the contrasts replacement function and whose names are the names 
+#' of columns of data containing factors.
 #' @param \dots Arguments to be passed on to \code{survival::coxph} or to
 #' \code{lars::lars}.
 #' @return If \code{allres=FALSE} : \item{cox_larsDR}{Final Cox-model.} If
