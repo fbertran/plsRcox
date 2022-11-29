@@ -1,7 +1,7 @@
 #' @rdname coxDKsplsDR
 #' @export
 
-coxDKsplsDR.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE, eta, trace=FALSE,kernel="rbfdot",hyperkernel,verbose=TRUE, model_matrix=FALSE, contrasts.arg,...) {
+coxDKsplsDR.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE, eta, trace=FALSE,kernel="rbfdot",hyperkernel,verbose=TRUE, model_matrix=FALSE, contrasts.arg=NULL,...) {
 
 if (missing(dataXplan)) 
 dataXplan <- environment(Xplan)

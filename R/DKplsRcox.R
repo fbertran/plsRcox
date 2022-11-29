@@ -130,7 +130,7 @@
 #' \code{plsRmodel.formula}
 #' @return Depends on the model that was used to fit the model.
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso \code{\link[plsRglm]{plsR}} and \code{\link[plsRglm]{plsRglm}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

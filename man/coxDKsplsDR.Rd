@@ -58,6 +58,8 @@ coxDKsplsDR(Xplan, ...)
   kernel = "rbfdot",
   hyperkernel,
   verbose = TRUE,
+  model_matrix = FALSE,
+  contrasts.arg = NULL,
   ...
 )
 }
@@ -169,6 +171,13 @@ used in the fitting process.}
 fitting process. Should be \code{NULL} or a numeric vector.}
 
 \item{model_frame}{If \code{TRUE}, the model frame is returned.}
+
+\item{model_matrix}{If \code{TRUE}, the model matrix is returned.}
+
+\item{contrasts.arg}{a list, whose entries are values (numeric matrices, 
+functions or character strings naming functions) to be used as replacement 
+values for the contrasts replacement function and whose names are the names 
+of columns of data containing factors.}
 }
 \value{
 If \code{allres=FALSE} : \item{cox_DKsplsDR}{Final Cox-model.} If
@@ -232,7 +241,7 @@ doi:10.1093/bioinformatics/btu660.
 }
 \author{
 Frédéric Bertrand\cr
-\email{frederic.bertrand@math.unistra.fr}\cr
+\email{frederic.bertrand@utt.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
 \keyword{models}

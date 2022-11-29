@@ -202,7 +202,7 @@ See Also \code{\link{plsRcox}}
 }
 \author{
 Frédéric Bertrand\cr
-\email{frederic.bertrand@math.unistra.fr}\cr
+\email{frederic.bertrand@utt.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
 \keyword{models}

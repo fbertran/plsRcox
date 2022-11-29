@@ -1,7 +1,7 @@
 #' @rdname larsDR_coxph
 #' @export
 
-larsDR_coxph.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=FALSE, scaleY=TRUE, plot=FALSE, typelars="lasso", normalize = TRUE, max.steps, use.Gram = TRUE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE,model_matrix=FALSE,verbose=TRUE, model_matrix=FALSE, contrasts.arg,...) {
+larsDR_coxph.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=FALSE, scaleY=TRUE, plot=FALSE, typelars="lasso", normalize = TRUE, max.steps, use.Gram = TRUE, allres=FALSE,dataXplan=NULL,subset,weights,model_frame=FALSE,model_matrix=FALSE,verbose=TRUE, contrasts.arg=NULL,...) {
 
 if (missing(dataXplan)) 
 dataXplan <- environment(Xplan)

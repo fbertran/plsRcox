@@ -43,7 +43,7 @@
 #' @param \dots Arguments to be passed on to \code{survival::coxph}.
 #' @return \item{Named num}{Vector of the residual values.}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso \code{\link[survival]{coxph}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

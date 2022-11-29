@@ -1,7 +1,7 @@
 #' @rdname plsRcox
 #' @export
 
-plsRcoxmodel.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted,scaleX=TRUE,scaleY=NULL,dataXplan=NULL, nt=min(2,ncol(Xplan)),limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE, model_frame=FALSE, alpha.pvals.expli=.05,tol_Xi=10^(-12),weights,subset,control,sparse=FALSE,sparseStop=TRUE,allres=TRUE,verbose=TRUE, model_matrix=FALSE, contrasts.arg,...) {  
+plsRcoxmodel.formula <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted,scaleX=TRUE,scaleY=NULL,dataXplan=NULL, nt=min(2,ncol(Xplan)),limQ2set=.0975, dataPredictY=Xplan, pvals.expli=FALSE, model_frame=FALSE, alpha.pvals.expli=.05,tol_Xi=10^(-12),weights,subset,control,sparse=FALSE,sparseStop=TRUE,allres=TRUE,verbose=TRUE, model_matrix=FALSE, contrasts.arg=NULL,...) {  
 
 XplanFormula <- Xplan
 if (missing(dataXplan)) 

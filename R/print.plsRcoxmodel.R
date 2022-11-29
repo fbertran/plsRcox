@@ -7,7 +7,7 @@
 #' @param \dots not used
 #' @return \code{NULL}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso \code{\link{print}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

@@ -1,3 +1,7 @@
+# plsRcox 1.7.7
+
+* Update mantainer address and code bug fix (contrasts.arg)
+
 # plsRcox 1.7.6
 
 * Roxygen the package, add badges, package description file and update pkgdown site.

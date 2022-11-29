@@ -86,7 +86,7 @@
 #' \code{allres=TRUE} : \item{tt_pls3DR}{PLSR components.}
 #' \item{cox_pls3DR}{Final Cox-model.} \item{pls3DR_mod}{The PLSR model.}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso \code{\link[survival]{coxph}}, \code{\link[plsRglm]{PLS_lm}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

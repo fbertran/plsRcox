@@ -66,6 +66,8 @@ plsRcoxmodel(Xplan, ...)
   sparseStop = TRUE,
   allres = TRUE,
   verbose = TRUE,
+  model_matrix = FALSE,
+  contrasts.arg = NULL,
   ...
 )
 }
@@ -165,6 +167,13 @@ taken from \code{environment(Xplan)}, typically the environment from which
 \item{subset}{an optional vector specifying a subset of observations to be
 used in the fitting process.}
 
+\item{model_matrix}{If \code{TRUE}, the model matrix is returned.}
+
+\item{contrasts.arg}{a list, whose entries are values (numeric matrices, 
+functions or character strings naming functions) to be used as replacement 
+values for the contrasts replacement function and whose names are the names 
+of columns of data containing factors.}
+
 \item{method}{the method to be used in fitting the model. The default method
 \code{"glm.fit"} uses iteratively reweighted least squares (IWLS).
 User-supplied fitting functions can be supplied either as a function or a
@@ -234,7 +243,7 @@ doi:10.1093/bioinformatics/btu660.
 }
 \author{
 Frédéric Bertrand\cr
-\email{frederic.bertrand@math.unistra.fr}\cr
+\email{frederic.bertrand@utt.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
 \keyword{models}

@@ -100,7 +100,7 @@
 #' \item{X_larsDR}{The eXplanatory variables.} \item{cox_larsDR}{Final
 #' Cox-model.}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso \code{\link[survival]{coxph}}, \code{\link[lars]{lars}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

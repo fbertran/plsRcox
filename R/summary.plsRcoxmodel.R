@@ -7,7 +7,7 @@
 #' @param \dots further arguments to be passed to or from methods.
 #' @return \item{call }{function call of plsRcox models}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso \code{\link{summary}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

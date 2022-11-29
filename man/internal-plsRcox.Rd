@@ -28,7 +28,7 @@ doi:10.1093/bioinformatics/btu660.
 }
 \author{
 Frédéric Bertrand\cr
-\email{frederic.bertrand@math.unistra.fr}\cr
+\email{frederic.bertrand@utt.fr}\cr
 \url{http://www-irma.u-strasbg.fr/~fbertran/}
 }
 \keyword{internal}

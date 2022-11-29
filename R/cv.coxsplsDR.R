@@ -131,7 +131,7 @@
 #' \item{All_indics}{All results of the functions that perform error
 #' computation, for each fold, each component and error criterion.}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso See Also \code{\link{coxsplsDR}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

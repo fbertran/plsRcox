@@ -8,7 +8,7 @@
 #' @param \dots not used
 #' @return \item{language}{call of the model}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@math.unistra.fr}\cr
+#' \email{frederic.bertrand@@utt.fr}\cr
 #' \url{http://www-irma.u-strasbg.fr/~fbertran/}
 #' @seealso \code{\link{print}} and \code{\link{summary}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic

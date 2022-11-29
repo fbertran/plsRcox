@@ -1,4 +1,3 @@
-base
 plsRcox
 devtools
 usethis
@@ -9,3 +8,4 @@ MASS
 lattice
 ggplot2
 risksetROC
+BiocManager
