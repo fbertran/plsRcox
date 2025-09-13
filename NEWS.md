@@ -3,6 +3,7 @@
 * Update mantainer email 
 * Added unit tests
 * Fix package to get rid of CRAN check notes
+* Added doi
 
 # plsRcox 1.7.7
 
