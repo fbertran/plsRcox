@@ -129,8 +129,8 @@ doi:10.1093/bioinformatics/btu660.
 }
 \author{
 Frédéric Bertrand\cr
-\email{frederic.bertrand@utt.fr}\cr
-\url{http://www-irma.u-strasbg.fr/~fbertran/}
+\email{frederic.bertrand@lecnam.net}\cr
+\url{https://fbertran.github.io/homepage/}
 }
 \keyword{methods}
 \keyword{predict}

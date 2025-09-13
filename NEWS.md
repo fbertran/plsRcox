@@ -1,3 +1,9 @@
+# plsRcox 1.8.0
+
+* Update mantainer email 
+* Added unit tests
+* Fix package to get rid of CRAN check notes
+
 # plsRcox 1.7.7
 
 * Update mantainer address and code bug fix (contrasts.arg)

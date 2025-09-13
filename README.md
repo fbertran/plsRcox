@@ -7,7 +7,10 @@
 # plsRcox, Cox-Models in a High Dimensional Setting in R
 ## Frédéric Bertrand and Myriam Maumy-Bertrand
 
+<https://doi.org/10.32614/CRAN.package.plsRcox>
+
 <!-- badges: start -->
+[![DOI](https://img.shields.io/badge/doi-10.32614/CRAN.package.plsRcox-blue.svg)](https://doi.org/10.32614/CRAN.package.plsRcox)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![R-CMD-check](https://github.com/fbertran/plsRcox/workflows/R-CMD-check/badge.svg)](https://github.com/fbertran/plsRcox/actions)
@@ -15,7 +18,6 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/plsRcox)](https://cran.r-project.org/package=plsRcox)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/plsRcox)](https://cran.r-project.org/package=plsRcox)
 [![GitHub Repo stars](https://img.shields.io/github/stars/fbertran/plsRcox?style=social)](https://github.com/fbertran/plsRcox)
-[![DOI](https://zenodo.org/badge/18454102.svg)](https://zenodo.org/badge/latestdoi/18454102)
 <!-- badges: end -->
 
 
@@ -25,8 +27,8 @@ The goal of plsRcox is provide Cox models in a high dimensional setting in R.
 plsRcox implements partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings <https://doi.org/10.1093/bioinformatics/btu660>, Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Bioinformatics, 31(3):397-404. Cross validation criteria were studied in [<arXiv:1810.02962>](https://arxiv.org/abs/1810.01005), Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data.
 
 
-The package was presented at the [User2014!](http://user2014.r-project.org/) conference. Frédéric Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Bertrand (2014). "plsRcox, Cox-Models in a high dimensional setting in R", *book of abstracts*, User2014!, Los Angeles, page 177,
-<http://user2014.r-project.org/abstracts/posters/177_Bertrand.pdf>.
+The package was presented at the [User2014!](https://user2014.r-project.org/) conference. Frédéric Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Bertrand (2014). "plsRcox, Cox-Models in a high dimensional setting in R", *book of abstracts*, User2014!, Los Angeles, page 177,
+<https://user2014.r-project.org/abstracts/posters/177_Bertrand.pdf>.
 
 
 The plsRcox package contains an original allelotyping dataset from "Allelotyping identification of genomic alterations in rectal chromosomally unstable tumors without preoperative treatment", Benoît Romain, Agnès Neuville, Nicolas Meyer, Cécile Brigand, Serge Rohr, Anne Schneider, Marie-Pierre Gaub and Dominique Guenot (2010), *BMC Cancer*, **10**:561, <https://doi.org/10.1186/1471-2407-10-561>.
@@ -68,14 +70,14 @@ This website and these examples were created by F. Bertrand and M. Maumy-Bertran
 You can install the released version of plsRcox from [CRAN](https://CRAN.R-project.org) with:
 
 
-```r
+``` r
 install.packages("plsRcox")
 ```
 
 You can install the development version of plsRcox from [github](https://github.com) with:
 
 
-```r
+``` r
 devtools::install_github("fbertran/plsRcox")
 ```
 
@@ -84,7 +86,7 @@ devtools::install_github("fbertran/plsRcox")
 ### The original allelotyping dataset
 
 
-```r
+``` r
 library(plsRcox)
 data(micro.censure)
 Y_train_micro <- micro.censure$survyear[1:80]
@@ -100,11 +102,14 @@ X_train_micro_df <- data.frame(X_train_micro)
 Compute deviance residuals with some options.
 
 
-```r
+``` r
 DR_coxph(Y_train_micro,C_train_micro,plot=TRUE)
 ```
 
-<img src="man/figures/README-devianceresiduals-1.png" title="plot of chunk devianceresiduals" alt="plot of chunk devianceresiduals" width="100%" />
+<div class="figure">
+<img src="man/figures/README-devianceresiduals-1.png" alt="plot of chunk devianceresiduals" width="100%" />
+<p class="caption">plot of chunk devianceresiduals</p>
+</div>
 
 ```
 #>           1           2           3           4           5           6 
@@ -137,11 +142,14 @@ DR_coxph(Y_train_micro,C_train_micro,plot=TRUE)
 #> -0.54695398 -0.43627414
 ```
 
-```r
+``` r
 DR_coxph(Y_train_micro,C_train_micro,scaleY=FALSE,plot=TRUE)
 ```
 
-<img src="man/figures/README-devianceresiduals2-1.png" title="plot of chunk devianceresiduals2" alt="plot of chunk devianceresiduals2" width="100%" />
+<div class="figure">
+<img src="man/figures/README-devianceresiduals2-1.png" alt="plot of chunk devianceresiduals2" width="100%" />
+<p class="caption">plot of chunk devianceresiduals2</p>
+</div>
 
 ```
 #>           1           2           3           4           5           6 
@@ -174,11 +182,14 @@ DR_coxph(Y_train_micro,C_train_micro,scaleY=FALSE,plot=TRUE)
 #> -0.54695398 -0.43627414
 ```
 
-```r
+``` r
 DR_coxph(Y_train_micro,C_train_micro,scaleY=TRUE,plot=TRUE)
 ```
 
-<img src="man/figures/README-devianceresiduals3-1.png" title="plot of chunk devianceresiduals3" alt="plot of chunk devianceresiduals3" width="100%" />
+<div class="figure">
+<img src="man/figures/README-devianceresiduals3-1.png" alt="plot of chunk devianceresiduals3" width="100%" />
+<p class="caption">plot of chunk devianceresiduals3</p>
+</div>
 
 ```
 #>           1           2           3           4           5           6 

@@ -3,9 +3,11 @@
 \docType{package}
 \name{plsRcox-package}
 \alias{plsRcox-package}
-\title{plsRcox-package: Partial Least Squares Regression for Cox Models and Related Techniques}
+\title{plsRcox: Partial Least Squares Regression for Cox Models and Related Techniques}
 \description{
-Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings <doi:10.1093/bioinformatics/btu660>, Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Bioinformatics, 31(3):397-404. Cross validation criteria were studied in <arXiv:1810.02962>, Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data.
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
+Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings \doi{10.1093/bioinformatics/btu660}, Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Bioinformatics, 31(3):397-404. Cross validation criteria were studied in \doi{10.48550/arXiv.1810.02962}, Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data.
 }
 \examples{
 # The original allelotyping dataset
@@ -36,5 +38,27 @@ rm(cox_splsDR_fit,cox_splsDR_fit2,cox_splsDR_fit3)
 
 }
 \references{
-Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Bioinformatics, 31(3):397-404. <doi:10.1093/bioinformatics/btu660>. Cross validation criteria were studied in <arXiv:1810.02962>, Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data.
+Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), 
+Deviance residuals-based sparse PLS and sparse kernel PLS regression for 
+censored data, Bioinformatics, 31(3):397-404. <doi:10.1093/bioinformatics/btu660>. 
+
+Cross validation criteria were studied in <arXiv:1810.02962>, 
+Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), 
+Cross validating extensions of kernel, sparse or regular partial least 
+squares regression models to censored data.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://fbertran.github.io/plsRcox/}
+  \item \url{https://github.com/fbertran/plsRcox/}
+  \item Report bugs at \url{https://github.com/fbertran/plsRcox/issues/}
+}
+
+}
+\author{
+This package has been written by Frédéric Bertrand and Myriam
+Maumy-Bertrand. 
+Maintainer: Frédéric Bertrand <frederic.bertrand@lecnam.net>
+}
+\keyword{internal}

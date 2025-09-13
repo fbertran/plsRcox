@@ -3,28 +3,31 @@ citHeader("To cite the plsRcox package in publications use:")
 titl <- meta$Title
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
 vers <- paste("R package version", meta$Version)
+doi <- paste0("10.32614/CRAN.package.", meta$Package)
+urldoi <- paste0("https://doi.org/", doi)
 
-citEntry(entry="Manual",
+bibentry(bibtype="Manual",
          title = titl,
-         author = personList(as.person("F. Bertrand"), 
-                             as.person("M. Maumy-Bertrand")),
+         author = c(person(given = "Frederic", family= "Bertrand"), 
+                    person(given = "Myriam", family= "Maumy-Bertrand")),
 	 publisher = "manual",
          year         = year,
          note         = vers,
-         url          = "http://www-irma.u-strasbg.fr/~fbertran/",
+         url          = "https://fbertran.github.io/homepage/",
+         doi = doi,
          textVersion = 
          paste("Frederic Bertrand and Myriam Maumy-Bertrand (",year ,"). ", 
-               titl, ", ", vers, ".", sep=""
+               titl, ", ", vers, ". doi:", doi, ".", sep=""
                )
 )
 
-citEntry(entry="InProceedings",
+bibentry(bibtype="InProceedings",
          title = "plsRcox, Cox-Models in a high dimensional setting in R",
-         author = personList(as.person("F. Bertrand"), 
-    		     as.person("Ph. Bastien"),
-  			     as.person("N. Meyer"),
-as.person("M. Maumy-Bertrand")),
-	 booktitle = "Proceedings of User2014!",
+         author = c(person(given = "Frederic", family= "Bertrand"), 
+         person(given = "Philippe", family= "Bastien"), 
+         person(given = "Nicolas", family= "Meyer"),
+         person(given = "Myriam", family= "Maumy-Bertrand")), 
+	       booktitle = "Proceedings of User2014!",
          year         = 2014,
          pages		= "177",
          textVersion = 
@@ -32,11 +35,12 @@ as.person("M. Maumy-Bertrand")),
                "plsRcox, Cox-Models in a high dimensional setting in R.", "Proceedings of User2014!, Los Angeles,", "page 177." )
 )
 
-citEntry(entry="Article",
+bibentry(bibtype="Article",
          title = "Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data",
-         author = personList(as.person("Ph. Bastien"), as.person("F. Bertrand"), 
-  			     as.person("N. Meyer"),
-as.person("M. Maumy-Bertrand")),
+         author = c(person(given = "Philippe", family= "Bastien"),
+         person(given = "Frederic", family= "Bertrand"), 
+         person(given = "Nicolas", family= "Meyer"),
+         person(given = "Myriam", family= "Maumy-Bertrand")),
          year         = 2015,
          pages		= "397--404",
          journal = "Bioinformatics",

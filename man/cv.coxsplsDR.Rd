@@ -209,8 +209,8 @@ See Also \code{\link{coxsplsDR}}
 }
 \author{
 Frédéric Bertrand\cr
-\email{frederic.bertrand@utt.fr}\cr
-\url{http://www-irma.u-strasbg.fr/~fbertran/}
+\email{frederic.bertrand@lecnam.net}\cr
+\url{https://fbertran.github.io/homepage/}
 }
 \keyword{models}
 \keyword{regression}

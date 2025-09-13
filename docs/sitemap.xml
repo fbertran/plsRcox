@@ -1,111 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/DKplsRcox.html</loc>
-  </url>
-  <url>
-    <loc>/reference/DR_coxph.html</loc>
-  </url>
-  <url>
-    <loc>/reference/Xmicro.censure_compl_imp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxDKpls2DR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxDKplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxDKsplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxpls.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxpls2.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxpls2DR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxpls3.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxpls3DR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/coxsplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.autoplsRcox.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.coxDKplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.coxDKsplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.coxpls.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.coxplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.coxsplsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.larsDR.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cv.plsRcox.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/internal-plsRcox.html</loc>
-  </url>
-  <url>
-    <loc>/reference/larsDR_coxph.html</loc>
-  </url>
-  <url>
-    <loc>/reference/micro.censure.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plsRcox-package-hash-at-import-boot.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plsRcox-package.html</loc>
-  </url>
-  <url>
-    <loc>/reference/plsRcox.html</loc>
-  </url>
-  <url>
-    <loc>/reference/predict.plsRcoxmodel.html</loc>
-  </url>
-  <url>
-    <loc>/reference/print.plsRcoxmodel.html</loc>
-  </url>
-  <url>
-    <loc>/reference/print.summary.plsRcoxmodel.html</loc>
-  </url>
-  <url>
-    <loc>/reference/summary.plsRcoxmodel.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://fbertran.github.io/plsRcox/404.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/authors.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/index.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/news/index.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/Cascade-package.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/DKplsRcox.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/DR_coxph.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/Xmicro.censure_compl_imp.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxDKpls2DR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxDKplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxDKsplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxpls.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxpls2.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxpls2DR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxpls3.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxpls3DR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/coxsplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.autoplsRcox.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.coxDKplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.coxDKsplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.coxpls.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.coxplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.coxsplsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.larsDR.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/cv.plsRcox.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/index.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/internal-plsRcox.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/larsDR_coxph.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/micro.censure.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/plsRcox-package-hash-at-import-boot.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/plsRcox-package.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/plsRcox.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/predict.plsRcoxmodel.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/print.plsRcoxmodel.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/print.summary.plsRcoxmodel.html</loc></url>
+<url><loc>https://fbertran.github.io/plsRcox/reference/summary.plsRcoxmodel.html</loc></url>
 </urlset>
+

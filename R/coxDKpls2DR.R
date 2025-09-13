@@ -108,8 +108,8 @@
 #' \code{allres=TRUE} : \item{tt_DKpls2DR}{PLSR components.}
 #' \item{cox_DKpls2DR}{Final Cox-model.} \item{DKpls2DR_mod}{The PLSR model.}
 #' @author Frédéric Bertrand\cr
-#' \email{frederic.bertrand@@utt.fr}\cr
-#' \url{http://www-irma.u-strasbg.fr/~fbertran/}
+#' \email{frederic.bertrand@@lecnam.net}\cr
+#' \url{https://fbertran.github.io/homepage/}
 #' @seealso \code{\link[survival]{coxph}}, \code{\link[pls]{plsr}}
 #' @references plsRcox, Cox-Models in a high dimensional setting in R, Frederic
 #' Bertrand, Philippe Bastien, Nicolas Meyer and Myriam Maumy-Bertrand (2014).
