@@ -26,3 +26,4 @@ NEWS
 ^fullrespdf*$
 ^inst/animation*$
 ^\.github$
+\.DS_Store$
