@@ -13,7 +13,7 @@
 [![DOI](https://img.shields.io/badge/doi-10.32614/CRAN.package.plsRcox-blue.svg)](https://doi.org/10.32614/CRAN.package.plsRcox)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![R-CMD-check](https://github.com/fbertran/plsRcox/workflows/R-CMD-check/badge.svg)](https://github.com/fbertran/plsRcox/actions)
+[![R-CMD-check](https://github.com/fbertran/plsRcox/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/fbertran/plsRcox/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/fbertran/plsRcox/branch/master/graph/badge.svg)](https://app.codecov.io/gh/fbertran/plsRcox?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/plsRcox)](https://cran.r-project.org/package=plsRcox)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/plsRcox)](https://cran.r-project.org/package=plsRcox)
@@ -88,7 +88,6 @@ devtools::install_github("fbertran/plsRcox")
 
 ``` r
 library(plsRcox)
-#> Warning: replacing previous import 'mixOmics::nipals' by 'pls::nipals' when loading 'plsRcox'
 data(micro.censure)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
