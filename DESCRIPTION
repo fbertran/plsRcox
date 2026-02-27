@@ -1,5 +1,5 @@
 Package: plsRcox
-Version: 1.8.0
+Version: 1.8.1
 Date: 2025-09-10
 Depends: R (>= 2.4.0)
 biocViews:
@@ -15,8 +15,8 @@ Maintainer: Frederic Bertrand <frederic.bertrand@lecnam.net>
 Description: Provides Partial least squares Regression and various regular, sparse or kernel, techniques for fitting Cox models in high dimensional settings <doi:10.1093/bioinformatics/btu660>, Bastien, P., Bertrand, F., Meyer N., Maumy-Bertrand, M. (2015), Deviance residuals-based sparse PLS and sparse kernel PLS regression for censored data, Bioinformatics, 31(3):397-404. Cross validation criteria were studied in <doi:10.48550/arXiv.1810.02962>, Bertrand, F., Bastien, Ph. and Maumy-Bertrand, M. (2018), Cross validating extensions of kernel, sparse or regular partial least squares regression models to censored data.
 License: GPL-3
 Encoding: UTF-8
-URL: https://fbertran.github.io/plsRcox/, https://github.com/fbertran/plsRcox/
-BugReports: https://github.com/fbertran/plsRcox/issues/
+URL: https://fbertran.github.io/plsRcox/, https://github.com/fbertran/plsRcox
+BugReports: https://github.com/fbertran/plsRcox/issues
 Classification/MSC: 62N01, 62N02, 62N03, 62N99
 RoxygenNote: 7.3.3
 Config/testthat/edition: 3

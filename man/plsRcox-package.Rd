@@ -51,8 +51,8 @@ squares regression models to censored data.
 Useful links:
 \itemize{
   \item \url{https://fbertran.github.io/plsRcox/}
-  \item \url{https://github.com/fbertran/plsRcox/}
-  \item Report bugs at \url{https://github.com/fbertran/plsRcox/issues/}
+  \item \url{https://github.com/fbertran/plsRcox}
+  \item Report bugs at \url{https://github.com/fbertran/plsRcox/issues}
 }
 
 }

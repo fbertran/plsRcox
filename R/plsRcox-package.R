@@ -45,9 +45,9 @@
 #' @import survival
 #' @import kernlab
 #' @import lars
-#' @import pls
+#' @importFrom pls plsr scores
 #' @import plsRglm
-#' @import mixOmics
+#' @importFrom mixOmics nearZeroVar
 #' @import risksetROC
 #' @import survcomp
 #' @import survAUC
@@ -61,6 +61,5 @@
 #' @importFrom utils head
 #' 
 NULL
-
 
 
