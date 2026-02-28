@@ -13,7 +13,7 @@
 Source:
 [`inst/CITATION`](https://github.com/fbertran/plsRcox/blob/HEAD/inst/CITATION)
 
-Frederic Bertrand and Myriam Maumy-Bertrand (2025). Partial Least
+Frederic Bertrand and Myriam Maumy-Bertrand (2026). Partial Least
 Squares Regression for Cox Models and Related Techniques, R package
 version 1.8.1. doi:10.32614/CRAN.package.plsRcox.
 
@@ -21,7 +21,7 @@ version 1.8.1. doi:10.32614/CRAN.package.plsRcox.
       title = {Partial Least Squares Regression for Cox Models and Related Techniques},
       author = {Frederic Bertrand and Myriam Maumy-Bertrand},
       publisher = {manual},
-      year = {2025},
+      year = {2026},
       note = {R package version 1.8.1},
       url = {https://fbertran.github.io/homepage/},
       doi = {10.32614/CRAN.package.plsRcox},

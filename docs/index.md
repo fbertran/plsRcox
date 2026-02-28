@@ -118,6 +118,7 @@ devtools::install_github("fbertran/plsRcox")
 
 ``` r
 library(plsRcox)
+#> Warning: replacing previous import 'mixOmics::nipals' by 'pls::nipals' when loading 'plsRcox'
 data(micro.censure)
 Y_train_micro <- micro.censure$survyear[1:80]
 C_train_micro <- micro.censure$DC[1:80]
