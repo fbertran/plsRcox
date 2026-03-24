@@ -84,8 +84,9 @@ PredictYwotNA <- as.matrix(PredictY)
 PredictYwotNA [is.na(PredictY)] <- 0
 }
 
+xplan_formula <- get0("XplanFormula", inherits = TRUE, ifnotfound = NULL)
 res <- list(nr=nrow(ExpliX),nc=ncol(ExpliX),nt=nt,ww=NULL,wwnorm=NULL,wwetoile=NULL,tt=NULL,pp=NULL,CoeffC=NULL,uscores=NULL,YChapeau=NULL,residYChapeau=NULL,RepY=RepY,na.miss.Y=na.miss.Y,YNA=YNA,residY=RepY,ExpliX=ExpliX,na.miss.X=na.miss.X,XXNA=XXNA,residXX=ExpliX,PredictY=PredictYwotNA,ttPredictY = NULL,dataX=dataX,dataY=dataY) 
-if(exists("XplanFormula")){res$XplanFormula=XplanFormula} else {XplanFormula=NULL}
+if(!is.null(xplan_formula)){res$XplanFormula <- xplan_formula}
 if(NoWeights){res$weights<-rep(1L,res$nr)} else {res$weights<-weights}
 res$temppred <- NULL
 
