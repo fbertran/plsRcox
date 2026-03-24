@@ -12,6 +12,8 @@ predict(
   comps = object$computed_nt,
   type = c("lp", "risk", "expected", "terms", "scores"),
   se.fit = FALSE,
+  reference = c("strata", "sample", "zero"),
+  y = NULL,
   weights,
   methodNA = "adaptative",
   verbose = TRUE,
@@ -28,7 +30,11 @@ predict(
 - newdata:
 
   An optional data frame in which to look for variables with which to
-  predict. If omitted, the fitted values are used.
+  predict. If omitted, the fitted values are used. For
+  `type = "expected"` on genuinely new observations, supply the
+  associated survival response with `y`; when `newdata` is a subset of
+  the training rows and keeps compatible row names, the training
+  response is matched automatically.
 
 - comps:
 
@@ -45,6 +51,19 @@ predict(
 
   If TRUE, pointwise standard errors are produced for the predictions
   using the Cox model.
+
+- reference:
+
+  Reference level used to center relative predictions. This is passed to
+  [`predict.coxph`](https://rdrr.io/pkg/survival/man/predict.coxph.html)
+  and affects `type = "lp"`, `"risk"` and `"terms"`.
+
+- y:
+
+  Optional [`Surv`](https://rdrr.io/pkg/survival/man/Surv.html) response
+  to use with `type = "expected"` when predicting on new observations.
+  The time values are interpreted on the original scale used to fit the
+  model and are rescaled internally when needed.
 
 - weights:
 
@@ -69,10 +88,8 @@ predict(
 
 - ...:
 
-  Arguments to be passed on to
-  [`survival::coxph`](https://rdrr.io/pkg/survival/man/coxph.html) and
-  to
-  [`plsRglm::PLS_lm`](https://fbertran.github.io/plsRglm/reference/plsR.html).
+  Additional arguments passed on to
+  [`predict.coxph`](https://rdrr.io/pkg/survival/man/predict.coxph.html).
 
 ## Value
 
@@ -280,7 +297,7 @@ predict(modpls,type="terms")
 #> 79 -1.37219178  1.09425077 -0.839664154
 #> 80 -3.95053329 -1.58030167  0.301474909
 #> attr(,"constant")
-#> [1] -7.028579e-16
+#> [1] -8.178871e-16
 predict(modpls,type="scores")    
 #>         Comp_1      Comp_2      Comp_3
 #> 1  -1.51471639 -1.61173906 -0.44174968
@@ -600,7 +617,7 @@ predict(modpls,type="terms",se.fit=TRUE)
 #> 79 -1.37219178  1.09425077 -0.839664154
 #> 80 -3.95053329 -1.58030167  0.301474909
 #> attr(,"constant")
-#> [1] -7.028579e-16
+#> [1] -8.178871e-16
 #> 
 #> $se.fit
 #>           tt.1        tt.2        tt.3
@@ -773,7 +790,23 @@ predict(modpls,type="scores",se.fit=TRUE)
 predict(modpls,newdata=X_train_micro[1:5,],type="risk")    
 #>          1          2          3          4          5 
 #> 0.02001048 0.98902638 9.92327996 2.16822181 6.15907848 
-#predict(modpls,newdata=X_train_micro[1:5,],type="expected")    
+predict(modpls,newdata=X_train_micro[1:5,],type="expected")    
+#>  [1] 2.883280e-02 1.380608e-02 8.122308e-03 3.764026e-03 7.153829e-01
+#>  [6] 5.007889e-05 2.475170e-03 8.180696e-02 3.026677e-02 2.299855e-03
+#> [11] 2.546934e-05 8.095284e-04 2.483432e-02 5.442420e-01 2.299855e-03
+#> [16] 7.472095e-06 1.380608e-02 2.483432e-02 2.518410e-01 1.545981e+00
+#> [21] 8.096863e-05 1.258833e-03 2.483432e-02 2.518410e-01 1.545981e+00
+#> [26] 7.472095e-06 4.001908e-03 4.015267e-02 5.426263e-03 5.041270e-03
+#> [31] 1.637879e-05 8.153478e-03 1.385216e-01 7.832551e-02 1.241773e-01
+#> [36] 2.324237e-03 4.001908e-03 1.385216e-01 8.096336e-04 2.224924e-01
+#> [41] 7.472095e-06 8.153478e-03 1.722678e-02 2.518410e-01 2.299855e-03
+#> [46] 1.697335e-03 2.482540e-01 4.015267e-02 5.426263e-03 8.874523e+00
+#> [51] 9.114964e-04 2.482540e-01 1.722678e-02 3.764026e-03 2.299855e-03
+#> [56] 2.793315e-04 2.482540e-01 3.705442e-03 1.787470e-02 7.153829e-01
+#> [61] 2.546934e-05 1.380608e-02 2.483432e-02 5.426263e-03 2.805518e-01
+#> [66] 7.472095e-06 4.001908e-03 8.180696e-02 5.843431e-02 7.153829e-01
+#> [71] 2.324237e-03 6.157978e-02 4.015267e-02 1.787470e-02 1.541391e-02
+#> [76] 1.697335e-03 1.148764e-01 4.015267e-02 3.026677e-02 2.492154e-02
 predict(modpls,newdata=X_train_micro[1:5,],type="terms")    
 #>          tt.1       tt.2        tt.3
 #> 1 -2.18710337 -1.4888633 -0.23553228
@@ -782,7 +815,7 @@ predict(modpls,newdata=X_train_micro[1:5,],type="terms")
 #> 4 -0.03763442  0.7129570  0.09858483
 #> 5  2.76422524 -0.9903678  0.04406969
 #> attr(,"constant")
-#> [1] -7.028579e-16
+#> [1] -8.178871e-16
 predict(modpls,newdata=X_train_micro[1:5,],type="scores")    
 #>           Comp_1     Comp_2      Comp_3
 #> [1,] -1.51471639 -1.6117391 -0.44174968
@@ -801,7 +834,43 @@ predict(modpls,newdata=X_train_micro[1:5,],type="risk",se.fit=TRUE)
 #>         1         2         3         4         5 
 #> 0.1154615 0.2748572 1.5252479 0.2864182 1.2258577 
 #> 
-#predict(modpls,newdata=X_train_micro[1:5,],type="expected",se.fit=TRUE)    
+predict(modpls,newdata=X_train_micro[1:5,],type="expected",se.fit=TRUE)    
+#> $fit
+#>  [1] 2.883280e-02 1.380608e-02 8.122308e-03 3.764026e-03 7.153829e-01
+#>  [6] 5.007889e-05 2.475170e-03 8.180696e-02 3.026677e-02 2.299855e-03
+#> [11] 2.546934e-05 8.095284e-04 2.483432e-02 5.442420e-01 2.299855e-03
+#> [16] 7.472095e-06 1.380608e-02 2.483432e-02 2.518410e-01 1.545981e+00
+#> [21] 8.096863e-05 1.258833e-03 2.483432e-02 2.518410e-01 1.545981e+00
+#> [26] 7.472095e-06 4.001908e-03 4.015267e-02 5.426263e-03 5.041270e-03
+#> [31] 1.637879e-05 8.153478e-03 1.385216e-01 7.832551e-02 1.241773e-01
+#> [36] 2.324237e-03 4.001908e-03 1.385216e-01 8.096336e-04 2.224924e-01
+#> [41] 7.472095e-06 8.153478e-03 1.722678e-02 2.518410e-01 2.299855e-03
+#> [46] 1.697335e-03 2.482540e-01 4.015267e-02 5.426263e-03 8.874523e+00
+#> [51] 9.114964e-04 2.482540e-01 1.722678e-02 3.764026e-03 2.299855e-03
+#> [56] 2.793315e-04 2.482540e-01 3.705442e-03 1.787470e-02 7.153829e-01
+#> [61] 2.546934e-05 1.380608e-02 2.483432e-02 5.426263e-03 2.805518e-01
+#> [66] 7.472095e-06 4.001908e-03 8.180696e-02 5.843431e-02 7.153829e-01
+#> [71] 2.324237e-03 6.157978e-02 4.015267e-02 1.787470e-02 1.541391e-02
+#> [76] 1.697335e-03 1.148764e-01 4.015267e-02 3.026677e-02 2.492154e-02
+#> 
+#> $se.fit
+#>  [1] 3.406705e-02 1.373203e-02 8.318021e-03 4.414805e-03 3.323965e-01
+#>  [6] 1.024860e-04 3.234282e-03 5.581474e-02 2.465063e-02 3.073546e-03
+#> [11] 5.348775e-05 1.145729e-03 2.102041e-02 4.086626e-01 3.073546e-03
+#> [16] 1.680867e-05 1.373203e-02 2.102041e-02 1.347590e-01 8.813882e-01
+#> [21] 1.585730e-04 1.710055e-03 2.102041e-02 1.347590e-01 8.813882e-01
+#> [26] 1.680867e-05 4.912261e-03 3.124545e-02 6.160118e-03 5.724102e-03
+#> [31] 3.498719e-05 8.926442e-03 8.273431e-02 5.272630e-02 7.937905e-02
+#> [36] 3.090878e-03 4.912261e-03 8.273431e-02 1.175600e-03 1.267007e-01
+#> [41] 1.680867e-05 8.926442e-03 1.549311e-02 1.347590e-01 3.073546e-03
+#> [46] 2.348224e-03 1.989454e-01 3.124545e-02 6.160118e-03 8.472197e+00
+#> [51] 1.369145e-03 1.989454e-01 1.549311e-02 4.414805e-03 3.073546e-03
+#> [56] 4.609268e-04 1.989454e-01 4.607759e-03 1.642599e-02 3.323965e-01
+#> [61] 5.348775e-05 1.373203e-02 2.102041e-02 6.160118e-03 1.522047e-01
+#> [66] 1.680867e-05 4.912261e-03 5.581474e-02 4.140881e-02 3.323965e-01
+#> [71] 3.090878e-03 4.985137e-02 3.124545e-02 1.642599e-02 1.488324e-02
+#> [76] 2.348224e-03 8.083065e-02 3.124545e-02 2.465063e-02 2.243809e-02
+#> 
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",se.fit=TRUE)    
 #> $fit
 #>          tt.1       tt.2        tt.3
@@ -811,7 +880,7 @@ predict(modpls,newdata=X_train_micro[1:5,],type="terms",se.fit=TRUE)
 #> 4 -0.03763442  0.7129570  0.09858483
 #> 5  2.76422524 -0.9903678  0.04406969
 #> attr(,"constant")
-#> [1] -7.028579e-16
+#> [1] -8.178871e-16
 #> 
 #> $se.fit
 #>          tt.1       tt.2       tt.3
@@ -829,6 +898,10 @@ predict(modpls,newdata=X_train_micro[1:5,],type="scores")
 #> [4,] -0.02606437  0.7717972  0.18489957
 #> [5,]  1.91441216 -1.0721027  0.08265437
 
+newY_micro <- survival::Surv(Y_train_micro[1:5], C_train_micro[1:5])
+predict(modpls,newdata=unname(X_train_micro[1:5,]),type="expected",y=newY_micro)    
+#> [1] 0.028832803 0.013806076 0.008122308 0.003764026 0.715382858
+
 predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=1)    
 #>          1          2          3          4          5 
 #>  0.1122414  0.4421401  7.2594524  0.9630650 15.8667424 
@@ -844,22 +917,22 @@ try(predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=4))
 
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=1)    
 #>          tt.1         tt.2          tt.3
-#> 1 -2.18710337 3.538257e-16 -2.367797e-17
-#> 2 -0.81612842 3.538257e-16 -2.367797e-17
-#> 3  1.98230440 3.538257e-16 -2.367797e-17
-#> 4 -0.03763442 3.538257e-16 -2.367797e-17
-#> 5  2.76422524 3.538257e-16 -2.367797e-17
+#> 1 -2.18710337 4.051048e-16 -4.809587e-17
+#> 2 -0.81612842 4.051048e-16 -4.809587e-17
+#> 3  1.98230440 4.051048e-16 -4.809587e-17
+#> 4 -0.03763442 4.051048e-16 -4.809587e-17
+#> 5  2.76422524 4.051048e-16 -4.809587e-17
 #> attr(,"constant")
-#> [1] -7.028579e-16
+#> [1] -8.178871e-16
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=2)    
 #>          tt.1       tt.2          tt.3
-#> 1 -2.18710337 -1.4888633 -2.367797e-17
-#> 2 -0.81612842 -0.1528527 -2.367797e-17
-#> 3  1.98230440  0.2181788 -2.367797e-17
-#> 4 -0.03763442  0.7129570 -2.367797e-17
-#> 5  2.76422524 -0.9903678 -2.367797e-17
+#> 1 -2.18710337 -1.4888633 -4.809587e-17
+#> 2 -0.81612842 -0.1528527 -4.809587e-17
+#> 3  1.98230440  0.2181788 -4.809587e-17
+#> 4 -0.03763442  0.7129570 -4.809587e-17
+#> 5  2.76422524 -0.9903678 -4.809587e-17
 #> attr(,"constant")
-#> [1] -7.028579e-16
+#> [1] -8.178871e-16
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=3)    
 #>          tt.1       tt.2        tt.3
 #> 1 -2.18710337 -1.4888633 -0.23553228
@@ -868,7 +941,7 @@ predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=3)
 #> 4 -0.03763442  0.7129570  0.09858483
 #> 5  2.76422524 -0.9903678  0.04406969
 #> attr(,"constant")
-#> [1] -7.028579e-16
+#> [1] -8.178871e-16
 try(predict(modpls,newdata=X_train_micro[1:5,],type="terms",comps=4))
 #> Error in predict.plsRcoxmodel(modpls, newdata = X_train_micro[1:5, ],  : 
 #>   Cannot predict using more components than extracted.

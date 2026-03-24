@@ -52,6 +52,10 @@
 - [`plsRcox()`](https://fbertran.github.io/plsRcox/reference/plsRcox.md)
   [`plsRcoxmodel()`](https://fbertran.github.io/plsRcox/reference/plsRcox.md)
   : Partial least squares Regression generalized linear models
+- [`predict(`*`<coxplsDRmodel>`*`)`](https://fbertran.github.io/plsRcox/reference/predict.coxDRmodel.md)
+  [`predict(`*`<coxsplsDRmodel>`*`)`](https://fbertran.github.io/plsRcox/reference/predict.coxDRmodel.md)
+  [`predict(`*`<coxDKsplsDRmodel>`*`)`](https://fbertran.github.io/plsRcox/reference/predict.coxDRmodel.md)
+  : Predict method for DR-based Cox component models
 - [`predict(`*`<plsRcoxmodel>`*`)`](https://fbertran.github.io/plsRcox/reference/predict.plsRcoxmodel.md)
   : Print method for plsRcox models
 - [`print(`*`<plsRcoxmodel>`*`)`](https://fbertran.github.io/plsRcox/reference/print.plsRcoxmodel.md)

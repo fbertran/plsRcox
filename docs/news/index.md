@@ -1,5 +1,16 @@
 # Changelog
 
+## plsRcox 1.8.2
+
+- Fixed issue with predict expected data handling
+- Extended prediction support DR/sPLS paths and fixed related issues
+
+## plsRcox 1.8.1
+
+CRAN release: 2026-02-28
+
+- Fix package as requested by CRAN
+
 ## plsRcox 1.8.0
 
 CRAN release: 2025-09-14

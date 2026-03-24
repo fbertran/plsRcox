@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">plsRcox</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.8.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.8.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +45,8 @@
 <span>  comps <span class="op">=</span> <span class="va">object</span><span class="op">$</span><span class="va">computed_nt</span>,</span>
 <span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"lp"</span>, <span class="st">"risk"</span>, <span class="st">"expected"</span>, <span class="st">"terms"</span>, <span class="st">"scores"</span><span class="op">)</span>,</span>
 <span>  se.fit <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  reference <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"strata"</span>, <span class="st">"sample"</span>, <span class="st">"zero"</span><span class="op">)</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">weights</span>,</span>
 <span>  methodNA <span class="op">=</span> <span class="st">"adaptative"</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -62,7 +64,11 @@
 
 <dt id="arg-newdata">newdata<a class="anchor" aria-label="anchor" href="#arg-newdata"></a></dt>
 <dd><p>An optional data frame in which to look for variables with
-which to predict. If omitted, the fitted values are used.</p></dd>
+which to predict. If omitted, the fitted values are used. For
+<code>type = "expected"</code> on genuinely new observations, supply the
+associated survival response with <code>y</code>; when <code>newdata</code> is a subset
+of the training rows and keeps compatible row names, the training response
+is matched automatically.</p></dd>
 
 
 <dt id="arg-comps">comps<a class="anchor" aria-label="anchor" href="#arg-comps"></a></dt>
@@ -80,6 +86,19 @@ terms of the linear predictor ("<code>terms</code>") or the scores
 <dt id="arg-se-fit">se.fit<a class="anchor" aria-label="anchor" href="#arg-se-fit"></a></dt>
 <dd><p>If TRUE, pointwise standard errors are produced for the
 predictions using the Cox model.</p></dd>
+
+
+<dt id="arg-reference">reference<a class="anchor" aria-label="anchor" href="#arg-reference"></a></dt>
+<dd><p>Reference level used to center relative predictions. This
+is passed to <code><a href="https://rdrr.io/pkg/survival/man/predict.coxph.html" class="external-link">predict.coxph</a></code> and affects
+<code>type = "lp"</code>, <code>"risk"</code> and <code>"terms"</code>.</p></dd>
+
+
+<dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
+<dd><p>Optional <code><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></code> response to use with
+<code>type = "expected"</code> when predicting on new observations. The time
+values are interpreted on the original scale used to fit the model and are
+rescaled internally when needed.</p></dd>
 
 
 <dt id="arg-weights">weights<a class="anchor" aria-label="anchor" href="#arg-weights"></a></dt>
@@ -104,8 +123,8 @@ completeness of the row (<code>adaptative</code>).</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments to be passed on to <code><a href="https://rdrr.io/pkg/survival/man/coxph.html" class="external-link">survival::coxph</a></code> and to
-<code><a href="https://fbertran.github.io/plsRglm/reference/plsR.html" class="external-link">plsRglm::PLS_lm</a></code>.</p></dd>
+<dd><p>Additional arguments passed on to
+<code><a href="https://rdrr.io/pkg/survival/man/predict.coxph.html" class="external-link">predict.coxph</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -312,7 +331,7 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 79 -1.37219178  1.09425077 -0.839664154</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 80 -3.95053329 -1.58030167  0.301474909</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"constant")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -7.028579e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -8.178871e-16</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,type<span class="op">=</span><span class="st">"scores"</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         Comp_1      Comp_2      Comp_3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1  -1.51471639 -1.61173906 -0.44174968</span>
@@ -632,7 +651,7 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 79 -1.37219178  1.09425077 -0.839664154</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 80 -3.95053329 -1.58030167  0.301474909</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"constant")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -7.028579e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -8.178871e-16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $se.fit</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           tt.1        tt.2        tt.3</span>
@@ -805,7 +824,23 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"risk"</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          1          2          3          4          5 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.02001048 0.98902638 9.92327996 2.16822181 6.15907848 </span>
-<span class="r-in"><span><span class="co">#predict(modpls,newdata=X_train_micro[1:5,],type="expected")    </span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"expected"</span><span class="op">)</span>    </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2.883280e-02 1.380608e-02 8.122308e-03 3.764026e-03 7.153829e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 5.007889e-05 2.475170e-03 8.180696e-02 3.026677e-02 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 2.546934e-05 8.095284e-04 2.483432e-02 5.442420e-01 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 7.472095e-06 1.380608e-02 2.483432e-02 2.518410e-01 1.545981e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 8.096863e-05 1.258833e-03 2.483432e-02 2.518410e-01 1.545981e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 7.472095e-06 4.001908e-03 4.015267e-02 5.426263e-03 5.041270e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 1.637879e-05 8.153478e-03 1.385216e-01 7.832551e-02 1.241773e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36] 2.324237e-03 4.001908e-03 1.385216e-01 8.096336e-04 2.224924e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 7.472095e-06 8.153478e-03 1.722678e-02 2.518410e-01 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] 1.697335e-03 2.482540e-01 4.015267e-02 5.426263e-03 8.874523e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [51] 9.114964e-04 2.482540e-01 1.722678e-02 3.764026e-03 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [56] 2.793315e-04 2.482540e-01 3.705442e-03 1.787470e-02 7.153829e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] 2.546934e-05 1.380608e-02 2.483432e-02 5.426263e-03 2.805518e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [66] 7.472095e-06 4.001908e-03 8.180696e-02 5.843431e-02 7.153829e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [71] 2.324237e-03 6.157978e-02 4.015267e-02 1.787470e-02 1.541391e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [76] 1.697335e-03 1.148764e-01 4.015267e-02 3.026677e-02 2.492154e-02</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"terms"</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          tt.1       tt.2        tt.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -2.18710337 -1.4888633 -0.23553228</span>
@@ -814,7 +849,7 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.03763442  0.7129570  0.09858483</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  2.76422524 -0.9903678  0.04406969</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"constant")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -7.028579e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -8.178871e-16</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"scores"</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           Comp_1     Comp_2      Comp_3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -1.51471639 -1.6117391 -0.44174968</span>
@@ -833,7 +868,43 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         1         2         3         4         5 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0.1154615 0.2748572 1.5252479 0.2864182 1.2258577 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="co">#predict(modpls,newdata=X_train_micro[1:5,],type="expected",se.fit=TRUE)    </span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"expected"</span>,se.fit<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>    </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $fit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 2.883280e-02 1.380608e-02 8.122308e-03 3.764026e-03 7.153829e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 5.007889e-05 2.475170e-03 8.180696e-02 3.026677e-02 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 2.546934e-05 8.095284e-04 2.483432e-02 5.442420e-01 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 7.472095e-06 1.380608e-02 2.483432e-02 2.518410e-01 1.545981e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 8.096863e-05 1.258833e-03 2.483432e-02 2.518410e-01 1.545981e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 7.472095e-06 4.001908e-03 4.015267e-02 5.426263e-03 5.041270e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 1.637879e-05 8.153478e-03 1.385216e-01 7.832551e-02 1.241773e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36] 2.324237e-03 4.001908e-03 1.385216e-01 8.096336e-04 2.224924e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 7.472095e-06 8.153478e-03 1.722678e-02 2.518410e-01 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] 1.697335e-03 2.482540e-01 4.015267e-02 5.426263e-03 8.874523e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [51] 9.114964e-04 2.482540e-01 1.722678e-02 3.764026e-03 2.299855e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [56] 2.793315e-04 2.482540e-01 3.705442e-03 1.787470e-02 7.153829e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] 2.546934e-05 1.380608e-02 2.483432e-02 5.426263e-03 2.805518e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [66] 7.472095e-06 4.001908e-03 8.180696e-02 5.843431e-02 7.153829e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [71] 2.324237e-03 6.157978e-02 4.015267e-02 1.787470e-02 1.541391e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [76] 1.697335e-03 1.148764e-01 4.015267e-02 3.026677e-02 2.492154e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $se.fit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 3.406705e-02 1.373203e-02 8.318021e-03 4.414805e-03 3.323965e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 1.024860e-04 3.234282e-03 5.581474e-02 2.465063e-02 3.073546e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 5.348775e-05 1.145729e-03 2.102041e-02 4.086626e-01 3.073546e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 1.680867e-05 1.373203e-02 2.102041e-02 1.347590e-01 8.813882e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 1.585730e-04 1.710055e-03 2.102041e-02 1.347590e-01 8.813882e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 1.680867e-05 4.912261e-03 3.124545e-02 6.160118e-03 5.724102e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 3.498719e-05 8.926442e-03 8.273431e-02 5.272630e-02 7.937905e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36] 3.090878e-03 4.912261e-03 8.273431e-02 1.175600e-03 1.267007e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 1.680867e-05 8.926442e-03 1.549311e-02 1.347590e-01 3.073546e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] 2.348224e-03 1.989454e-01 3.124545e-02 6.160118e-03 8.472197e+00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [51] 1.369145e-03 1.989454e-01 1.549311e-02 4.414805e-03 3.073546e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [56] 4.609268e-04 1.989454e-01 4.607759e-03 1.642599e-02 3.323965e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [61] 5.348775e-05 1.373203e-02 2.102041e-02 6.160118e-03 1.522047e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [66] 1.680867e-05 4.912261e-03 5.581474e-02 4.140881e-02 3.323965e-01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [71] 3.090878e-03 4.985137e-02 3.124545e-02 1.642599e-02 1.488324e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [76] 2.348224e-03 8.083065e-02 3.124545e-02 2.465063e-02 2.243809e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"terms"</span>,se.fit<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $fit</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          tt.1       tt.2        tt.3</span>
@@ -843,7 +914,7 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.03763442  0.7129570  0.09858483</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  2.76422524 -0.9903678  0.04406969</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"constant")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -7.028579e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -8.178871e-16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $se.fit</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          tt.1       tt.2       tt.3</span>
@@ -861,6 +932,10 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [4,] -0.02606437  0.7717972  0.18489957</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5,]  1.91441216 -1.0721027  0.08265437</span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">newY_micro</span> <span class="op">&lt;-</span> <span class="fu">survival</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/survival/man/Surv.html" class="external-link">Surv</a></span><span class="op">(</span><span class="va">Y_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, <span class="va">C_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/unname.html" class="external-link">unname</a></span><span class="op">(</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span>,type<span class="op">=</span><span class="st">"expected"</span>,y<span class="op">=</span><span class="va">newY_micro</span><span class="op">)</span>    </span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.028832803 0.013806076 0.008122308 0.003764026 0.715382858</span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"risk"</span>,comps<span class="op">=</span><span class="fl">1</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          1          2          3          4          5 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  0.1122414  0.4421401  7.2594524  0.9630650 15.8667424 </span>
@@ -876,22 +951,22 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"terms"</span>,comps<span class="op">=</span><span class="fl">1</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          tt.1         tt.2          tt.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -2.18710337 3.538257e-16 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.81612842 3.538257e-16 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  1.98230440 3.538257e-16 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.03763442 3.538257e-16 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2.76422524 3.538257e-16 -2.367797e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -2.18710337 4.051048e-16 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.81612842 4.051048e-16 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  1.98230440 4.051048e-16 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.03763442 4.051048e-16 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2.76422524 4.051048e-16 -4.809587e-17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"constant")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -7.028579e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -8.178871e-16</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"terms"</span>,comps<span class="op">=</span><span class="fl">2</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          tt.1       tt.2          tt.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -2.18710337 -1.4888633 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.81612842 -0.1528527 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  1.98230440  0.2181788 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.03763442  0.7129570 -2.367797e-17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2.76422524 -0.9903678 -2.367797e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -2.18710337 -1.4888633 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -0.81612842 -0.1528527 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  1.98230440  0.2181788 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.03763442  0.7129570 -4.809587e-17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2.76422524 -0.9903678 -4.809587e-17</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"constant")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -7.028579e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -8.178871e-16</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"terms"</span>,comps<span class="op">=</span><span class="fl">3</span><span class="op">)</span>    </span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          tt.1       tt.2        tt.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 -2.18710337 -1.4888633 -0.23553228</span>
@@ -900,7 +975,7 @@ doi:10.1093/bioinformatics/btu660.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4 -0.03763442  0.7129570  0.09858483</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5  2.76422524 -0.9903678  0.04406969</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"constant")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -7.028579e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] -8.178871e-16</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">modpls</span>,newdata<span class="op">=</span><span class="va">X_train_micro</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span>,type<span class="op">=</span><span class="st">"terms"</span>,comps<span class="op">=</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in predict.plsRcoxmodel(modpls, newdata = X_train_micro[1:5, ],  : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Cannot predict using more components than extracted.</span>
@@ -941,7 +1016,7 @@ doi:10.1093/bioinformatics/btu660.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer></div>
