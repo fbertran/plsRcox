@@ -2,6 +2,7 @@
 #' @export
 
 coxsplsDR.default <- function(Xplan,time,time2,event,type,origin,typeres="deviance", collapse, weighted, scaleX=TRUE, scaleY=TRUE, ncomp=min(7,ncol(Xplan)), modepls="regression", plot=FALSE, allres=FALSE, eta=.5, trace=FALSE,...) {
+dataX <- Xplan
 if(scaleX){Xplan <- scale(Xplan); XplanScal <- attr(Xplan,"scaled:scale"); XplanCent <- attr(Xplan,"scaled:center"); Xplan <- as.data.frame(Xplan)} else {Xplan <- as.data.frame(Xplan);XplanScal <- rep(1,ncol(Xplan)); XplanCent <- rep(0,ncol(Xplan))}
 if((scaleY & missing(time2))){time <- scale(time)}
 try(attachNamespace("survival"),silent=TRUE)
@@ -94,8 +95,10 @@ cox_splsDR$call$data <- as.name("tt_splsDR")
 CoeffCFull[,iii] <- c(cox_splsDR$coefficients,rep(NA,ncomp-iii))
 }
 }
-return(list(tt_splsDR=tt_splsDR, cox_splsDR=cox_splsDR, splsDR_mod=splsDR_mod, splsDR_modplsr=splsDR_modplsr, XplanScal=XplanScal, XplanCent=XplanCent, CoeffCFull=CoeffCFull))}
+res <- list(tt_splsDR=tt_splsDR, cox_splsDR=cox_splsDR, splsDR_mod=splsDR_mod, splsDR_modplsr=splsDR_modplsr, XplanScal=XplanScal, XplanCent=XplanCent, CoeffCFull=CoeffCFull, dataX=dataX, RepY=YCsurv)
+if(exists("XplanFormula")){res$XplanFormula <- XplanFormula}
+class(res) <- c("coxsplsDRmodel", "list")
+return(res)}
 }
-
 
 
