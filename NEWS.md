@@ -1,3 +1,10 @@
+# plsRcox 1.8.2
+* Fix issue with predict expected data handling
+
+
+# plsRcox 1.8.1
+* Fix package as requested by CRAN
+
 # plsRcox 1.8.0
 
 * Update mantainer email 

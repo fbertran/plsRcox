@@ -10,6 +10,8 @@
   comps = object$computed_nt,
   type = c("lp", "risk", "expected", "terms", "scores"),
   se.fit = FALSE,
+  reference = c("strata", "sample", "zero"),
+  y = NULL,
   weights,
   methodNA = "adaptative",
   verbose = TRUE,
@@ -20,7 +22,11 @@
 \item{object}{An object of the class \code{"plsRcoxmodel"}.}
 
 \item{newdata}{An optional data frame in which to look for variables with
-which to predict. If omitted, the fitted values are used.}
+which to predict. If omitted, the fitted values are used. For
+\code{type = "expected"} on genuinely new observations, supply the
+associated survival response with \code{y}; when \code{newdata} is a subset
+of the training rows and keeps compatible row names, the training response
+is matched automatically.}
 
 \item{comps}{A value with a single value of component to use for prediction.}
 
@@ -32,6 +38,15 @@ terms of the linear predictor ("\code{terms}") or the scores
 
 \item{se.fit}{If TRUE, pointwise standard errors are produced for the
 predictions using the Cox model.}
+
+\item{reference}{Reference level used to center relative predictions. This
+is passed to \code{\link[survival]{predict.coxph}} and affects
+\code{type = "lp"}, \code{"risk"} and \code{"terms"}.}
+
+\item{y}{Optional \code{\link[survival]{Surv}} response to use with
+\code{type = "expected"} when predicting on new observations. The time
+values are interpreted on the original scale used to fit the model and are
+rescaled internally when needed.}
 
 \item{weights}{Vector of case weights. If \code{weights} is a vector of
 integers, then the estimated coefficients are equivalent to estimating the
@@ -48,8 +63,8 @@ completeness of the row (\code{adaptative}).}
 
 \item{verbose}{Should some details be displayed ?}
 
-\item{\dots}{Arguments to be passed on to \code{survival::coxph} and to
-\code{plsRglm::PLS_lm}.}
+\item{\dots}{Additional arguments passed on to
+\code{\link[survival]{predict.coxph}}.}
 }
 \value{
 When type is "\code{response}", a matrix of predicted response
@@ -88,15 +103,18 @@ predict(modpls,type="scores",se.fit=TRUE)
 
 #Identical to predict(modpls,type="lp")    
 predict(modpls,newdata=X_train_micro[1:5,],type="risk")    
-#predict(modpls,newdata=X_train_micro[1:5,],type="expected")    
+predict(modpls,newdata=X_train_micro[1:5,],type="expected")    
 predict(modpls,newdata=X_train_micro[1:5,],type="terms")    
 predict(modpls,newdata=X_train_micro[1:5,],type="scores")    
 
 #Identical to predict(modpls,type="lp")    
 predict(modpls,newdata=X_train_micro[1:5,],type="risk",se.fit=TRUE)    
-#predict(modpls,newdata=X_train_micro[1:5,],type="expected",se.fit=TRUE)    
+predict(modpls,newdata=X_train_micro[1:5,],type="expected",se.fit=TRUE)    
 predict(modpls,newdata=X_train_micro[1:5,],type="terms",se.fit=TRUE)    
 predict(modpls,newdata=X_train_micro[1:5,],type="scores")    
+
+newY_micro <- survival::Surv(Y_train_micro[1:5], C_train_micro[1:5])
+predict(modpls,newdata=unname(X_train_micro[1:5,]),type="expected",y=newY_micro)    
 
 predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=1)    
 predict(modpls,newdata=X_train_micro[1:5,],type="risk",comps=2)    

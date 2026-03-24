@@ -1,6 +1,6 @@
 Package: plsRcox
-Version: 1.8.1
-Date: 2026-02-28
+Version: 1.8.2
+Date: 2026-03-24
 Depends: R (>= 2.4.0)
 biocViews:
 Imports: survival, plsRglm, lars, pls, kernlab, mixOmics, risksetROC, survcomp, survAUC, rms
